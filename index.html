@@ -153,6 +153,7 @@
             cursor: pointer;
             transition: color 0.3s;
             text-decoration: none;
+            position: relative;
         }
 
         .nav-icon:hover {
@@ -163,6 +164,22 @@
             font-size: 20px;
             display: block;
             margin-bottom: 4px;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
         }
 
         /* Banner promocional */
@@ -358,6 +375,11 @@
             background: #e0e0e0;
         }
 
+        .btn-wishlist.active {
+            background: #ffe6e6;
+            color: #e91e63;
+        }
+
         /* Banner de Cookies */
         .cookies-banner {
             position: fixed;
@@ -464,6 +486,91 @@
             font-size: 14px;
         }
 
+        /* Modal Carrito */
+        .cart-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 400px;
+            height: 100vh;
+            background: white;
+            box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+            z-index: 1001;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .cart-modal.active {
+            display: block;
+        }
+
+        .cart-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+        }
+
+        .cart-overlay.active {
+            display: block;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-items {
+            margin-bottom: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .cart-item-image {
+            width: 60px;
+            height: 60px;
+            background: #f5f5f5;
+            border-radius: 8px;
+            margin-right: 15px;
+        }
+
+        .cart-item-info {
+            flex-grow: 1;
+        }
+
+        .cart-item-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .cart-item-price {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .cart-total {
+            font-size: 18px;
+            font-weight: 700;
+            text-align: right;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 2px solid #eee;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .header {
@@ -488,6 +595,10 @@
             .cookie-text {
                 margin-right: 0;
                 margin-bottom: 15px;
+            }
+
+            .cart-modal {
+                width: 100%;
             }
         }
     </style>
@@ -527,9 +638,10 @@
                     <i class="fas fa-user"></i>
                     <div>Minha Conta</div>
                 </a>
-                <a href="#" class="nav-icon">
+                <a href="#" class="nav-icon" id="cart-icon">
                     <i class="fas fa-shopping-bag"></i>
                     <div>Minha Sacola</div>
+                    <span class="cart-count">0</span>
                 </a>
             </div>
         </header>
@@ -547,11 +659,11 @@
         <div class="filters-container">
             <div class="results-count">Total de 5 produtos</div>
             <div>
-                <select class="sort-select">
-                    <option>Ordenar por: Relevância</option>
-                    <option>Preço: Menor a Maior</option>
-                    <option>Preço: Maior a Menor</option>
-                    <option>Melhor Avaliação</option>
+                <select class="sort-select" id="sort-select">
+                    <option value="relevance">Ordenar por: Relevância</option>
+                    <option value="price-low">Preço: Menor a Maior</option>
+                    <option value="price-high">Preço: Maior a Menor</option>
+                    <option value="rating">Melhor Avaliação</option>
                 </select>
             </div>
         </div>
@@ -559,136 +671,8 @@
     
     <!-- Grid de Productos -->
     <div class="container">
-        <div class="products-grid">
-            <!-- Producto 1 -->
-            <div class="product-card">
-                <div class="product-badges">
-                    <div class="discount-badge">30% OFF</div>
-                    <div class="free-shipping-badge">FRETE GRÁTIS</div>
-                </div>
-                <div class="product-image">
-                    <div style="width:100%;height:100%;background:linear-gradient(45deg, #f8bbd9, #e91e63);display:flex;align-items:center;justify-content:center;color:white;">
-                        <i class="fas fa-venus" style="font-size: 48px;"></i>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <div class="brand">VIBRAÇÕES ÍNTIMAS</div>
-                    <div class="product-name">Flex Vibrador e Sugador de Clítoris</div>
-                    <div class="price-container">
-                        <div class="price">R$ 174,93</div>
-                        <div class="original-price">R$ 249,90</div>
-                    </div>
-                    <div class="installments">ou até 6x de R$ 29,16 sem juros</div>
-                    <div class="product-actions">
-                        <button class="btn-cart">Adicionar à Sacola</button>
-                        <button class="btn-wishlist"><i class="far fa-heart"></i></button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Producto 2 -->
-            <div class="product-card">
-                <div class="product-badges">
-                    <div class="discount-badge">27% OFF</div>
-                    <div class="free-shipping-badge">FRETE GRÁTIS</div>
-                </div>
-                <div class="product-image">
-                    <div style="width:100%;height:100%;background:linear-gradient(45deg, #ce93d8, #9c27b0);display:flex;align-items:center;justify-content:center;color:white;">
-                        <i class="fas fa-rabbit" style="font-size: 48px;"></i>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <div class="brand">VIBRAÇÕES ÍNTIMAS</div>
-                    <div class="product-name">Samba Vibrador Rabbit com Power Finger</div>
-                    <div class="price-container">
-                        <div class="price">R$ 218,93</div>
-                        <div class="original-price">R$ 299,90</div>
-                    </div>
-                    <div class="installments">ou até 6x de R$ 36,49 sem juros</div>
-                    <div class="product-actions">
-                        <button class="btn-cart">Adicionar à Sacola</button>
-                        <button class="btn-wishlist"><i class="far fa-heart"></i></button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Producto 3 -->
-            <div class="product-card">
-                <div class="product-badges">
-                    <div class="discount-badge">20% OFF</div>
-                    <div class="free-shipping-badge">FRETE GRÁTIS</div>
-                </div>
-                <div class="product-image">
-                    <div style="width:100%;height:100%;background:linear-gradient(45deg, #f48fb1, #e91e63);display:flex;align-items:center;justify-content:center;color:white;">
-                        <i class="fas fa-wind" style="font-size: 48px;"></i>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <div class="brand">VIBRAÇÕES ÍNTIMAS</div>
-                    <div class="product-name">Beste Sugador de Clítoris Recarregável</div>
-                    <div class="price-container">
-                        <div class="price">R$ 159,92</div>
-                        <div class="original-price">R$ 199,90</div>
-                    </div>
-                    <div class="installments">ou até 6x de R$ 26,65 sem juros</div>
-                    <div class="product-actions">
-                        <button class="btn-cart">Adicionar à Sacola</button>
-                        <button class="btn-wishlist"><i class="far fa-heart"></i></button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Producto 4 -->
-            <div class="product-card">
-                <div class="product-badges">
-                    <div class="discount-badge">31% OFF</div>
-                    <div class="free-shipping-badge">FRETE GRÁTIS</div>
-                </div>
-                <div class="product-image">
-                    <div style="width:100%;height:100%;background:linear-gradient(45deg, #ff80ab, #f50057);display:flex;align-items:center;justify-content:center;color:white;">
-                        <i class="fas fa-egg" style="font-size: 48px;"></i>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <div class="brand">VIBRAÇÕES ÍNTIMAS</div>
-                    <div class="product-name">Fun Vibrador Bullet Recarregável</div>
-                    <div class="price-container">
-                        <div class="price">R$ 89,63</div>
-                        <div class="original-price">R$ 129,90</div>
-                    </div>
-                    <div class="installments">ou até 6x de R$ 14,94 sem juros</div>
-                    <div class="product-actions">
-                        <button class="btn-cart">Adicionar à Sacola</button>
-                        <button class="btn-wishlist"><i class="far fa-heart"></i></button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Producto 5 -->
-            <div class="product-card">
-                <div class="product-badges">
-                    <div class="discount-badge">21% OFF</div>
-                    <div class="free-shipping-badge">FRETE GRÁTIS</div>
-                </div>
-                <div class="product-image">
-                    <div style="width:100%;height:100%;background:linear-gradient(45deg, #ea80fc, #aa00ff);display:flex;align-items:center;justify-content:center;color:white;">
-                        <i class="fas fa-cube" style="font-size: 48px;"></i>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <div class="brand">VIBRAÇÕES ÍNTIMAS</div>
-                    <div class="product-name">Kit Gol Masturbador Egg + Sense Lube</div>
-                    <div class="price-container">
-                        <div class="price">R$ 149,92</div>
-                        <div class="original-price">R$ 189,90</div>
-                    </div>
-                    <div class="installments">ou até 6x de R$ 24,99 sem juros</div>
-                    <div class="product-actions">
-                        <button class="btn-cart">Adicionar à Sacola</button>
-                        <button class="btn-wishlist"><i class="far fa-heart"></i></button>
-                    </div>
-                </div>
-            </div>
+        <div class="products-grid" id="products-grid">
+            <!-- Los productos se cargan dinámicamente -->
         </div>
     </div>
 
@@ -736,6 +720,24 @@
         </div>
     </footer>
     
+    <!-- Modal del Carrito -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-header">
+            <h3>🛍️ Minha Sacola</h3>
+            <button class="btn btn-secondary" id="close-cart">✕</button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Los items del carrito se cargan aquí -->
+        </div>
+        <div class="cart-total" id="cart-total">
+            Total: R$ 0,00
+        </div>
+        <button class="btn btn-primary" style="width: 100%; margin-top: 15px;">
+            Finalizar Compra
+        </button>
+    </div>
+    
     <!-- Banner de Cookies -->
     <div class="cookies-banner">
         <div class="cookie-content">
@@ -744,55 +746,291 @@
             </div>
             <div class="cookie-buttons">
                 <button class="btn btn-secondary">Configurações</button>
-                <button class="btn btn-primary">Aceitar todos os cookies</button>
+                <button class="btn btn-primary" id="accept-cookies">Aceitar todos os cookies</button>
             </div>
         </div>
     </div>
 
     <script>
-        // Funcionalidad básica para el banner de cookies
+        // DATOS DE PRODUCTOS
+        const products = [
+            {
+                id: 1,
+                name: "Flex Vibrador e Sugador de Clítoris",
+                price: 174.93,
+                originalPrice: 249.90,
+                discount: 30,
+                image: "linear-gradient(45deg, #f8bbd9, #e91e63)",
+                installments: 6,
+                inWishlist: false
+            },
+            {
+                id: 2,
+                name: "Samba Vibrador Rabbit com Power Finger",
+                price: 218.93,
+                originalPrice: 299.90,
+                discount: 27,
+                image: "linear-gradient(45deg, #ce93d8, #9c27b0)",
+                installments: 6,
+                inWishlist: false
+            },
+            {
+                id: 3,
+                name: "Beste Sugador de Clítoris Recarregável",
+                price: 159.92,
+                originalPrice: 199.90,
+                discount: 20,
+                image: "linear-gradient(45deg, #f48fb1, #e91e63)",
+                installments: 6,
+                inWishlist: false
+            },
+            {
+                id: 4,
+                name: "Fun Vibrador Bullet Recarregável",
+                price: 89.63,
+                originalPrice: 129.90,
+                discount: 31,
+                image: "linear-gradient(45deg, #ff80ab, #f50057)",
+                installments: 6,
+                inWishlist: false
+            },
+            {
+                id: 5,
+                name: "Kit Gol Masturbador Egg + Sense Lube",
+                price: 149.92,
+                originalPrice: 189.90,
+                discount: 21,
+                image: "linear-gradient(45deg, #ea80fc, #aa00ff)",
+                installments: 6,
+                inWishlist: false
+            }
+        ];
+
+        // CARRITO Y WISHLIST
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+
+        // ELEMENTOS DEL DOM
+        const productsGrid = document.getElementById('products-grid');
+        const cartIcon = document.getElementById('cart-icon');
+        const cartModal = document.getElementById('cart-modal');
+        const cartOverlay = document.getElementById('cart-overlay');
+        const closeCart = document.getElementById('close-cart');
+        const cartItems = document.getElementById('cart-items');
+        const cartTotal = document.getElementById('cart-total');
+        const cartCount = document.querySelector('.cart-count');
+        const sortSelect = document.getElementById('sort-select');
+        const acceptCookies = document.getElementById('accept-cookies');
+
+        // INICIALIZAR LA PÁGINA
         document.addEventListener('DOMContentLoaded', function() {
-            const acceptCookiesBtn = document.querySelector('.cookies-banner .btn-primary');
+            loadProducts();
+            updateCartCount();
+            loadWishlistState();
             
-            if (acceptCookiesBtn) {
-                acceptCookiesBtn.addEventListener('click', function() {
-                    document.querySelector('.cookies-banner').style.display = 'none';
-                    // Aquí iría el código para aceptar las cookies
+            // Event Listeners
+            cartIcon.addEventListener('click', openCart);
+            closeCart.addEventListener('click', closeCartModal);
+            cartOverlay.addEventListener('click', closeCartModal);
+            sortSelect.addEventListener('change', sortProducts);
+            acceptCookies.addEventListener('click', acceptAllCookies);
+        });
+
+        // CARGAR PRODUCTOS
+        function loadProducts() {
+            productsGrid.innerHTML = '';
+            products.forEach(product => {
+                const productCard = createProductCard(product);
+                productsGrid.appendChild(productCard);
+            });
+        }
+
+        // CREAR TARJETA DE PRODUCTO
+        function createProductCard(product) {
+            const card = document.createElement('div');
+            card.className = 'product-card';
+            card.innerHTML = `
+                <div class="product-badges">
+                    <div class="discount-badge">${product.discount}% OFF</div>
+                    <div class="free-shipping-badge">FRETE GRÁTIS</div>
+                </div>
+                <div class="product-image">
+                    <div style="width:100%;height:100%;background:${product.image};display:flex;align-items:center;justify-content:center;color:white;">
+                        <i class="fas fa-venus" style="font-size: 48px;"></i>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="brand">VIBRAÇÕES ÍNTIMAS</div>
+                    <div class="product-name">${product.name}</div>
+                    <div class="price-container">
+                        <div class="price">R$ ${product.price.toFixed(2)}</div>
+                        <div class="original-price">R$ ${product.originalPrice.toFixed(2)}</div>
+                    </div>
+                    <div class="installments">ou até ${product.installments}x de R$ ${(product.price / product.installments).toFixed(2)} sem juros</div>
+                    <div class="product-actions">
+                        <button class="btn-cart" onclick="addToCart(${product.id})">Adicionar à Sacola</button>
+                        <button class="btn-wishlist ${product.inWishlist ? 'active' : ''}" onclick="toggleWishlist(${product.id})">
+                            <i class="${product.inWishlist ? 'fas' : 'far'} fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            `;
+            return card;
+        }
+
+        // AÑADIR AL CARRITO
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            const existingItem = cart.find(item => item.id === productId);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    ...product,
+                    quantity: 1
                 });
             }
             
-            // Funcionalidad para los botones de wishlist
-            const wishlistBtns = document.querySelectorAll('.btn-wishlist');
-            wishlistBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const icon = this.querySelector('i');
-                    if (icon.classList.contains('far')) {
-                        icon.classList.remove('far');
-                        icon.classList.add('fas');
-                        this.style.color = '#e91e63';
-                    } else {
-                        icon.classList.remove('fas');
-                        icon.classList.add('far');
-                        this.style.color = '';
-                    }
-                });
-            });
+            updateCartCount();
+            updateCartModal();
+            saveCartToStorage();
+            
+            // Efecto visual
+            const button = event.target;
+            const originalText = button.textContent;
+            button.textContent = 'Adicionado!';
+            button.style.background = '#4caf50';
+            
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.style.background = '';
+            }, 2000);
+        }
 
-            // Funcionalidad para botones de carrito
-            const cartBtns = document.querySelectorAll('.btn-cart');
-            cartBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const originalText = this.textContent;
-                    this.textContent = '¡Adicionado!';
-                    this.style.background = '#4caf50';
-                    
-                    setTimeout(() => {
-                        this.textContent = originalText;
-                        this.style.background = '';
-                    }, 2000);
-                });
+        // WISHLIST
+        function toggleWishlist(productId) {
+            const index = wishlist.indexOf(productId);
+            const button = event.target.closest('.btn-wishlist');
+            const icon = button.querySelector('i');
+            
+            if (index === -1) {
+                wishlist.push(productId);
+                button.classList.add('active');
+                icon.classList.remove('far');
+                icon.classList.add('fas');
+                button.style.color = '#e91e63';
+            } else {
+                wishlist.splice(index, 1);
+                button.classList.remove('active');
+                icon.classList.remove('fas');
+                icon.classList.add('far');
+                button.style.color = '';
+            }
+            
+            saveWishlistToStorage();
+        }
+
+        function loadWishlistState() {
+            wishlist.forEach(productId => {
+                const product = products.find(p => p.id === productId);
+                if (product) product.inWishlist = true;
             });
-        });
+        }
+
+        // CARRITO - MODAL
+        function openCart() {
+            cartModal.classList.add('active');
+            cartOverlay.classList.add('active');
+            updateCartModal();
+        }
+
+        function closeCartModal() {
+            cartModal.classList.remove('active');
+            cartOverlay.classList.remove('active');
+        }
+
+        function updateCartModal() {
+            cartItems.innerHTML = '';
+            let total = 0;
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p style="text-align: center; color: #777;">Sua sacola está vazia</p>';
+            } else {
+                cart.forEach(item => {
+                    const itemTotal = item.price * item.quantity;
+                    total += itemTotal;
+                    
+                    const cartItem = document.createElement('div');
+                    cartItem.className = 'cart-item';
+                    cartItem.innerHTML = `
+                        <div class="cart-item-image" style="background: ${item.image};"></div>
+                        <div class="cart-item-info">
+                            <div class="cart-item-name">${item.name}</div>
+                            <div class="cart-item-price">R$ ${item.price.toFixed(2)} × ${item.quantity}</div>
+                        </div>
+                        <button class="btn btn-secondary" onclick="removeFromCart(${item.id})">✕</button>
+                    `;
+                    cartItems.appendChild(cartItem);
+                });
+            }
+            
+            cartTotal.textContent = `Total: R$ ${total.toFixed(2)}`;
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            updateCartCount();
+            updateCartModal();
+            saveCartToStorage();
+        }
+
+        function updateCartCount() {
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+        }
+
+        // ORDENAR PRODUCTOS
+        function sortProducts() {
+            const sortBy = sortSelect.value;
+            
+            switch(sortBy) {
+                case 'price-low':
+                    products.sort((a, b) => a.price - b.price);
+                    break;
+                case 'price-high':
+                    products.sort((a, b) => b.price - a.price);
+                    break;
+                case 'rating':
+                    // Por ahora ordenamos por descuento como proxy de rating
+                    products.sort((a, b) => b.discount - a.discount);
+                    break;
+                default:
+                    products.sort((a, b) => a.id - b.id);
+            }
+            
+            loadProducts();
+        }
+
+        // COOKIES
+        function acceptAllCookies() {
+            document.querySelector('.cookies-banner').style.display = 'none';
+            localStorage.setItem('cookiesAccepted', 'true');
+        }
+
+        // LOCAL STORAGE
+        function saveCartToStorage() {
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        function saveWishlistToStorage() {
+            localStorage.setItem('wishlist', JSON.stringify(wishlist));
+        }
+
+        // Verificar cookies al cargar
+        if (localStorage.getItem('cookiesAccepted') === 'true') {
+            document.querySelector('.cookies-banner').style.display = 'none';
+        }
     </script>
 </body>
 </html>
