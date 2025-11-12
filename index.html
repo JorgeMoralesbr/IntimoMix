@@ -107,12 +107,6 @@
             margin-bottom: 5px;
         }
         
-        .item-description {
-            color: #666;
-            font-size: 14px;
-            margin-bottom: 5px;
-        }
-        
         .item-price {
             color: #8a2be2;
             font-weight: bold;
@@ -336,6 +330,14 @@
             width: 100%;
             margin-top: 10px;
         }
+
+        .login-required {
+            text-align: center;
+            color: #ff4757;
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -380,6 +382,7 @@
             <button class="add-to-cart-btn" data-id="1" data-name="Flex Vibrador e Sugador de Clitóris" data-price="174.93">
                 Adicionar ao Carrinho
             </button>
+            <div class="login-required" id="login-required-1">* Login obrigatório</div>
         </div>
 
         <div class="product-section">
@@ -392,6 +395,7 @@
             <button class="add-to-cart-btn" data-id="2" data-name="Samba Vibrador Rabbit com Power Finger" data-price="218.93">
                 Adicionar ao Carrinho
             </button>
+            <div class="login-required" id="login-required-2">* Login obrigatório</div>
         </div>
 
         <div class="product-section">
@@ -404,6 +408,7 @@
             <button class="add-to-cart-btn" data-id="3" data-name="Beste Sugador de Clitóris Recarregável" data-price="159.92">
                 Adicionar ao Carrinho
             </button>
+            <div class="login-required" id="login-required-3">* Login obrigatório</div>
         </div>
 
         <div class="product-section">
@@ -416,6 +421,7 @@
             <button class="add-to-cart-btn" data-id="4" data-name="Fun Vibrador Bullet Recarregável" data-price="89.63">
                 Adicionar ao Carrinho
             </button>
+            <div class="login-required" id="login-required-4">* Login obrigatório</div>
         </div>
         
         <!-- CARRITO INTERACTIVO -->
@@ -491,7 +497,7 @@
     <div class="notification" id="notification"></div>
 
     <script>
-        // SISTEMA DE CARRITO CON LOGIN OBLIGATORIO
+        // SISTEMA DE CARRITO CON LOGIN OBLIGATORIO - VERSIÓN MEJORADA
         document.addEventListener('DOMContentLoaded', function() {
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
             let user = JSON.parse(localStorage.getItem('user')) || null;
@@ -503,25 +509,61 @@
             const notification = document.getElementById('notification');
             const userInfo = document.getElementById('user-info');
             
-            // Actualizar interfaz de usuario
-            updateUserDisplay();
-            updateCartDisplay();
+            // Inicializar la aplicación
+            initApp();
             
-            // Mostrar información del usuario
+            function initApp() {
+                updateUserDisplay();
+                updateCartDisplay();
+                bindEvents();
+                checkLoginStatus();
+            }
+            
+            function bindEvents() {
+                // Botones agregar al carrito
+                document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const id = parseInt(this.getAttribute('data-id'));
+                        const name = this.getAttribute('data-name');
+                        const price = this.getAttribute('data-price');
+                        addToCart(id, name, price);
+                    });
+                });
+                
+                // Login/Registro
+                document.getElementById('do-login').addEventListener('click', doLogin);
+                document.getElementById('do-register').addEventListener('click', doRegister);
+                document.getElementById('show-register').addEventListener('click', showRegister);
+                document.getElementById('close-login').addEventListener('click', () => closeModal('login'));
+                document.getElementById('close-register').addEventListener('click', () => closeModal('register'));
+                
+                // Finalizar compra
+                checkoutBtn.addEventListener('click', checkout);
+            }
+            
+            function checkLoginStatus() {
+                // Mostrar mensaje de login requerido si no hay usuario
+                document.querySelectorAll('.login-required').forEach(element => {
+                    element.style.display = user ? 'none' : 'block';
+                });
+            }
+            
             function updateUserDisplay() {
                 if (user) {
                     userInfo.innerHTML = `
-                        Olá, ${user.name} 
+                        Olá, <strong>${user.name}</strong> 
                         <button class="logout-btn" id="logout-btn">Sair</button>
                     `;
                     document.getElementById('logout-btn').addEventListener('click', logout);
                 } else {
                     userInfo.innerHTML = `
-                        <button class="btn-primary" onclick="showModal('login')" style="padding: 8px 15px; font-size: 14px;">
-                            Fazer Login
+                        <button class="btn-primary" id="show-login-btn" style="padding: 8px 15px; font-size: 14px;">
+                            🔐 Fazer Login
                         </button>
                     `;
+                    document.getElementById('show-login-btn').addEventListener('click', () => showModal('login'));
                 }
+                checkLoginStatus();
             }
             
             // LOGIN Y REGISTRO
@@ -531,18 +573,22 @@
             
             function closeModal(type) {
                 document.getElementById(`${type}-modal`).style.display = 'none';
+                // Limpiar campos
+                document.querySelectorAll(`#${type}-modal input`).forEach(input => {
+                    input.value = '';
+                });
             }
             
-            document.getElementById('do-login').addEventListener('click', function() {
+            function doLogin() {
                 const email = document.getElementById('login-email').value;
                 const password = document.getElementById('login-password').value;
                 
                 if (!email || !password) {
-                    showNotification('Preencha todos os campos');
+                    showNotification('❌ Preencha todos os campos');
                     return;
                 }
                 
-                // Simular login (en producción sería con API)
+                // Simular login
                 const users = JSON.parse(localStorage.getItem('users')) || [];
                 const foundUser = users.find(u => u.email === email && u.password === password);
                 
@@ -551,32 +597,32 @@
                     localStorage.setItem('user', JSON.stringify(user));
                     updateUserDisplay();
                     closeModal('login');
-                    showNotification(`Bem-vindo(a), ${user.name}!`);
+                    showNotification(`✅ Bem-vindo(a), ${user.name}!`);
                 } else {
-                    showNotification('Email ou senha incorretos');
+                    showNotification('❌ Email ou senha incorretos');
                 }
-            });
+            }
             
-            document.getElementById('do-register').addEventListener('click', function() {
+            function doRegister() {
                 const name = document.getElementById('register-name').value;
                 const email = document.getElementById('register-email').value;
                 const password = document.getElementById('register-password').value;
                 const confirm = document.getElementById('register-confirm').value;
                 
                 if (!name || !email || !password || !confirm) {
-                    showNotification('Preencha todos os campos');
+                    showNotification('❌ Preencha todos os campos');
                     return;
                 }
                 
                 if (password !== confirm) {
-                    showNotification('As senhas não coincidem');
+                    showNotification('❌ As senhas não coincidem');
                     return;
                 }
                 
                 const users = JSON.parse(localStorage.getItem('users')) || [];
                 
                 if (users.find(u => u.email === email)) {
-                    showNotification('Este email já está cadastrado');
+                    showNotification('❌ Este email já está cadastrado');
                     return;
                 }
                 
@@ -588,37 +634,29 @@
                 localStorage.setItem('user', JSON.stringify(user));
                 updateUserDisplay();
                 closeModal('register');
-                showNotification('Cadastro realizado com sucesso!');
-            });
+                showNotification('✅ Cadastro realizado com sucesso!');
+            }
             
-            document.getElementById('show-register').addEventListener('click', function(e) {
+            function showRegister(e) {
                 e.preventDefault();
                 closeModal('login');
                 showModal('register');
-            });
-            
-            document.getElementById('close-login').addEventListener('click', function() {
-                closeModal('login');
-            });
-            
-            document.getElementById('close-register').addEventListener('click', function() {
-                closeModal('register');
-            });
+            }
             
             function logout() {
                 user = null;
                 localStorage.removeItem('user');
                 updateUserDisplay();
-                showNotification('Logout realizado com sucesso');
+                showNotification('🔒 Logout realizado com sucesso');
             }
             
             // SISTEMA DEL CARRITO
             function addToCart(id, name, price) {
-                // VERIFICAR LOGIN PRIMERO
+                // VERIFICAR LOGIN PRIMERO - ESTA ES LA PARTE IMPORTANTE
                 if (!user) {
-                    showNotification('Faça login para adicionar produtos ao carrinho');
+                    showNotification('🔒 Faça login para adicionar produtos ao carrinho');
                     showModal('login');
-                    return;
+                    return; // DETIENE LA EJECUCIÓN SI NO HAY USUARIO
                 }
                 
                 const existingItem = cart.find(item => item.id === id);
@@ -636,7 +674,7 @@
                 
                 localStorage.setItem('cart', JSON.stringify(cart));
                 updateCartDisplay();
-                showNotification('Produto adicionado ao carrinho!');
+                showNotification('🛒 Produto adicionado ao carrinho!');
             }
             
             function removeFromCart(id) {
@@ -680,7 +718,7 @@
                             <button class="quantity-btn minus-btn" data-id="${item.id}">-</button>
                             <span>${item.quantity}</span>
                             <button class="quantity-btn plus-btn" data-id="${item.id}">+</button>
-                            <button class="remove-btn" data-id="${item.id}">Remover</button>
+                            <button class="remove-btn" data-id="${item.id}">🗑️ Remover</button>
                         </div>
                     `;
                     cartItemsContainer.appendChild(itemElement);
@@ -714,29 +752,28 @@
             }
             
             // FINALIZAR COMPRA
-            checkoutBtn.addEventListener('click', function() {
+            function checkout() {
                 if (!user) {
-                    showNotification('Faça login para finalizar a compra');
+                    showNotification('🔒 Faça login para finalizar a compra');
                     showModal('login');
                     return;
                 }
                 
                 if (cart.length === 0) {
-                    showNotification('Seu carrinho está vazio');
+                    showNotification('❌ Seu carrinho está vazio');
                     return;
                 }
                 
                 const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
                 
-                // Simular proceso de pago
-                showNotification('Processando pagamento...');
+                showNotification('💳 Processando pagamento...');
                 
                 setTimeout(() => {
                     // Guardar historial de compra
                     const purchase = {
                         id: Date.now(),
                         user: user.email,
-                        items: cart,
+                        items: [...cart],
                         total: total,
                         date: new Date().toISOString()
                     };
@@ -750,27 +787,16 @@
                     localStorage.setItem('cart', JSON.stringify(cart));
                     updateCartDisplay();
                     
-                    showNotification(`Compra realizada com sucesso! Total: R$ ${total.toFixed(2).replace('.', ',')}`);
+                    showNotification(`✅ Compra realizada com sucesso! Total: R$ ${total.toFixed(2).replace('.', ',')}`);
                 }, 2000);
-            });
-            
-            // Botones agregar al carrito
-            document.querySelectorAll('.add-to-cart-btn').forEach(button => {
-                button.addEventListener('click', function() {
-                    const id = parseInt(this.getAttribute('data-id'));
-                    const name = this.getAttribute('data-name');
-                    const price = this.getAttribute('data-price');
-                    
-                    addToCart(id, name, price);
-                });
-            });
+            }
             
             function showNotification(message) {
                 notification.textContent = message;
                 notification.style.display = 'block';
                 setTimeout(() => {
                     notification.style.display = 'none';
-                }, 3000);
+                }, 4000);
             }
         });
     </script>
