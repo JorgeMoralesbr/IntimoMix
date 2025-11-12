@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIBRAÇÕES ÍNTIMAS - Loja Completa</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        body { background-color: #f5f5f5; color: #333; line-height: 1.6; }
+        .container { max-width: 800px; margin: 0 auto; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-top: 20px; }
+        
+        /* Header */
+        h1 { text-align: center; color: #8a2be2; font-size: 24px; margin-bottom: 10px; }
+        .subtitle { text-align: center; color: #666; font-size: 14px; margin-bottom: 20px; }
+        
+        /* Banner */
+        .promo-banner { background: linear-gradient(135deg, #ff6b6b, #ee5a52); color: white; padding: 15px; text-align: center; border-radius: 8px; margin: 20px 0; font-weight: bold; }
+        
+        /* Tabla */
+        .discount-table { width: 100%; border-collapse: collapse; margin: 20px 0; text-align: center; }
+        .discount-table td { padding: 10px; border: 1px solid #ddd; background: #f8f8f8; }
+        
+        /* Productos */
+        .product-section { margin: 20px 0; padding: 15px; border: 1px solid #e0e0e0; border-radius: 8px; }
+        .product-brand { color: #8a2be2; font-weight: bold; font-size: 14px; }
+        .product-name { font-weight: bold; font-size: 16px; margin: 5px 0; }
+        .current-price { font-weight: bold; color: #8a2be2; font-size: 18px; }
+        .original-price { text-decoration: line-through; color: #999; margin-left: 10px; }
+        .add-to-cart-btn { background: #8a2be2; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; width: 100%; margin-top: 10px; }
+        .login-required { text-align: center; color: #ff4757; font-size: 12px; margin-top: 5px; display: none; }
+        
+        /* Carrito INTERACTIVO */
+        .cart-container { background: white; border-radius: 10px; padding: 20px; margin: 20px 0; border: 2px solid #e0e0e0; }
+        .cart-title { font-size: 22px; color: #8a2be2; margin-bottom: 20px; text-align: center; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; }
+        .cart-item { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid #f0f0f0; }
+        .item-quantity { display: flex; align-items: center; gap: 10px; }
+        .quantity-btn { background: #8a2be2; color: white; border: none; width: 30px; height: 30px; border-radius: 50%; cursor: pointer; }
+        .remove-btn { background: #ff4757; color: white; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer; margin-left: 10px; font-size: 12px; }
+        .cart-total { display: flex; justify-content: space-between; margin-top: 20px; padding-top: 20px; border-top: 2px solid #f0f0f0; font-size: 20px; font-weight: bold; color: #8a2be2; }
+        .checkout-btn { background: #8a2be2; color: white; border: none; padding: 15px 30px; border-radius: 5px; cursor: pointer; font-weight: bold; width: 100%; margin-top: 20px; }
+        .empty-cart-message { text-align: center; color: #666; padding: 40px 20px; font-style: italic; }
+        
+        /* Login */
+        .user-info { text-align: center; margin-bottom: 10px; color: #666; }
+        .logout-btn { background: #ff4757; color: white; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer; margin-left: 10px; }
+        
+        /* Modal */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; }
+        .modal-content { background: white; margin: 10% auto; padding: 30px; border-radius: 10px; width: 90%; max-width: 400px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group input { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
+        .form-buttons { display: flex; gap: 10px; margin-top: 20px; }
+        .btn-primary { background: #8a2be2; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; flex: 1; }
+        .btn-secondary { background: #666; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; flex: 1; }
+        
+        /* Notificación */
+        .notification { position: fixed; top: 20px; right: 20px; background: #4CAF50; color: white; padding: 15px 25px; border-radius: 5px; display: none; z-index: 1000; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>VIBRAÇÕES ÍNTIMAS</h1>
+            <p class="subtitle">Prazer & Sem Limites</p>
+            <div class="user-info" id="user-info">
+                <button class="btn-primary" id="show-login-btn" style="padding: 8px 15px; font-size: 14px;">
+                    🔐 Fazer Login
+                </button>
+            </div>
+        </header>
+        
+        <div class="promo-banner">
+            Beauty November - Até 30% OFF + Frete GRÁTIS
+        </div>
+        
+        <div class="products-count">
+            Total de 5 produtos
+        </div>
+        
+        <table class="discount-table">
+            <tr>
+                <td>10% OFF</td>
+                <td>27% OFF</td>
+                <td>20% OFF</td>
+            </tr>
+            <tr>
+                <td>FRETE GRÁTIS</td>
+                <td>FRETE GRÁTIS</td>
+                <td>FRETE GRÁTIS</td>
+            </tr>
+        </table>
+
+        <!-- PRODUCTOS CON BOTONES INTERACTIVOS -->
+        <div class="product-section">
+            <div class="product-brand">VIBRAÇÕES ÍNTIMAS</div>
+            <div class="product-name">Flex Vibrador e Sugador de Clitóris</div>
+            <div class="product-price">
+                <span class="current-price">R$ 174,93</span>
+                <span class="original-price">R$ 249,90</span>
+            </div>
+            <button class="add-to-cart-btn" data-id="1" data-name="Flex Vibrador e Sugador de Clitóris" data-price="174.93">
+                Adicionar ao Carrinho
+            </button>
+            <div class="login-required">* Login obrigatório para comprar</div>
+        </div>
+
+        <div class="product-section">
+            <div class="product-brand">VIBRAÇÕES ÍNTIMAS</div>
+            <div class="product-name">Samba Vibrador Rabbit com Power Finger</div>
+            <div class="product-price">
+                <span class="current-price">R$ 218,93</span>
+                <span class="original-price">R$ 299,90</span>
+            </div>
+            <button class="add-to-cart-btn" data-id="2" data-name="Samba Vibrador Rabbit com Power Finger" data-price="218.93">
+                Adicionar ao Carrinho
+            </button>
+            <div class="login-required">* Login obrigatório para comprar</div>
+        </div>
+
+        <div class="product-section">
+            <div class="product-brand">VIBRAÇÕES ÍNTIMAS</div>
+            <div class="product-name">Fun Vibrador Bullet Recarregável</div>
+            <div class="product-price">
+                <span class="current-price">R$ 89,63</span>
+                <span class="original-price">R$ 119,90</span>
+            </div>
+            <button class="add-to-cart-btn" data-id="3" data-name="Fun Vibrador Bullet Recarregável" data-price="89.63">
+                Adicionar ao Carrinho
+            </button>
+            <div class="login-required">* Login obrigatório para comprar</div>
+        </div>
+        
+        <!-- CARRITO INTERACTIVO (NO ESTÁTICO) -->
+        <div class="cart-container">
+            <h2 class="cart-title">Minha Sacola</h2>
+            <div id="cart-items">
+                <div class="empty-cart-message">Seu carrinho está vazio</div>
+            </div>
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total">R$ 0,00</span>
+            </div>
+            <button class="checkout-btn" id="checkout-btn">Finalizar Compra</button>
+        </div>
+    </div>
+    
+    <!-- MODAL DE LOGIN -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <h2 style="color: #8a2be2; text-align: center; margin-bottom: 20px;">Login Obrigatório</h2>
+            <p style="text-align: center; margin-bottom: 20px; color: #666;">Faça login para adicionar produtos ao carrinho</p>
+            <div class="form-group">
+                <input type="email" id="login-email" placeholder="Seu email" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+            </div>
+            <div class="form-group">
+                <input type="password" id="login-password" placeholder="Sua senha" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 5px;">
+            </div>
+            <div class="form-buttons">
+                <button class="btn-secondary" id="close-login">Fechar</button>
+                <button class="btn-primary" id="do-login">Entrar</button>
+            </div>
+            <p style="text-align: center; margin-top: 15px;">
+                Não tem conta? <a href="#" id="show-register">Cadastre-se aqui</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- NOTIFICACIÓN -->
+    <div class="notification" id="notification"></div>
+
+    <script>
+        // ✅✅✅ CÓDIGO CON VERIFICACIÓN OBLIGATORIA ✅✅✅
+        document.addEventListener('DOMContentLoaded', function() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let user = JSON.parse(localStorage.getItem('user')) || null;
+            
+            // Elementos
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+            const checkoutBtn = document.getElementById('checkout-btn');
+            const notification = document.getElementById('notification');
+            const userInfo = document.getElementById('user-info');
+            
+            // ✅ VERIFICACIÓN DE LOGIN AL AGREGAR PRODUCTO
+            document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    // 🚨🚨🚨 ESTA ES LA VERIFICACIÓN IMPORTANTE 🚨🚨🚨
+                    if (!user) {
+                        showNotification('🚫 Faça login para adicionar produtos!');
+                        document.getElementById('login-modal').style.display = 'block';
+                        return; // ← DETIENE LA EJECUCIÓN
+                    }
+                    
+                    // Solo si hay usuario, agrega al carrito
+                    const id = this.getAttribute('data-id');
+                    const name = this.getAttribute('data-name');
+                    const price = this.getAttribute('data-price');
+                    
+                    const existing = cart.find(item => item.id === id);
+                    if (existing) {
+                        existing.quantity += 1;
+                    } else {
+                        cart.push({ id, name, price: parseFloat(price), quantity: 1 });
+                    }
+                    
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    updateCart();
+                    showNotification('✅ Produto adicionado!');
+                });
+            });
+            
+            // ✅ VERIFICACIÓN EN CHECKOUT
+            checkoutBtn.addEventListener('click', function() {
+                if (!user) {
+                    showNotification('🚫 Faça login para finalizar compra!');
+                    document.getElementById('login-modal').style.display = 'block';
+                    return;
+                }
+                if (cart.length === 0) {
+                    showNotification('🛒 Carrinho vazio!');
+                    return;
+                }
+                
+                showNotification('✅ Compra finalizada!');
+                cart = [];
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCart();
+            });
+            
+            // Login
+            document.getElementById('show-login-btn').addEventListener('click', function() {
+                document.getElementById('login-modal').style.display = 'block';
+            });
+            
+            document.getElementById('do-login').addEventListener('click', function() {
+                const email = document.getElementById('login-email').value;
+                const password = document.getElementById('login-password').value;
+                
+                if (email && password) {
+                    user = { name: "Cliente", email: email };
+                    localStorage.setItem('user', JSON.stringify(user));
+                    document.getElementById('login-modal').style.display = 'none';
+                    userInfo.innerHTML = `Olá, ${user.name} <button class="logout-btn" onclick="logout()">Sair</button>`;
+                    showNotification('✅ Login realizado!');
+                }
+            });
+            
+            document.getElementById('close-login').addEventListener('click', function() {
+                document.getElementById('login-modal').style.display = 'none';
+            });
+            
+            document.getElementById('show-register').addEventListener('click', function(e) {
+                e.preventDefault();
+                showNotification('📝 Redirecionando para cadastro...');
+            });
+            
+            // Actualizar carrito
+            function updateCart() {
+                cartItems.innerHTML = '';
+                if (cart.length === 0) {
+                    cartItems.innerHTML = '<div class="empty-cart-message">Seu carrinho está vazio</div>';
+                    cartTotal.textContent = 'R$ 0,00';
+                    return;
+                }
+                
+                let total = 0;
+                cart.forEach(item => {
+                    const div = document.createElement('div');
+                    div.className = 'cart-item';
+                    div.innerHTML = `
+                        <div>
+                            <div class="item-name">${item.name}</div>
+                            <div class="item-price">R$ ${item.price.toFixed(2)}</div>
+                        </div>
+                        <div class="item-quantity">
+                            <button class="quantity-btn" onclick="updateQuantity(${item.id}, -1)">-</button>
+                            <span>${item.quantity}</span>
+                            <button class="quantity-btn" onclick="updateQuantity(${item.id}, 1)">+</button>
+                            <button class="remove-btn" onclick="removeItem(${item.id})">Remover</button>
+                        </div>
+                    `;
+                    cartItems.appendChild(div);
+                    total += item.price * item.quantity;
+                });
+                cartTotal.textContent = `R$ ${total.toFixed(2)}`;
+            }
+            
+            function showNotification(msg) {
+                notification.textContent = msg;
+                notification.style.display = 'block';
+                setTimeout(() => notification.style.display = 'none', 3000);
+            }
+            
+            // Funciones globales
+            window.updateQuantity = function(id, change) {
+                const item = cart.find(item => item.id == id);
+                if (item) {
+                    item.quantity += change;
+                    if (item.quantity <= 0) {
+                        cart = cart.filter(item => item.id != id);
+                    }
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    updateCart();
+                }
+            };
+            
+            window.removeItem = function(id) {
+                cart = cart.filter(item => item.id != id);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCart();
+            };
+            
+            window.logout = function() {
+                user = null;
+                localStorage.removeItem('user');
+                userInfo.innerHTML = '<button class="btn-primary" id="show-login-btn" style="padding: 8px 15px; font-size: 14px;">🔐 Fazer Login</button>';
+                document.getElementById('show-login-btn').addEventListener('click', function() {
+                    document.getElementById('login-modal').style.display = 'block';
+                });
+                showNotification('🔒 Logout realizado');
+            };
+            
+            // Inicializar
+            updateCart();
+            if (user) {
+                userInfo.innerHTML = `Olá, ${user.name} <button class="logout-btn" onclick="logout()">Sair</button>`;
+            }
+        });
+    </script>
+</body>
+</html>
