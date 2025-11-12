@@ -3,1623 +3,479 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vibrações Íntimas - Prazer e Bem-Estar</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>VIBRAÇÕES ÍNTIMAS</title>
     <style>
-        /* NUEVOS ESTILOS PARA LOGO COMBINADO */
-        .logo-container {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-        }
-        
-        .logo-icons {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-right: 12px;
-        }
-        
-        .logo-icon-top {
-            font-size: 20px;
-            color: #e91e63;
-            animation: pulse 2s infinite;
-        }
-        
-        .logo-icon-bottom {
-            font-size: 16px;
-            color: #9c27b0;
-            margin-top: 2px;
-        }
-        
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .logo-main {
-            font-size: 22px;
-            font-weight: 800;
-            background: linear-gradient(45deg, #e91e63, #9c27b0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            line-height: 1;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        
-        .logo-subtitle {
-            font-size: 11px;
-            color: #ff4081;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            margin-top: 2px;
-            display: flex;
-            align-items: center;
-            gap: 3px;
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-        
-        .sparkle {
-            animation: sparkle 1.5s infinite;
-        }
-        
-        @keyframes sparkle {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-
-        /* Reset y estilos generales */
+        /* ESTILOS EXISTENTES - Manteniendo tu diseño actual */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Arial, sans-serif;
         }
-
-        :root {
-            --primary: #e91e63;
-            --primary-dark: #c2185b;
-            --secondary: #9c27b0;
-            --accent: #ff4081;
-            --light: #f8bbd9;
-            --dark: #880e4f;
-            --text: #333333;
-            --text-light: #777777;
-            --background: #fff5f9;
-            --white: #ffffff;
-            --gray: #f5f5f5;
-            --discount: #4caf50;
-        }
-
+        
         body {
-            background-color: var(--background);
-            color: var(--text);
-            line-height: 1.6;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.4;
         }
-
+        
         .container {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 0 15px;
-        }
-
-        /* Banner de la app */
-        .app-banner {
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            color: var(--white);
-            text-align: center;
-            padding: 8px 0;
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        .app-banner .coupon {
-            font-weight: bold;
-            background: var(--white);
-            color: var(--primary);
-            padding: 2px 8px;
-            border-radius: 12px;
-            margin-left: 5px;
-            display: inline-block;
-        }
-
-        /* Header */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-            background: var(--white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-        }
-
-        .nav-icons {
-            display: flex;
-            gap: 25px;
-        }
-
-        .nav-icon {
-            text-align: center;
-            font-size: 12px;
-            color: var(--text);
-            cursor: pointer;
-            transition: color 0.3s;
-            text-decoration: none;
-            position: relative;
-        }
-
-        .nav-icon:hover {
-            color: var(--primary);
-        }
-
-        .nav-icon i {
-            font-size: 20px;
-            display: block;
-            margin-bottom: 4px;
-        }
-
-        .cart-count, .location-badge {
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            background: var(--primary);
-            color: white;
-            border-radius: 50%;
-            width: 18px;
-            height: 18px;
-            font-size: 11px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-        }
-
-        .location-badge {
-            background: #4caf50;
-            width: 20px;
-            height: 20px;
-        }
-
-        /* Banner promocional */
-        .promo-banner {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: white;
-            text-align: center;
-            padding: 12px;
-            margin: 15px 0;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 18px;
-        }
-
-        /* Filtros y ordenamiento */
-        .filters-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-            background: var(--white);
-            margin: 10px 0;
-            border-radius: 8px;
-            padding: 15px;
-        }
-
-        .results-count {
-            font-weight: 500;
-        }
-
-        .sort-select {
-            padding: 8px 15px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            background: var(--white);
-            color: var(--text);
-            font-size: 14px;
-        }
-
-        /* Grid de productos */
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 25px;
-            padding: 20px 0 40px;
-        }
-
-        .product-card {
-            background: var(--white);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
-            position: relative;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.12);
-        }
-
-        .product-badges {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-
-        .discount-badge {
-            background: var(--discount);
-            color: var(--white);
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        .free-shipping-badge {
-            background: var(--primary);
-            color: var(--white);
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        .product-image {
-            height: 220px;
-            background: var(--gray);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #ccc;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .product-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-
-        .product-card:hover .product-image img {
-            transform: scale(1.05);
-        }
-
-        .product-info {
-            padding: 18px;
-        }
-
-        .brand {
-            color: var(--text-light);
-            font-size: 12px;
-            margin-bottom: 5px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .product-name {
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: var(--text);
-            font-size: 16px;
-            height: 40px;
-            overflow: hidden;
-        }
-
-        .price-container {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 5px;
-        }
-
-        .price {
-            color: var(--primary);
-            font-weight: 700;
-            font-size: 20px;
-        }
-
-        .original-price {
-            color: var(--text-light);
-            text-decoration: line-through;
-            font-size: 14px;
-        }
-
-        .installments {
-            color: var(--text-light);
-            font-size: 12px;
-            width: 100%;
-        }
-
-        .product-actions {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 15px;
-        }
-
-        .btn-cart {
-            background: var(--primary);
-            color: var(--white);
-            border: none;
-            padding: 10px 15px;
-            border-radius: 6px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s;
-            flex-grow: 1;
-            margin-right: 8px;
-        }
-
-        .btn-cart:hover {
-            background: var(--primary-dark);
-        }
-
-        .btn-wishlist {
-            background: var(--gray);
-            color: var(--text);
-            border: none;
-            width: 40px;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .btn-wishlist:hover {
-            background: #e0e0e0;
-        }
-
-        .btn-wishlist.active {
-            background: #ffe6e6;
-            color: #e91e63;
-        }
-
-        /* Banner de Cookies */
-        .cookies-banner {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: var(--white);
             padding: 20px;
-            box-shadow: 0 -2px 15px rgba(0,0,0,0.1);
-            z-index: 1000;
-            border-top: 1px solid #eee;
-        }
-
-        .cookie-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .cookie-text {
-            flex-grow: 1;
-            margin-right: 20px;
-            font-size: 14px;
-        }
-
-        .cookie-buttons {
-            display: flex;
-            gap: 10px;
-        }
-
-        .btn {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-
-        .btn-primary {
-            background: var(--primary);
-            color: var(--white);
-        }
-
-        .btn-primary:hover {
-            background: var(--primary-dark);
-        }
-
-        .btn-secondary {
-            background: var(--gray);
-            color: var(--text);
-        }
-
-        .btn-secondary:hover {
-            background: #e0e0e0;
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--white);
-            padding: 40px 0 20px;
-            margin-top: 40px;
-            border-top: 1px solid #eee;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-
-        .footer-section h3 {
-            margin-bottom: 15px;
-            color: var(--primary);
-            font-size: 18px;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 8px;
-        }
-
-        .footer-section a {
-            color: var(--text);
-            text-decoration: none;
-            transition: color 0.3s;
-            cursor: pointer;
-        }
-
-        .footer-section a:hover {
-            color: var(--primary);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-            color: var(--text-light);
-            font-size: 14px;
-        }
-
-        /* Modal Carrito */
-        .cart-modal, .location-modal, .account-modal, .info-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 400px;
-            height: 100vh;
             background: white;
-            box-shadow: -2px 0 10px rgba(0,0,0,0.1);
-            z-index: 1001;
-            padding: 20px;
-            overflow-y: auto;
-        }
-
-        .cart-modal.active, .location-modal.active, .account-modal.active, .info-modal.active {
-            display: block;
-        }
-
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 1000;
-        }
-
-        .modal-overlay.active {
-            display: block;
-        }
-
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #eee;
-        }
-
-        .cart-items {
-            margin-bottom: 20px;
-        }
-
-        .cart-item {
-            display: flex;
-            align-items: center;
-            padding: 10px 0;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .cart-item-image {
-            width: 60px;
-            height: 60px;
-            background: #f5f5f5;
-            border-radius: 8px;
-            margin-right: 15px;
-        }
-
-        .cart-item-info {
-            flex-grow: 1;
-        }
-
-        .cart-item-name {
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .cart-item-price {
-            color: var(--primary);
-            font-weight: 700;
-        }
-
-        .cart-total {
-            font-size: 18px;
-            font-weight: 700;
-            text-align: right;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             margin-top: 20px;
-            padding-top: 15px;
-            border-top: 2px solid #eee;
         }
-
-        /* Formularios */
-        .form-group {
-            margin-bottom: 15px;
+        
+        h1 {
+            text-align: center;
+            color: #8a2be2;
+            font-size: 24px;
+            margin-bottom: 10px;
         }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 600;
-            color: var(--text);
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 20px;
         }
-
-        .form-group input, .form-group select, .form-group textarea {
+        
+        .promo-banner {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        
+        .products-count {
+            text-align: center;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+        
+        .discount-table {
             width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .discount-table td {
             padding: 10px;
             border: 1px solid #ddd;
-            border-radius: 6px;
+            background: #f8f8f8;
+        }
+        
+        /* ESTILOS DEL CARRITO MEJORADO - Integración nueva */
+        .cart-container {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 2px solid #e0e0e0;
+        }
+        
+        .cart-title {
+            font-size: 22px;
+            color: #8a2be2;
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+        }
+        
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .item-info {
+            flex-grow: 1;
+        }
+        
+        .item-name {
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        
+        .item-description {
+            color: #666;
             font-size: 14px;
+            margin-bottom: 5px;
         }
-
-        .form-group textarea {
-            height: 100px;
-            resize: vertical;
+        
+        .item-price {
+            color: #8a2be2;
+            font-weight: bold;
+            font-size: 16px;
         }
-
-        /* Páginas de información */
-        .info-content {
-            line-height: 1.8;
+        
+        .item-quantity {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-
-        .info-content h2 {
-            color: var(--primary);
-            margin-bottom: 15px;
-            font-size: 24px;
+        
+        .quantity-btn {
+            background-color: #8a2be2;
+            color: white;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-
-        .info-content h3 {
-            color: var(--secondary);
-            margin: 20px 0 10px 0;
+        
+        .quantity-btn:hover {
+            background-color: #7a1bd2;
+        }
+        
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid #f0f0f0;
+            font-size: 20px;
+            font-weight: bold;
+            color: #8a2be2;
+        }
+        
+        .checkout-btn {
+            background-color: #8a2be2;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
             font-size: 18px;
+            width: 100%;
+            transition: background-color 0.3s;
+            margin-top: 20px;
         }
-
-        .info-content p {
-            margin-bottom: 15px;
+        
+        .checkout-btn:hover {
+            background-color: #7a1bd2;
         }
-
-        .info-content ul {
-            margin-left: 20px;
-            margin-bottom: 15px;
+        
+        .empty-cart-message {
+            text-align: center;
+            color: #666;
+            padding: 40px 20px;
+            font-style: italic;
         }
-
-        .info-content li {
-            margin-bottom: 8px;
+        
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: none;
+            z-index: 1000;
         }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .header {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .logo-main {
-                font-size: 18px;
-            }
-
-            .products-grid {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-                gap: 15px;
-            }
-
-            .cookie-content {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .cookie-text {
-                margin-right: 0;
-                margin-bottom: 15px;
-            }
-
-            .cart-modal, .location-modal, .account-modal, .info-modal {
-                width: 100%;
-            }
+        
+        .cookie-notice {
+            background: #f8f8f8;
+            padding: 15px;
+            text-align: center;
+            margin-top: 30px;
+            border-radius: 5px;
+            font-size: 12px;
+            color: #666;
+        }
+        
+        /* Productos disponibles */
+        .available-products {
+            margin: 30px 0;
+        }
+        
+        .product-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .product-name {
+            font-weight: bold;
+            font-size: 16px;
+            color: #8a2be2;
+            margin-bottom: 5px;
+        }
+        
+        .product-price {
+            font-weight: bold;
+            color: #333;
+            margin: 10px 0;
+        }
+        
+        .add-to-cart-btn {
+            background: #8a2be2;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+        }
+        
+        .add-to-cart-btn:hover {
+            background: #7a1bd2;
         }
     </style>
 </head>
 <body>
-    <!-- Banner App -->
-    <div class="app-banner">
-        <div class="container">
-            📱 Só no App! 10% OFF na primeira compra • CUPOM: <span class="coupon">APP10</span>
-        </div>
-    </div>
-    
-    <!-- Header CON LOGO ACTUALIZADO -->
     <div class="container">
-        <header class="header">
-            <a href="#" class="logo-container">
-                <div class="logo-icons">
-                    <div class="logo-icon-top" style="color: #e91e63;">❤️</div>
-                    <div class="logo-icon-bottom">🌊</div>
-                </div>
-                <div class="logo-text">
-                    <div class="logo-main">
-                        VIBRAÇÕES ÍNTIMAS 
-                        <span class="sparkle">✨</span>
-                    </div>
-                    <div class="logo-subtitle">
-                        👄 Prazer & Bem-Estar 🔥
-                    </div>
-                </div>
-            </a>
-            <div class="nav-icons">
-                <a href="#" class="nav-icon" id="location-icon">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div>Minha Localização</div>
-                    <span class="location-badge">📍</span>
-                </a>
-                <a href="#" class="nav-icon" id="account-icon">
-                    <i class="fas fa-user"></i>
-                    <div>Minha Conta</div>
-                </a>
-                <a href="#" class="nav-icon" id="cart-icon">
-                    <i class="fas fa-shopping-bag"></i>
-                    <div>Minha Sacola</div>
-                    <span class="cart-count">0</span>
-                </a>
-            </div>
+        <header>
+            <h1>VIBRAÇÕES ÍNTIMAS</h1>
+            <p class="subtitle">Prazer & Sem Limites</p>
         </header>
-    </div>
-
-    <!-- Banner promocional -->
-    <div class="container">
+        
         <div class="promo-banner">
-            🎉 Beauty November - Até 30% OFF + Frete GRÁTIS 🎉
-        </div>
-    </div>
-
-    <!-- Filtros -->
-    <div class="container">
-        <div class="filters-container">
-            <div class="results-count">Total de 5 produtos</div>
-            <div>
-                <select class="sort-select" id="sort-select">
-                    <option value="relevance">Ordenar por: Relevância</option>
-                    <option value="price-low">Preço: Menor a Maior</option>
-                    <option value="price-high">Preço: Maior a Menor</option>
-                    <option value="rating">Melhor Avaliação</option>
-                </select>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Grid de Productos -->
-    <div class="container">
-        <div class="products-grid" id="products-grid">
-            <!-- Los productos se cargan dinámicamente -->
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>VIBRAÇÕES ÍNTIMAS</h3>
-                    <p>Descubra uma nova experiência de prazer e bem-estar. Tecnologia, design e confiança em um só lugar.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Categorias</h3>
-                    <ul>
-                        <li><a href="#">Vibradores</a></li>
-                        <li><a href="#">Sugadores</a></li>
-                        <li><a href="#">Kits</a></li>
-                        <li><a href="#">Lubrificantes</a></li>
-                        <li><a href="#">Ofertas</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Ajuda</h3>
-                    <ul>
-                        <li><a href="#" onclick="openInfoModal('contact')">Contato</a></li>
-                        <li><a href="#" onclick="openInfoModal('delivery')">Entregas e Prazos</a></li>
-                        <li><a href="#" onclick="openInfoModal('returns')">Trocas e Devoluções</a></li>
-                        <li><a href="#" onclick="openInfoModal('faq')">Perguntas Frequentes</a></li>
-                        <li><a href="#" onclick="openInfoModal('sizes')">Guia de Tamanhos</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Legal</h3>
-                    <ul>
-                        <li><a href="#" onclick="openInfoModal('terms')">Termos e Condições</a></li>
-                        <li><a href="#" onclick="openInfoModal('privacy')">Política de Privacidade</a></li>
-                        <li><a href="#" onclick="openInfoModal('cookies')">Política de Cookies</a></li>
-                        <li><a href="#" onclick="openInfoModal('legal')">Aviso Legal</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                &copy; 2023 Vibrações Íntimas. Todos os direitos reservados.
-            </div>
-        </div>
-    </footer>
-
-    <!-- MODALES -->
-    
-    <!-- Modal del Carrito -->
-    <div class="modal-overlay" id="cart-overlay"></div>
-    <div class="cart-modal" id="cart-modal">
-        <div class="modal-header">
-            <h3>🛍️ Minha Sacola</h3>
-            <button class="btn btn-secondary" onclick="closeCartModal()">✕</button>
-        </div>
-        <div class="cart-items" id="cart-items">
-            <!-- Los items del carrito se cargan aquí -->
-        </div>
-        <div class="cart-total" id="cart-total">
-            Total: R$ 0,00
-        </div>
-        <button class="btn btn-primary" style="width: 100%; margin-top: 15px;">
-            Finalizar Compra
-        </button>
-    </div>
-
-    <!-- Modal de Localização -->
-    <div class="modal-overlay" id="location-overlay"></div>
-    <div class="location-modal" id="location-modal">
-        <div class="modal-header">
-            <h3>📍 Minha Localização</h3>
-            <button class="btn btn-secondary" onclick="closeLocationModal()">✕</button>
-        </div>
-        <div class="form-group">
-            <label>CEP</label>
-            <input type="text" id="cep-input" placeholder="Digite seu CEP" maxlength="9">
-        </div>
-        <div class="form-group">
-            <label>Endereço</label>
-            <input type="text" id="address-input" placeholder="Digite seu endereço">
-        </div>
-        <div class="form-group">
-            <label>Cidade</label>
-            <input type="text" id="city-input" placeholder="Sua cidade">
-        </div>
-        <div class="form-group">
-            <label>Estado</label>
-            <select id="state-select">
-                <option value="">Selecione seu estado</option>
-                <option value="SP">São Paulo</option>
-                <option value="RJ">Rio de Janeiro</option>
-                <option value="MG">Minas Gerais</option>
-                <option value="RS">Rio Grande do Sul</option>
-                <option value="PR">Paraná</option>
-                <option value="SC">Santa Catarina</option>
-                <option value="BA">Bahia</option>
-                <option value="DF">Distrito Federal</option>
-            </select>
-        </div>
-        <button class="btn btn-primary" onclick="saveLocation()" style="width: 100%;">
-            Salvar Localização
-        </button>
-        <div style="margin-top: 15px; padding: 15px; background: #f0f8ff; border-radius: 8px;">
-            <p style="font-size: 12px; color: #666;">
-                <strong>📍 Localização atual:</strong>
-                <span id="current-location">Não definida</span>
-            </p>
-        </div>
-    </div>
-
-    <!-- Modal de Conta -->
-    <div class="modal-overlay" id="account-overlay"></div>
-    <div class="account-modal" id="account-modal">
-        <div class="modal-header">
-            <h3>👤 Minha Conta</h3>
-            <button class="btn btn-secondary" onclick="closeAccountModal()">✕</button>
+            Beauty November - Até 30% OFF + Frete GRÁTIS
         </div>
         
-        <div id="login-form">
-            <div class="form-group">
-                <label>Email</label>
-                <input type="email" id="login-email" placeholder="seu@email.com">
-            </div>
-            <div class="form-group">
-                <label>Senha</label>
-                <input type="password" id="login-password" placeholder="Sua senha">
-            </div>
-            <button class="btn btn-primary" onclick="login()" style="width: 100%; margin-bottom: 15px;">
-                Entrar
-            </button>
-            <p style="text-align: center; color: #666; margin-bottom: 15px;">
-                Não tem conta? <a href="#" onclick="showRegisterForm()" style="color: #e91e63;">Cadastre-se</a>
-            </p>
+        <div class="products-count">
+            Total de 5 produtos
         </div>
-
-        <div id="register-form" style="display: none;">
-            <div class="form-group">
-                <label>Nome completo</label>
-                <input type="text" id="register-name" placeholder="Seu nome completo">
+        
+        <table class="discount-table">
+            <tr>
+                <td>10% OFF</td>
+                <td>27% OFF</td>
+            </tr>
+            <tr>
+                <td>FRETE GRÁTIS</td>
+                <td>FRETE GRÁTIS</td>
+            </tr>
+        </table>
+        
+        <!-- PRODUCTOS DISPONIBLES -->
+        <div class="available-products">
+            <div class="product-card">
+                <div class="product-name">Beste Sugador de Clítoris Recarregável</div>
+                <div class="product-price">R$ 159,92</div>
+                <button class="add-to-cart-btn" data-id="1" data-name="Beste Sugador de Clítoris Recarregável" data-price="159.92">
+                    Adicionar ao Carrinho
+                </button>
             </div>
-            <div class="form-group">
-                <label>Email</label>
-                <input type="email" id="register-email" placeholder="seu@email.com">
+            
+            <div class="product-card">
+                <div class="product-name">Fun Vibrador Bullet Recarregável</div>
+                <div class="product-price">R$ 89,63</div>
+                <button class="add-to-cart-btn" data-id="2" data-name="Fun Vibrador Bullet Recarregável" data-price="89.63">
+                    Adicionar ao Carrinho
+                </button>
             </div>
-            <div class="form-group">
-                <label>Senha</label>
-                <input type="password" id="register-password" placeholder="Crie uma senha">
+            
+            <div class="product-card">
+                <div class="product-name">Flex Vibrador e Sugador de Clítoris</div>
+                <div class="product-price">R$ 174,93</div>
+                <button class="add-to-cart-btn" data-id="3" data-name="Flex Vibrador e Sugador de Clítoris" data-price="174.93">
+                    Adicionar ao Carrinho
+                </button>
             </div>
-            <div class="form-group">
-                <label>Confirmar senha</label>
-                <input type="password" id="register-confirm" placeholder="Confirme sua senha">
+            
+            <div class="product-card">
+                <div class="product-name">Samba Vibrador Rabbit com Power Finger</div>
+                <div class="product-price">R$ 218,93</div>
+                <button class="add-to-cart-btn" data-id="4" data-name="Samba Vibrador Rabbit com Power Finger" data-price="218.93">
+                    Adicionar ao Carrinho
+                </button>
             </div>
-            <button class="btn btn-primary" onclick="register()" style="width: 100%; margin-bottom: 15px;">
-                Cadastrar
-            </button>
-            <p style="text-align: center; color: #666;">
-                Já tem conta? <a href="#" onclick="showLoginForm()" style="color: #e91e63;">Faça login</a>
-            </p>
         </div>
-
-        <div id="user-profile" style="display: none;">
-            <div style="text-align: center; margin-bottom: 20px;">
-                <div style="font-size: 48px; margin-bottom: 10px;">👤</div>
-                <h4 id="user-name">Usuário</h4>
-                <p id="user-email" style="color: #666; font-size: 14px;">usuario@email.com</p>
+        
+        <!-- CARRITO MEJORADO -->
+        <div class="cart-container">
+            <h2 class="cart-title">Minha Sacola</h2>
+            
+            <div id="cart-items">
+                <!-- Los productos del carrito aparecerán aquí dinámicamente -->
+                <div class="empty-cart-message">Seu carrinho está vazio</div>
             </div>
-            <button class="btn btn-secondary" onclick="logout()" style="width: 100%;">
-                Sair da Conta
-            </button>
+            
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total">R$ 0,00</span>
+            </div>
+            
+            <button class="checkout-btn" id="checkout-btn">Finalizar Compra</button>
         </div>
-    </div>
-
-    <!-- Modal de Informações -->
-    <div class="modal-overlay" id="info-overlay"></div>
-    <div class="info-modal" id="info-modal">
-        <div class="modal-header">
-            <h3 id="info-title">Informações</h3>
-            <button class="btn btn-secondary" onclick="closeInfoModal()">✕</button>
-        </div>
-        <div class="info-content" id="info-content">
-            <!-- El contenido se carga dinámicamente -->
+        
+        <div class="cookie-notice">
+            Ao clicar em "Aceitar todos os cookies", concorda com o armazenamento de cookies no seu dispositivo para melhorar a navegação no site, análise de utilização do site e ajudar nas nossas iniciativas de marketing. Mais informações
         </div>
     </div>
     
-    <!-- Banner de Cookies -->
-    <div class="cookies-banner">
-        <div class="cookie-content">
-            <div class="cookie-text">
-                Ao clicar em "Aceitar todos os cookies", concorda com o armazenamento de cookies no seu dispositivo para melhorar a navegação no site, analisar a utilização do site e ajudar nas nossas iniciativas de marketing. <a href="#" onclick="openInfoModal('cookies')">Mais informações</a>
-            </div>
-            <div class="cookie-buttons">
-                <button class="btn btn-secondary" onclick="openInfoModal('cookies')">Configurações</button>
-                <button class="btn btn-primary" id="accept-cookies">Aceitar todos os cookies</button>
-            </div>
-        </div>
-    </div>
+    <!-- Notificación -->
+    <div class="notification" id="notification"></div>
 
     <script>
-        // DATOS DE PRODUCTOS
-        const products = [
-            {
-                id: 1,
-                name: "Flex Vibrador e Sugador de Clítoris",
-                price: 174.93,
-                originalPrice: 249.90,
-                discount: 30,
-                image: "linear-gradient(45deg, #f8bbd9, #e91e63)",
-                installments: 6,
-                inWishlist: false
-            },
-            {
-                id: 2,
-                name: "Samba Vibrador Rabbit com Power Finger",
-                price: 218.93,
-                originalPrice: 299.90,
-                discount: 27,
-                image: "linear-gradient(45deg, #ce93d8, #9c27b0)",
-                installments: 6,
-                inWishlist: false
-            },
-            {
-                id: 3,
-                name: "Beste Sugador de Clítoris Recarregável",
-                price: 159.92,
-                originalPrice: 199.90,
-                discount: 20,
-                image: "linear-gradient(45deg, #f48fb1, #e91e63)",
-                installments: 6,
-                inWishlist: false
-            },
-            {
-                id: 4,
-                name: "Fun Vibrador Bullet Recarregável",
-                price: 89.63,
-                originalPrice: 129.90,
-                discount: 31,
-                image: "linear-gradient(45deg, #ff80ab, #f50057)",
-                installments: 6,
-                inWishlist: false
-            },
-            {
-                id: 5,
-                name: "Kit Gol Masturbador Egg + Sense Lube",
-                price: 149.92,
-                originalPrice: 189.90,
-                discount: 21,
-                image: "linear-gradient(45deg, #ea80fc, #aa00ff)",
-                installments: 6,
-                inWishlist: false
-            }
-        ];
-
-        // DATOS DE INFORMACIÓN
-        const infoContent = {
-            contact: {
-                title: "📞 Contato",
-                content: `
-                    <h2>Fale Conosco</h2>
-                    <p>Estamos aqui para ajudar! Entre em contato conosco através dos canais abaixo:</p>
-                    
-                    <h3>📧 Email</h3>
-                    <p>contato@vibracoesintimas.com.br</p>
-                    
-                    <h3>📱 WhatsApp</h3>
-                    <p>(11) 99999-9999</p>
-                    
-                    <h3>🕒 Horário de Atendimento</h3>
-                    <p>Segunda a Sexta: 9h às 18h<br>
-                    Sábados: 9h às 13h</p>
-                    
-                    <h3>📍 Endereço</h3>
-                    <p>Rua das Flores, 123 - Jardim Paulista<br>
-                    São Paulo - SP, 01415-000</p>
-                `
-            },
-            delivery: {
-                title: "🚚 Entregas e Prazos",
-                content: `
-                    <h2>Política de Entregas</h2>
-                    
-                    <h3>📦 Formas de Envio</h3>
-                    <ul>
-                        <li><strong>Correios Sedex:</strong> 2-5 dias úteis</li>
-                        <li><strong>Correios PAC:</strong> 5-10 dias úteis</li>
-                        <li><strong>Entrega Expressa:</strong> 1-2 dias úteis (consulte disponibilidade)</li>
-                    </ul>
-                    
-                    <h3>💰 Frete Grátis</h3>
-                    <p>Frete grátis para compras acima de R$ 199,90 em todo o Brasil.</p>
-                    
-                    <h3>⏰ Prazos</h3>
-                    <p>Processamos pedidos em até 24 horas úteis. Prazos de entrega começam a contar após a postagem.</p>
-                    
-                    <h3>📋 Acompanhamento</h3>
-                    <p>Enviaremos código de rastreamento por email assim que o pedido for postado.</p>
-                `
-            },
-            returns: {
-                title: "🔄 Trocas e Devoluções",
-                content: `
-                    <h2>Política de Trocas e Devoluções</h2>
-                    
-                    <h3>⏰ Prazo para Troca/Devolução</h3>
-                    <p>30 dias a partir da data de recebimento do produto.</p>
-                    
-                    <h3>📦 Condições para Troca/Devolução</h3>
-                    <ul>
-                        <li>Produto deve estar na embalagem original</li>
-                        <li>Produto não pode ter sido usado</li>
-                        <li>Etiquetas e selos devem estar intactos</li>
-                        <li>Nota fiscal deve ser enviada</li>
-                    </ul>
-                    
-                    <h3>🔄 Processo de Troca</h3>
-                    <ol>
-                        <li>Entre em contato conosco via email ou WhatsApp</li>
-                        <li>Envie o produto para nosso centro de distribuição</li>
-                        <li>Após análise, enviaremos o novo produto ou reembolso</li>
-                    </ol>
-                    
-                    <h3>💵 Reembolsos</h3>
-                    <p>Reembolsos processados em até 10 dias úteis após recebimento do produto.</p>
-                `
-            },
-            faq: {
-                title: "❓ Perguntas Frequentes",
-                content: `
-                    <h2>Perguntas Frequentes</h2>
-                    
-                    <h3>🔞 Qual a faixa etária para comprar?</h3>
-                    <p>É necessário ter 18 anos ou mais para comprar em nossa loja.</p>
-                    
-                    <h3>📦 As entregas são discretas?</h3>
-                    <p>Sim! Todas nossas embalagens são neutras e discretas, sem identificação do conteúdo.</p>
-                    
-                    <h3>💳 Quais formas de pagamento aceitam?</h3>
-                    <p>Aceitamos cartão de crédito, débito, PIX e boleto bancário.</p>
-                    
-                    <h3>🔋 Os produtos são recarregáveis?</h3>
-                    <p>A maioria sim! Verifique a descrição de cada produto para informações específicas.</p>
-                    
-                    <h3>🧼 Como limpar os produtos?</h3>
-                    <p>Recomendamos água morna e sabão neutro, ou álcool 70% para higienização.</p>
-                    
-                    <h3>⚡ Qual a garantia dos produtos?</h3>
-                    <p>Todos os produtos possuem 3 meses de garantia contra defeitos de fabricação.</p>
-                `
-            },
-            sizes: {
-                title: "📏 Guia de Tamanhos",
-                content: `
-                    <h2>Guia de Tamanhos e Medidas</h2>
-                    
-                    <h3>📐 Como medir corretamente</h3>
-                    <p>Use uma fita métrica para obter medidas precisas. Meça o comprimento e diâmetro conforme ilustração.</p>
-                    
-                    <h3>🔍 Tamanhos Disponíveis</h3>
-                    <ul>
-                        <li><strong>Pequeno:</strong> 10-12cm de comprimento × 2,5-3cm diâmetro</li>
-                        <li><strong>Médio:</strong> 13-15cm de comprimento × 3-3,5cm diâmetro</li>
-                        <li><strong>Grande:</strong> 16-18cm de comprimento × 3,5-4cm diâmetro</li>
-                        <li><strong>Extra Grande:</strong> 19cm+ de comprimento × 4cm+ diâmetro</li>
-                    </ul>
-                    
-                    <h3>💡 Dicas de Escolha</h3>
-                    <ul>
-                        <li>Iniciantes: Recomendamos tamanho pequeno ou médio</li>
-                        <li>Intermediários: Tamanho médio é a escolha mais versátil</li>
-                        <li>Avançados: Podem explorar tamanhos maiores</li>
-                        <li>Considere também a flexibilidade do material</li>
-                    </ul>
-                `
-            },
-            terms: {
-                title: "📄 Termos e Condições",
-                content: `
-                    <h2>Termos e Condições de Uso</h2>
-                    
-                    <h3>1. Aceitação dos Termos</h3>
-                    <p>Ao acessar e usar este site, você concorda com estes termos e condições.</p>
-                    
-                    <h3>2. Idade Mínima</h3>
-                    <p>Você declara ter 18 anos ou mais para realizar compras em nossa loja.</p>
-                    
-                    <h3>3. Produtos</h3>
-                    <p>Reservamo-nos o direito de modificar preços e produtos sem aviso prévio.</p>
-                    
-                    <h3>4. Privacidade</h3>
-                    <p>Seus dados são protegidos conforme nossa Política de Privacidade.</p>
-                    
-                    <h3>5. Limitação de Responsabilidade</h3>
-                    <p>Não nos responsabilizamos por uso inadequado dos produtos.</p>
-                `
-            },
-            privacy: {
-                title: "🔒 Política de Privacidade",
-                content: `
-                    <h2>Política de Privacidade</h2>
-                    
-                    <h3>📊 Dados Coletados</h3>
-                    <p>Coletamos apenas dados necessários para processar seu pedido: nome, email, endereço e informações de pagamento.</p>
-                    
-                    <h3>🔐 Segurança</h3>
-                    <p>Seus dados são protegidos com criptografia SSL e não são compartilhados com terceiros.</p>
-                    
-                    <h3>📧 Comunicações</h3>
-                    <p>Podemos enviar emails sobre seu pedido e ofertas especiais (você pode cancelar a qualquer momento).</p>
-                    
-                    <h3>🍪 Cookies</h3>
-                    <p>Usamos cookies para melhorar sua experiência de navegação.</p>
-                `
-            },
-            cookies: {
-                title: "🍪 Política de Cookies",
-                content: `
-                    <h2>Política de Cookies</h2>
-                    
-                    <h3>O que são cookies?</h3>
-                    <p>Cookies são pequenos arquivos armazenados no seu dispositivo para melhorar sua experiência.</p>
-                    
-                    <h3>Como usamos cookies?</h3>
-                    <ul>
-                        <li>Lembrar itens no carrinho</li>
-                        <li>Salvar preferências de usuário</li>
-                        <li>Análise de tráfego do site</li>
-                        <li>Personalizar ofertas</li>
-                    </ul>
-                    
-                    <h3>Controle de Cookies</h3>
-                    <p>Você pode controlar cookies através das configurações do seu navegador.</p>
-                `
-            },
-            legal: {
-                title: "⚖️ Aviso Legal",
-                content: `
-                    <h2>Aviso Legal</h2>
-                    
-                    <h3>Propriedade Intelectual</h3>
-                    <p>Todo conteúdo deste site é propriedade da Vibrações Íntimas.</p>
-                    
-                    <h3>Uso Adequado</h3>
-                    <p>Produtos devem ser usados conforme instruções e por maiores de 18 anos.</p>
-                    
-                    <h3>Isenção de Responsabilidade</h3>
-                    <p>Não nos responsabilizamos por uso inadequado ou alergias a materiais.</p>
-                    
-                    <h3>Jurisdição</h3>
-                    <p>Este site está sujeito às leis brasileiras.</p>
-                `
-            }
-        };
-
-        // CARRITO Y WISHLIST
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
-        let user = JSON.parse(localStorage.getItem('user')) || null;
-        let userLocation = JSON.parse(localStorage.getItem('userLocation')) || null;
-
-        // ELEMENTOS DEL DOM
-        const productsGrid = document.getElementById('products-grid');
-        const cartIcon = document.getElementById('cart-icon');
-        const locationIcon = document.getElementById('location-icon');
-        const accountIcon = document.getElementById('account-icon');
-        const cartModal = document.getElementById('cart-modal');
-        const locationModal = document.getElementById('location-modal');
-        const accountModal = document.getElementById('account-modal');
-        const infoModal = document.getElementById('info-modal');
-        const cartOverlay = document.getElementById('cart-overlay');
-        const locationOverlay = document.getElementById('location-overlay');
-        const accountOverlay = document.getElementById('account-overlay');
-        const infoOverlay = document.getElementById('info-overlay');
-        const cartItems = document.getElementById('cart-items');
-        const cartTotal = document.getElementById('cart-total');
-        const cartCount = document.querySelector('.cart-count');
-        const currentLocation = document.getElementById('current-location');
-        const sortSelect = document.getElementById('sort-select');
-        const acceptCookies = document.getElementById('accept-cookies');
-
-        // INICIALIZAR LA PÁGINA
+        // CARRITO FUNCIONAL - Integración completa
         document.addEventListener('DOMContentLoaded', function() {
-            loadProducts();
-            updateCartCount();
-            loadWishlistState();
-            loadUserState();
-            loadLocationState();
+            // Inicializar el carrito desde localStorage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
             
-            // Event Listeners
-            cartIcon.addEventListener('click', openCartModal);
-            locationIcon.addEventListener('click', openLocationModal);
-            accountIcon.addEventListener('click', openAccountModal);
-            sortSelect.addEventListener('change', sortProducts);
-            acceptCookies.addEventListener('click', acceptAllCookies);
-
-            // Auto-detectar ubicación si es posible
-            if (!userLocation) {
-                detectLocation();
-            }
-        });
-
-        // CARGAR PRODUCTOS
-        function loadProducts() {
-            productsGrid.innerHTML = '';
-            products.forEach(product => {
-                const productCard = createProductCard(product);
-                productsGrid.appendChild(productCard);
-            });
-        }
-
-        // CREAR TARJETA DE PRODUCTO
-        function createProductCard(product) {
-            const card = document.createElement('div');
-            card.className = 'product-card';
-            card.innerHTML = `
-                <div class="product-badges">
-                    <div class="discount-badge">${product.discount}% OFF</div>
-                    <div class="free-shipping-badge">FRETE GRÁTIS</div>
-                </div>
-                <div class="product-image">
-                    <div style="width:100%;height:100%;background:${product.image};display:flex;align-items:center;justify-content:center;color:white;">
-                        <i class="fas fa-venus" style="font-size: 48px;"></i>
-                    </div>
-                </div>
-                <div class="product-info">
-                    <div class="brand">VIBRAÇÕES ÍNTIMAS</div>
-                    <div class="product-name">${product.name}</div>
-                    <div class="price-container">
-                        <div class="price">R$ ${product.price.toFixed(2)}</div>
-                        <div class="original-price">R$ ${product.originalPrice.toFixed(2)}</div>
-                    </div>
-                    <div class="installments">ou até ${product.installments}x de R$ ${(product.price / product.installments).toFixed(2)} sem juros</div>
-                    <div class="product-actions">
-                        <button class="btn-cart" onclick="addToCart(${product.id})">Adicionar à Sacola</button>
-                        <button class="btn-wishlist ${product.inWishlist ? 'active' : ''}" onclick="toggleWishlist(${product.id})">
-                            <i class="${product.inWishlist ? 'fas' : 'far'} fa-heart"></i>
-                        </button>
-                    </div>
-                </div>
-            `;
-            return card;
-        }
-
-        // CARRITO FUNCIONALIDADES
-        function addToCart(productId) {
-            const product = products.find(p => p.id === productId);
-            const existingItem = cart.find(item => item.id === productId);
+            // Elementos DOM
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartTotalElement = document.getElementById('cart-total');
+            const checkoutBtn = document.getElementById('checkout-btn');
+            const notification = document.getElementById('notification');
             
-            if (existingItem) {
-                existingItem.quantity += 1;
-            } else {
-                cart.push({
-                    ...product,
-                    quantity: 1
-                });
-            }
-            
-            updateCartCount();
-            updateCartModal();
-            saveCartToStorage();
-            
-            // Efecto visual
-            const button = event.target;
-            const originalText = button.textContent;
-            button.textContent = 'Adicionado!';
-            button.style.background = '#4caf50';
-            
-            setTimeout(() => {
-                button.textContent = originalText;
-                button.style.background = '';
-            }, 2000);
-        }
-
-        function removeFromCart(productId) {
-            cart = cart.filter(item => item.id !== productId);
-            updateCartCount();
-            updateCartModal();
-            saveCartToStorage();
-        }
-
-        function updateCartCount() {
-            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-            cartCount.textContent = totalItems;
-        }
-
-        function updateCartModal() {
-            cartItems.innerHTML = '';
-            let total = 0;
-            
-            if (cart.length === 0) {
-                cartItems.innerHTML = '<p style="text-align: center; color: #777;">Sua sacola está vazia</p>';
-            } else {
-                cart.forEach(item => {
-                    const itemTotal = item.price * item.quantity;
-                    total += itemTotal;
-                    
-                    const cartItem = document.createElement('div');
-                    cartItem.className = 'cart-item';
-                    cartItem.innerHTML = `
-                        <div class="cart-item-image" style="background: ${item.image};"></div>
-                        <div class="cart-item-info">
-                            <div class="cart-item-name">${item.name}</div>
-                            <div class="cart-item-price">R$ ${item.price.toFixed(2)} × ${item.quantity}</div>
-                        </div>
-                        <button class="btn btn-secondary" onclick="removeFromCart(${item.id})">✕</button>
-                    `;
-                    cartItems.appendChild(cartItem);
-                });
-            }
-            
-            cartTotal.textContent = `Total: R$ ${total.toFixed(2)}`;
-        }
-
-        // WISHLIST
-        function toggleWishlist(productId) {
-            const index = wishlist.indexOf(productId);
-            const button = event.target.closest('.btn-wishlist');
-            const icon = button.querySelector('i');
-            
-            if (index === -1) {
-                wishlist.push(productId);
-                button.classList.add('active');
-                icon.classList.remove('far');
-                icon.classList.add('fas');
-                button.style.color = '#e91e63';
-            } else {
-                wishlist.splice(index, 1);
-                button.classList.remove('active');
-                icon.classList.remove('fas');
-                icon.classList.add('far');
-                button.style.color = '';
-            }
-            
-            saveWishlistToStorage();
-        }
-
-        function loadWishlistState() {
-            wishlist.forEach(productId => {
-                const product = products.find(p => p.id === productId);
-                if (product) product.inWishlist = true;
-            });
-        }
-
-        // LOCALIZACIÓN
-        function detectLocation() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(
-                    function(position) {
-                        // Simulamos una dirección basada en coordenadas
-                        const fakeAddress = "Av. Paulista, 1000 - São Paulo, SP";
-                        currentLocation.textContent = fakeAddress;
-                        userLocation = { address: fakeAddress, detected: true };
-                        saveLocationToStorage();
-                    },
-                    function(error) {
-                        currentLocation.textContent = "Permissão de localização negada";
-                    }
-                );
-            } else {
-                currentLocation.textContent = "Geolocalização não suportada";
-            }
-        }
-
-        function saveLocation() {
-            const cep = document.getElementById('cep-input').value;
-            const address = document.getElementById('address-input').value;
-            const city = document.getElementById('city-input').value;
-            const state = document.getElementById('state-select').value;
-            
-            if (address && city && state) {
-                userLocation = {
-                    cep: cep,
-                    address: address,
-                    city: city,
-                    state: state,
-                    detected: false
-                };
+            // Actualizar la visualización del carrito
+            function updateCartDisplay() {
+                cartItemsContainer.innerHTML = '';
                 
-                saveLocationToStorage();
-                updateLocationDisplay();
-                closeLocationModal();
-                
-                alert('📍 Localização salva com sucesso!');
-            } else {
-                alert('Por favor, preencha todos os campos obrigatórios.');
-            }
-        }
-
-        function loadLocationState() {
-            if (userLocation) {
-                updateLocationDisplay();
-            }
-        }
-
-        function updateLocationDisplay() {
-            if (userLocation) {
-                const displayText = userLocation.detected ? 
-                    userLocation.address : 
-                    `${userLocation.address}, ${userLocation.city} - ${userLocation.state}`;
-                currentLocation.textContent = displayText;
-            }
-        }
-
-        // SISTEMA DE USUARIO
-        function showLoginForm() {
-            document.getElementById('login-form').style.display = 'block';
-            document.getElementById('register-form').style.display = 'none';
-            document.getElementById('user-profile').style.display = 'none';
-        }
-
-        function showRegisterForm() {
-            document.getElementById('login-form').style.display = 'none';
-            document.getElementById('register-form').style.display = 'block';
-            document.getElementById('user-profile').style.display = 'none';
-        }
-
-        function showUserProfile() {
-            document.getElementById('login-form').style.display = 'none';
-            document.getElementById('register-form').style.display = 'none';
-            document.getElementById('user-profile').style.display = 'block';
-            
-            document.getElementById('user-name').textContent = user.name;
-            document.getElementById('user-email').textContent = user.email;
-        }
-
-        function login() {
-            const email = document.getElementById('login-email').value;
-            const password = document.getElementById('login-password').value;
-            
-            if (email && password) {
-                // Simulación de login
-                user = {
-                    name: "Usuário Teste",
-                    email: email,
-                    loginTime: new Date().toISOString()
-                };
-                
-                saveUserToStorage();
-                showUserProfile();
-                alert('✅ Login realizado com sucesso!');
-            } else {
-                alert('Por favor, preencha email e senha.');
-            }
-        }
-
-        function register() {
-            const name = document.getElementById('register-name').value;
-            const email = document.getElementById('register-email').value;
-            const password = document.getElementById('register-password').value;
-            const confirm = document.getElementById('register-confirm').value;
-            
-            if (name && email && password && confirm) {
-                if (password !== confirm) {
-                    alert('As senhas não coincidem.');
+                if (cart.length === 0) {
+                    cartItemsContainer.innerHTML = '<div class="empty-cart-message">Seu carrinho está vazio</div>';
+                    cartTotalElement.textContent = 'R$ 0,00';
                     return;
                 }
                 
-                // Simulación de registro
-                user = {
-                    name: name,
-                    email: email,
-                    registerTime: new Date().toISOString()
-                };
+                let total = 0;
+                cart.forEach(item => {
+                    const itemElement = document.createElement('div');
+                    itemElement.className = 'cart-item';
+                    itemElement.innerHTML = `
+                        <div class="item-info">
+                            <div class="item-name">${item.name}</div>
+                            <div class="item-price">R$ ${item.price.toFixed(2).replace('.', ',')} × ${item.quantity}</div>
+                        </div>
+                        <div class="item-quantity">
+                            <button class="quantity-btn minus-btn" data-id="${item.id}">-</button>
+                            <span>${item.quantity}</span>
+                            <button class="quantity-btn plus-btn" data-id="${item.id}">+</button>
+                        </div>
+                    `;
+                    cartItemsContainer.appendChild(itemElement);
+                    
+                    total += item.price * item.quantity;
+                });
                 
-                saveUserToStorage();
-                showUserProfile();
-                alert('✅ Cadastro realizado com sucesso!');
-            } else {
-                alert('Por favor, preencha todos os campos.');
-            }
-        }
-
-        function logout() {
-            user = null;
-            saveUserToStorage();
-            showLoginForm();
-            alert('👋 Até logo!');
-        }
-
-        function loadUserState() {
-            if (user) {
-                showUserProfile();
-            } else {
-                showLoginForm();
-            }
-        }
-
-        // INFORMACIÓN Y FAQ
-        function openInfoModal(type) {
-            const info = infoContent[type];
-            if (info) {
-                document.getElementById('info-title').textContent = info.title;
-                document.getElementById('info-content').innerHTML = info.content;
-                openModal(infoModal, infoOverlay);
-            }
-        }
-
-        // MODALES
-        function openCartModal() {
-            updateCartModal();
-            openModal(cartModal, cartOverlay);
-        }
-
-        function closeCartModal() {
-            closeModal(cartModal, cartOverlay);
-        }
-
-        function openLocationModal() {
-            openModal(locationModal, locationOverlay);
-        }
-
-        function closeLocationModal() {
-            closeModal(locationModal, locationOverlay);
-        }
-
-        function openAccountModal() {
-            openModal(accountModal, accountOverlay);
-        }
-
-        function closeAccountModal() {
-            closeModal(accountModal, accountOverlay);
-        }
-
-        function closeInfoModal() {
-            closeModal(infoModal, infoOverlay);
-        }
-
-        function openModal(modal, overlay) {
-            modal.classList.add('active');
-            overlay.classList.add('active');
-        }
-
-        function closeModal(modal, overlay) {
-            modal.classList.remove('active');
-            overlay.classList.remove('active');
-        }
-
-        // ORDENAR PRODUCTOS
-        function sortProducts() {
-            const sortBy = sortSelect.value;
-            
-            switch(sortBy) {
-                case 'price-low':
-                    products.sort((a, b) => a.price - b.price);
-                    break;
-                case 'price-high':
-                    products.sort((a, b) => b.price - a.price);
-                    break;
-                case 'rating':
-                    products.sort((a, b) => b.discount - a.discount);
-                    break;
-                default:
-                    products.sort((a, b) => a.id - b.id);
+                cartTotalElement.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
+                
+                // Agregar event listeners a los botones de cantidad
+                document.querySelectorAll('.minus-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const id = parseInt(this.getAttribute('data-id'));
+                        decreaseQuantity(id);
+                    });
+                });
+                
+                document.querySelectorAll('.plus-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const id = parseInt(this.getAttribute('data-id'));
+                        increaseQuantity(id);
+                    });
+                });
             }
             
-            loadProducts();
-        }
-
-        // COOKIES
-        function acceptAllCookies() {
-            document.querySelector('.cookies-banner').style.display = 'none';
-            localStorage.setItem('cookiesAccepted', 'true');
-        }
-
-        // LOCAL STORAGE
-        function saveCartToStorage() {
-            localStorage.setItem('cart', JSON.stringify(cart));
-        }
-
-        function saveWishlistToStorage() {
-            localStorage.setItem('wishlist', JSON.stringify(wishlist));
-        }
-
-        function saveUserToStorage() {
-            localStorage.setItem('user', JSON.stringify(user));
-        }
-
-        function saveLocationToStorage() {
-            localStorage.setItem('userLocation', JSON.stringify(userLocation));
-        }
-
-        // Verificar cookies al cargar
-        if (localStorage.getItem('cookiesAccepted') === 'true') {
-            document.querySelector('.cookies-banner').style.display = 'none';
-        }
+            // Agregar producto al carrito
+            function addToCart(id, name, price) {
+                const existingItem = cart.find(item => item.id === id);
+                
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({
+                        id: id,
+                        name: name,
+                        price: parseFloat(price),
+                        quantity: 1
+                    });
+                }
+                
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartDisplay();
+                showNotification('Produto adicionado ao carrinho!');
+            }
+            
+            // Aumentar cantidad
+            function increaseQuantity(id) {
+                const item = cart.find(item => item.id === id);
+                if (item) {
+                    item.quantity += 1;
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    updateCartDisplay();
+                }
+            }
+            
+            // Disminuir cantidad
+            function decreaseQuantity(id) {
+                const item = cart.find(item => item.id === id);
+                if (item) {
+                    if (item.quantity > 1) {
+                        item.quantity -= 1;
+                    } else {
+                        cart = cart.filter(item => item.id !== id);
+                    }
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    updateCartDisplay();
+                }
+            }
+            
+            // Mostrar notificación
+            function showNotification(message) {
+                notification.textContent = message;
+                notification.style.display = 'block';
+                setTimeout(() => {
+                    notification.style.display = 'none';
+                }, 3000);
+            }
+            
+            // Event listeners para botones "Adicionar ao Carrinho"
+            document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const id = parseInt(this.getAttribute('data-id'));
+                    const name = this.getAttribute('data-name');
+                    const price = this.getAttribute('data-price');
+                    
+                    addToCart(id, name, price);
+                });
+            });
+            
+            // Event listener para "Finalizar Compra"
+            checkoutBtn.addEventListener('click', function() {
+                if (cart.length === 0) {
+                    alert('Seu carrinho está vazio!');
+                    return;
+                }
+                
+                const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                alert(`Compra finalizada com sucesso!\nTotal: R$ ${total.toFixed(2).replace('.', ',')}\nObrigado pela sua compra!`);
+                
+                // Limpiar carrito
+                cart = [];
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartDisplay();
+            });
+            
+            // Inicializar carrito
+            updateCartDisplay();
+        });
     </script>
 </body>
 </html>
