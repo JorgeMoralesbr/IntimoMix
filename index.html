@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IntimoMix - Juguetes Íntimos y Placer</title>
+    <style>
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        /* Header */
+        .app-banner {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+        }
+        
+        .app-banner .coupon {
+            font-weight: bold;
+            background: white;
+            color: #ff6b6b;
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-left: 5px;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff6b6b;
+        }
+        
+        .nav-icons {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-icons div {
+            text-align: center;
+            font-size: 12px;
+        }
+        
+        /* Filtros y ordenamiento */
+        .filters {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 5%;
+            background: white;
+            margin: 10px 0;
+        }
+        
+        /* Grid de productos */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 0 5% 40px;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .product-image {
+            height: 200px;
+            background: #f9f9f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ccc;
+        }
+        
+        .product-info {
+            padding: 15px;
+        }
+        
+        .brand {
+            color: #888;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+        
+        .product-name {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .price {
+            color: #ff6b6b;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .original-price {
+            color: #888;
+            text-decoration: line-through;
+            font-size: 14px;
+            margin-left: 5px;
+        }
+        
+        .discount-badge {
+            background: #ff6b6b;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-size: 12px;
+            margin-top: 5px;
+            display: inline-block;
+        }
+        
+        /* Cookies */
+        .cookies-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 15px;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        
+        .cookie-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .btn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: #ff6b6b;
+            color: white;
+        }
+        
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <!-- Banner App -->
+    <div class="app-banner">
+        ¡Sólo en la App! 10% OFF en tu primera compra • CUPÓN: <span class="coupon">APP10</span>
+    </div>
+    
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">INTIMOMIX</div>
+        <div class="nav-icons">
+            <div>
+                <div>📍</div>
+                <div>Mi Ubicación</div>
+            </div>
+            <div>
+                <div>👤</div>
+                <div>Mi Cuenta</div>
+            </div>
+            <div>
+                <div>🛍️</div>
+                <div>Mi Bolsa</div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Filtros -->
+    <div class="filters">
+        <div>Total de 5 productos</div>
+        <div>
+            <select>
+                <option>Ordenar por: Relevancia</option>
+                <option>Precio: Menor a Mayor</option>
+                <option>Precio: Mayor a Menor</option>
+            </select>
+        </div>
+    </div>
+    
+    <!-- Grid de Productos -->
+    <div class="products-grid">
+        <!-- Producto 1 -->
+        <div class="product-card">
+            <div class="product-image">[Imagen del Producto]</div>
+            <div class="product-info">
+                <div class="brand">INTIMOMIX</div>
+                <div class="product-name">Flex Vibrador y Sugador de Clítoris</div>
+                <div class="price">R$ 179,90 <span class="original-price">R$ 249,90</span></div>
+                <div class="discount-badge">28% OFF</div>
+            </div>
+        </div>
+        
+        <!-- Producto 2 -->
+        <div class="product-card">
+            <div class="product-image">[Imagen del Producto]</div>
+            <div class="product-info">
+                <div class="brand">INTIMOMIX</div>
+                <div class="product-name">Samba Vibrador Rabbit con Power Finger</div>
+                <div class="price">R$ 219,90 <span class="original-price">R$ 299,90</span></div>
+                <div class="discount-badge">27% OFF</div>
+            </div>
+        </div>
+        
+        <!-- Producto 3 -->
+        <div class="product-card">
+            <div class="product-image">[Imagen del Producto]</div>
+            <div class="product-info">
+                <div class="brand">INTIMOMIX</div>
+                <div class="product-name">Beste Sugador de Clítoris Recargable</div>
+                <div class="price">R$ 159,90 <span class="original-price">R$ 199,90</span></div>
+                <div class="discount-badge">20% OFF</div>
+            </div>
+        </div>
+        
+        <!-- Producto 4 -->
+        <div class="product-card">
+            <div class="product-image">[Imagen del Producto]</div>
+            <div class="product-info">
+                <div class="brand">INTIMOMIX</div>
+                <div class="product-name">Fun Vibrador Bullet Recargable</div>
+                <div class="price">R$ 89,90 <span class="original-price">R$ 129,90</span></div>
+                <div class="discount-badge">31% OFF</div>
+            </div>
+        </div>
+        
+        <!-- Producto 5 -->
+        <div class="product-card">
+            <div class="product-image">[Imagen del Producto]</div>
+            <div class="product-info">
+                <div class="brand">INTIMOMIX</div>
+                <div class="product-name">Kit Gol Masturbador Egg + Sense Lube</div>
+                <div class="price">R$ 149,90 <span class="original-price">R$ 189,90</span></div>
+                <div class="discount-badge">21% OFF</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Banner de Cookies -->
+    <div class="cookies-banner">
+        <p>Al hacer clic en "Aceptar todas las cookies", aceptas el almacenamiento de cookies en tu dispositivo para mejorar la navegación en el sitio, analizar su uso y ayudar en nuestras iniciativas de marketing.</p>
+        <div class="cookie-buttons">
+            <button class="btn btn-secondary">Configuración</button>
+            <button class="btn btn-primary">Aceptar todas las cookies</button>
+        </div>
+    </div>
+</body>
+</html>
