@@ -16,56 +16,63 @@
             background-color: #f8f8f8;
             color: #333;
             line-height: 1.6;
+            padding: 20px;
         }
         
         .container {
             max-width: 800px;
             margin: 0 auto;
-            padding: 20px;
             background: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            margin-top: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
         }
         
         header {
+            background: linear-gradient(135deg, #8a2be2, #7a1bd2);
+            color: white;
+            padding: 30px 20px;
             text-align: center;
-            margin-bottom: 30px;
         }
         
         h1 {
-            color: #8a2be2;
-            font-size: 28px;
+            font-size: 32px;
             margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
         
         .subtitle {
-            color: #666;
-            font-size: 14px;
+            font-size: 16px;
+            opacity: 0.9;
             margin-bottom: 20px;
         }
         
         .user-info {
-            text-align: center;
-            margin-bottom: 15px;
+            margin-top: 15px;
         }
         
         .login-btn {
-            background: #8a2be2;
+            background: rgba(255,255,255,0.2);
             color: white;
-            border: none;
+            border: 2px solid white;
             padding: 10px 20px;
-            border-radius: 5px;
+            border-radius: 25px;
             cursor: pointer;
             font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .login-btn:hover {
+            background: white;
+            color: #8a2be2;
         }
         
         .logout-btn {
             background: #ff4757;
             color: white;
             border: none;
-            padding: 5px 10px;
-            border-radius: 3px;
+            padding: 8px 15px;
+            border-radius: 20px;
             cursor: pointer;
             margin-left: 10px;
         }
@@ -73,56 +80,68 @@
         .promo-banner {
             background: linear-gradient(135deg, #ff6b6b, #ee5a52);
             color: white;
-            padding: 15px;
+            padding: 20px;
             text-align: center;
-            border-radius: 8px;
-            margin: 20px 0;
             font-weight: bold;
             font-size: 18px;
         }
         
         .products-count {
             text-align: center;
-            margin: 15px 0;
+            margin: 20px 0;
             font-weight: bold;
+            color: #666;
+            font-size: 16px;
         }
         
         .discount-table {
             width: 100%;
             border-collapse: collapse;
             margin: 20px 0;
-            text-align: center;
         }
         
         .discount-table td {
-            padding: 12px;
+            padding: 15px;
             border: 2px solid #8a2be2;
-            background: #f8f8f8;
+            background: #f8f0ff;
             font-weight: bold;
             color: #8a2be2;
+            text-align: center;
+            font-size: 14px;
         }
         
-        .product-section {
+        .products-section {
+            padding: 0 20px;
+        }
+        
+        .product-card {
             background: white;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 20px;
+            border: 2px solid #f0f0f0;
+            border-radius: 12px;
+            padding: 25px;
             margin: 20px 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            border-color: #8a2be2;
         }
         
         .product-brand {
             color: #8a2be2;
             font-weight: bold;
             font-size: 14px;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
         
         .product-name {
             font-weight: bold;
-            font-size: 18px;
+            font-size: 20px;
             margin: 10px 0;
             color: #333;
+            line-height: 1.3;
         }
         
         .product-price {
@@ -130,7 +149,7 @@
         }
         
         .current-price {
-            font-size: 20px;
+            font-size: 24px;
             font-weight: bold;
             color: #8a2be2;
         }
@@ -146,13 +165,14 @@
             background: #8a2be2;
             color: white;
             border: none;
-            padding: 12px 20px;
-            border-radius: 5px;
+            padding: 15px 25px;
+            border-radius: 8px;
             cursor: pointer;
             font-weight: bold;
             width: 100%;
-            margin-top: 10px;
+            margin-top: 15px;
             font-size: 16px;
+            transition: background 0.3s;
         }
         
         .add-to-cart-btn:hover {
@@ -163,17 +183,17 @@
             text-align: center;
             color: #ff4757;
             font-size: 12px;
-            margin-top: 5px;
+            margin-top: 8px;
             font-weight: bold;
         }
         
         .cart-container {
             background: white;
-            border-radius: 10px;
-            padding: 25px;
-            margin: 30px 0;
+            margin: 30px 20px;
             border: 2px solid #e0e0e0;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
         
         .cart-title {
@@ -182,14 +202,33 @@
             margin-bottom: 20px;
             text-align: center;
             border-bottom: 2px solid #f0f0f0;
-            padding-bottom: 10px;
+            padding-bottom: 15px;
         }
         
         #cart-items {
-            min-height: 100px;
+            min-height: 120px;
             padding: 20px;
             text-align: center;
             color: #666;
+            font-size: 16px;
+        }
+        
+        .checkout-btn {
+            background: #00b894;
+            color: white;
+            border: none;
+            padding: 18px 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            margin-top: 20px;
+            font-size: 18px;
+            transition: background 0.3s;
+        }
+        
+        .checkout-btn:hover {
+            background: #00a885;
         }
         
         .notification {
@@ -199,10 +238,18 @@
             background: #4CAF50;
             color: white;
             padding: 15px 25px;
-            border-radius: 5px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
             display: none;
             z-index: 1000;
+            font-weight: bold;
+        }
+        
+        .user-welcome {
+            background: rgba(255,255,255,0.1);
+            padding: 10px 15px;
+            border-radius: 20px;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -217,60 +264,78 @@
         </header>
         
         <div class="promo-banner">
-            Beauty November - Até 30% OFF + Frete GRÁTIS
+            🎉 Beauty November - Até 30% OFF + Frete GRÁTIS 🎉
         </div>
         
         <div class="products-count">
-            Total de 5 produtos
+            ✨ Total de 5 produtos exclusivos ✨
         </div>
         
         <table class="discount-table">
             <tr>
-                <td>10% OFF</td>
-                <td>27% OFF</td>
-                <td>20% OFF</td>
+                <td>🎁 10% OFF</td>
+                <td>🔥 27% OFF</td>
+                <td>💜 20% OFF</td>
             </tr>
             <tr>
-                <td>FRETE GRÁTIS</td>
-                <td>FRETE GRÁTIS</td>
-                <td>FRETE GRÁTIS</td>
+                <td>🚚 FRETE GRÁTIS</td>
+                <td>🚚 FRETE GRÁTIS</td>
+                <td>🚚 FRETE GRÁTIS</td>
             </tr>
         </table>
 
-        <!-- PRODUCTOS -->
-        <div class="product-section">
-            <div class="product-brand">VIBRAÇÕES ÍNTIMAS</div>
-            <div class="product-name">Flex Vibrador e Sugador de Clitóris</div>
-            <div class="product-price">
-                <span class="current-price">R$ 174,93</span>
-                <span class="original-price">R$ 249,90</span>
+        <div class="products-section">
+            <!-- PRODUCTO 1 -->
+            <div class="product-card">
+                <div class="product-brand">VIBRAÇÕES ÍNTIMAS</div>
+                <div class="product-name">Flex Vibrador e Sugador de Clitóris</div>
+                <div class="product-price">
+                    <span class="current-price">R$ 174,93</span>
+                    <span class="original-price">R$ 249,90</span>
+                </div>
+                <button class="add-to-cart-btn" onclick="addToCart(1, 'Flex Vibrador e Sugador de Clitóris', 174.93)">
+                    🛒 Adicionar ao Carrinho
+                </button>
+                <div class="login-required">* Login obrigatório para comprar</div>
             </div>
-            <button class="add-to-cart-btn" onclick="addToCart()">
-                🛒 Adicionar ao Carrinho
-            </button>
-            <div class="login-required">* Login obrigatório para comprar</div>
-        </div>
 
-        <div class="product-section">
-            <div class="product-brand">VIBRAÇÕES ÍNTIMAS</div>
-            <div class="product-name">Samba Vibrador Rabbit com Power Finger</div>
-            <div class="product-price">
-                <span class="current-price">R$ 218,93</span>
-                <span class="original-price">R$ 299,90</span>
+            <!-- PRODUCTO 2 -->
+            <div class="product-card">
+                <div class="product-brand">VIBRAÇÕES ÍNTIMAS</div>
+                <div class="product-name">Samba Vibrador Rabbit com Power Finger</div>
+                <div class="product-price">
+                    <span class="current-price">R$ 218,93</span>
+                    <span class="original-price">R$ 299,90</span>
+                </div>
+                <button class="add-to-cart-btn" onclick="addToCart(2, 'Samba Vibrador Rabbit com Power Finger', 218.93)">
+                    🛒 Adicionar ao Carrinho
+                </button>
+                <div class="login-required">* Login obrigatório para comprar</div>
             </div>
-            <button class="add-to-cart-btn" onclick="addToCart()">
-                🛒 Adicionar ao Carrinho
-            </button>
-            <div class="login-required">* Login obrigatório para comprar</div>
+
+            <!-- PRODUCTO 3 -->
+            <div class="product-card">
+                <div class="product-brand">VIBRAÇÕES ÍNTIMAS</div>
+                <div class="product-name">Beste Sugador de Clitóris Recarregável</div>
+                <div class="product-price">
+                    <span class="current-price">R$ 159,92</span>
+                    <span class="original-price">R$ 199,90</span>
+                </div>
+                <button class="add-to-cart-btn" onclick="addToCart(3, 'Beste Sugador de Clitóris Recarregável', 159.92)">
+                    🛒 Adicionar ao Carrinho
+                </button>
+                <div class="login-required">* Login obrigatório para comprar</div>
+            </div>
         </div>
 
         <!-- CARRITO -->
         <div class="cart-container">
-            <h2 class="cart-title">Minha Sacola</h2>
+            <h2 class="cart-title">🛍️ Minha Sacola</h2>
             <div id="cart-items">
                 Seu carrinho está vazio
             </div>
-            <button class="add-to-cart-btn" onclick="checkout()">
+            <div id="cart-total" style="text-align: center; margin: 15px 0; font-size: 18px; color: #8a2be2; font-weight: bold;"></div>
+            <button class="checkout-btn" onclick="checkout()">
                 💳 Finalizar Compra
             </button>
         </div>
@@ -282,22 +347,32 @@
         let user = null;
         let cart = [];
         
-        function showNotification(message) {
+        function showNotification(message, type = 'success') {
             const notification = document.getElementById('notification');
             notification.textContent = message;
+            notification.style.background = type === 'error' ? '#ff4757' : '#4CAF50';
             notification.style.display = 'block';
             setTimeout(() => {
                 notification.style.display = 'none';
-            }, 3000);
+            }, 4000);
         }
         
         function showLogin() {
-            const email = prompt('🔐 Login obrigatório\n\nDigite seu email:');
-            if (email) {
-                user = { name: "Cliente", email: email };
-                document.getElementById('user-info').innerHTML = 
-                    `Olá, ${user.name} <button class="logout-btn" onclick="logout()">Sair</button>`;
-                showNotification('✅ Login realizado com sucesso!');
+            const email = prompt('🔐 LOGIN OBRIGATÓRIO\n\nPara sua segurança, faça login para comprar:\n\nDigite seu email:');
+            if (email && email.includes('@')) {
+                user = { 
+                    name: email.split('@')[0], 
+                    email: email 
+                };
+                document.getElementById('user-info').innerHTML = `
+                    <div class="user-welcome">
+                        Olá, <strong>${user.name}</strong> 
+                        <button class="logout-btn" onclick="logout()">Sair</button>
+                    </div>
+                `;
+                showNotification('✅ Login realizado com sucesso! Agora você pode comprar.');
+            } else if (email) {
+                showNotification('❌ Email inválido! Digite um email válido.', 'error');
             }
         }
         
@@ -307,35 +382,84 @@
             document.getElementById('user-info').innerHTML = 
                 '<button class="login-btn" onclick="showLogin()">🔐 Fazer Login</button>';
             document.getElementById('cart-items').innerHTML = 'Seu carrinho está vazio';
-            showNotification('🔒 Logout realizado');
+            document.getElementById('cart-total').innerHTML = '';
+            showNotification('🔒 Logout realizado com sucesso.');
         }
         
-        function addToCart() {
+        function addToCart(id, name, price) {
             if (!user) {
-                showNotification('🚫 Faça login para adicionar produtos ao carrinho!');
+                showNotification('🚫 FAÇA LOGIN PRIMEIRO!\nClique em "Fazer Login" para adicionar produtos.', 'error');
                 showLogin();
                 return;
             }
             
-            document.getElementById('cart-items').innerHTML = 
-                'Flex Vibrador e Sugador de Clitóris<br>R$ 174,93 × 1';
-            showNotification('✅ Produto adicionado ao carrinho!');
+            const existingItem = cart.find(item => item.id === id);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id: id,
+                    name: name,
+                    price: price,
+                    quantity: 1
+                });
+            }
+            
+            updateCartDisplay();
+            showNotification(`✅ ${name} adicionado ao carrinho!`);
+        }
+        
+        function updateCartDisplay() {
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+            
+            if (cart.length === 0) {
+                cartItems.innerHTML = 'Seu carrinho está vazio';
+                cartTotal.innerHTML = '';
+                return;
+            }
+            
+            let html = '';
+            let total = 0;
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                html += `
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #f0f0f0;">
+                        <div style="text-align: left;">
+                            <div style="font-weight: bold;">${item.name}</div>
+                            <div style="color: #8a2be2;">R$ ${item.price.toFixed(2)} × ${item.quantity}</div>
+                        </div>
+                        <div style="color: #8a2be2; font-weight: bold;">
+                            R$ ${itemTotal.toFixed(2)}
+                        </div>
+                    </div>
+                `;
+            });
+            
+            cartItems.innerHTML = html;
+            cartTotal.innerHTML = `Total: R$ ${total.toFixed(2)}`;
         }
         
         function checkout() {
             if (!user) {
-                showNotification('🚫 Faça login para finalizar a compra!');
+                showNotification('🚫 FAÇA LOGIN para finalizar a compra!', 'error');
                 showLogin();
                 return;
             }
             
-            if (document.getElementById('cart-items').innerHTML === 'Seu carrinho está vazio') {
-                showNotification('🛒 Seu carrinho está vazio!');
+            if (cart.length === 0) {
+                showNotification('🛒 Seu carrinho está vazio!', 'error');
                 return;
             }
             
-            showNotification('✅ Compra finalizada com sucesso! Total: R$ 174,93');
-            document.getElementById('cart-items').innerHTML = 'Seu carrinho está vazio';
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            showNotification(`✅ COMPRA FINALIZADA!\nTotal: R$ ${total.toFixed(2)}\nObrigado pela preferência!`);
+            
+            // Limpiar carrito después de compra
+            cart = [];
+            updateCartDisplay();
         }
     </script>
 </body>
