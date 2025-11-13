@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VIBRAÇÕES ÍNTIMAS</title>
+    <title>VIBRAÇÕES ÍNTIMAS - Loja Oficial</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
         }
         
         body {
-            background-color: #f5f5f5;
+            background-color: #f8f8f8;
             color: #333;
             line-height: 1.6;
         }
@@ -28,18 +28,46 @@
             margin-top: 20px;
         }
         
-        h1 {
+        header {
             text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        h1 {
             color: #8a2be2;
-            font-size: 24px;
+            font-size: 28px;
             margin-bottom: 10px;
         }
         
         .subtitle {
-            text-align: center;
             color: #666;
             font-size: 14px;
             margin-bottom: 20px;
+        }
+        
+        .user-info {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        .login-btn {
+            background: #8a2be2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .logout-btn {
+            background: #ff4757;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-left: 10px;
         }
         
         .promo-banner {
@@ -50,6 +78,7 @@
             border-radius: 8px;
             margin: 20px 0;
             font-weight: bold;
+            font-size: 18px;
         }
         
         .products-count {
@@ -66,22 +95,89 @@
         }
         
         .discount-table td {
-            padding: 10px;
-            border: 1px solid #ddd;
+            padding: 12px;
+            border: 2px solid #8a2be2;
             background: #f8f8f8;
+            font-weight: bold;
+            color: #8a2be2;
         }
         
-        /* ESTILOS DEL CARRITO MEJORADO */
+        .product-section {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .product-brand {
+            color: #8a2be2;
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        .product-name {
+            font-weight: bold;
+            font-size: 18px;
+            margin: 10px 0;
+            color: #333;
+        }
+        
+        .product-price {
+            margin: 15px 0;
+        }
+        
+        .current-price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #8a2be2;
+        }
+        
+        .original-price {
+            text-decoration: line-through;
+            color: #999;
+            margin-left: 10px;
+            font-size: 16px;
+        }
+        
+        .add-to-cart-btn {
+            background: #8a2be2;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+        
+        .add-to-cart-btn:hover {
+            background: #7a1bd2;
+        }
+        
+        .login-required {
+            text-align: center;
+            color: #ff4757;
+            font-size: 12px;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+        
         .cart-container {
             background: white;
             border-radius: 10px;
-            padding: 20px;
-            margin: 20px 0;
+            padding: 25px;
+            margin: 30px 0;
             border: 2px solid #e0e0e0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
         
         .cart-title {
-            font-size: 22px;
+            font-size: 24px;
             color: #8a2be2;
             margin-bottom: 20px;
             text-align: center;
@@ -89,254 +185,24 @@
             padding-bottom: 10px;
         }
         
-        .cart-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-            border-bottom: 1px solid #f0f0f0;
-        }
-        
-        .item-info {
-            flex-grow: 1;
-        }
-        
-        .item-name {
-            font-weight: bold;
-            font-size: 16px;
-            margin-bottom: 5px;
-        }
-        
-        .item-price {
-            color: #8a2be2;
-            font-weight: bold;
-            font-size: 16px;
-        }
-        
-        .item-quantity {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .quantity-btn {
-            background-color: #8a2be2;
-            color: white;
-            border: none;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .quantity-btn:hover {
-            background-color: #7a1bd2;
-        }
-        
-        .remove-btn {
-            background: #ff4757;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 3px;
-            cursor: pointer;
-            margin-left: 10px;
-            font-size: 12px;
-        }
-        
-        .cart-total {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 2px solid #f0f0f0;
-            font-size: 20px;
-            font-weight: bold;
-            color: #8a2be2;
-        }
-        
-        .checkout-btn {
-            background-color: #8a2be2;
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 18px;
-            width: 100%;
-            transition: background-color 0.3s;
-            margin-top: 20px;
-        }
-        
-        .checkout-btn:hover {
-            background-color: #7a1bd2;
-        }
-        
-        .empty-cart-message {
+        #cart-items {
+            min-height: 100px;
+            padding: 20px;
             text-align: center;
             color: #666;
-            padding: 40px 20px;
-            font-style: italic;
         }
         
         .notification {
             position: fixed;
             top: 20px;
             right: 20px;
-            background-color: #4CAF50;
+            background: #4CAF50;
             color: white;
             padding: 15px 25px;
             border-radius: 5px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             display: none;
             z-index: 1000;
-        }
-        
-        /* MODAL DE LOGIN */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 1000;
-        }
-        
-        .modal-content {
-            background: white;
-            margin: 10% auto;
-            padding: 30px;
-            border-radius: 10px;
-            width: 90%;
-            max-width: 400px;
-        }
-        
-        .modal-title {
-            color: #8a2be2;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        
-        .form-group {
-            margin-bottom: 15px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-        
-        .form-group input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-        
-        .form-buttons {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-        }
-        
-        .btn-primary {
-            background: #8a2be2;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            flex: 1;
-        }
-        
-        .btn-secondary {
-            background: #666;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            flex: 1;
-        }
-        
-        .user-info {
-            text-align: center;
-            margin-bottom: 10px;
-            color: #666;
-        }
-        
-        .logout-btn {
-            background: #ff4757;
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 3px;
-            cursor: pointer;
-            margin-left: 10px;
-        }
-        
-        /* PRODUCTOS */
-        .product-section {
-            margin: 20px 0;
-            padding: 15px;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-        }
-        
-        .product-brand {
-            color: #8a2be2;
-            font-weight: bold;
-            font-size: 14px;
-        }
-        
-        .product-name {
-            font-weight: bold;
-            font-size: 16px;
-            margin: 5px 0;
-        }
-        
-        .product-price {
-            margin: 10px 0;
-        }
-        
-        .current-price {
-            font-weight: bold;
-            color: #8a2be2;
-            font-size: 18px;
-        }
-        
-        .original-price {
-            text-decoration: line-through;
-            color: #999;
-            margin-left: 10px;
-        }
-        
-        .add-to-cart-btn {
-            background: #8a2be2;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 100%;
-            margin-top: 10px;
-        }
-
-        .login-required {
-            text-align: center;
-            color: #ff4757;
-            font-size: 12px;
-            margin-top: 5px;
-            display: none;
         }
     </style>
 </head>
@@ -346,7 +212,7 @@
             <h1>VIBRAÇÕES ÍNTIMAS</h1>
             <p class="subtitle">Prazer & Sem Limites</p>
             <div class="user-info" id="user-info">
-                <!-- Usuario info aparecerá aquí -->
+                <button class="login-btn" onclick="showLogin()">🔐 Fazer Login</button>
             </div>
         </header>
         
@@ -379,10 +245,10 @@
                 <span class="current-price">R$ 174,93</span>
                 <span class="original-price">R$ 249,90</span>
             </div>
-            <button class="add-to-cart-btn" data-id="1" data-name="Flex Vibrador e Sugador de Clitóris" data-price="174.93">
-                Adicionar ao Carrinho
+            <button class="add-to-cart-btn" onclick="addToCart()">
+                🛒 Adicionar ao Carrinho
             </button>
-            <div class="login-required" id="login-required-1">* Login obrigatório</div>
+            <div class="login-required">* Login obrigatório para comprar</div>
         </div>
 
         <div class="product-section">
@@ -392,413 +258,85 @@
                 <span class="current-price">R$ 218,93</span>
                 <span class="original-price">R$ 299,90</span>
             </div>
-            <button class="add-to-cart-btn" data-id="2" data-name="Samba Vibrador Rabbit com Power Finger" data-price="218.93">
-                Adicionar ao Carrinho
+            <button class="add-to-cart-btn" onclick="addToCart()">
+                🛒 Adicionar ao Carrinho
             </button>
-            <div class="login-required" id="login-required-2">* Login obrigatório</div>
+            <div class="login-required">* Login obrigatório para comprar</div>
         </div>
 
-        <div class="product-section">
-            <div class="product-brand">VIBRAÇÕES ÍNTIMAS</div>
-            <div class="product-name">Beste Sugador de Clitóris Recarregável</div>
-            <div class="product-price">
-                <span class="current-price">R$ 159,92</span>
-                <span class="original-price">R$ 199,90</span>
-            </div>
-            <button class="add-to-cart-btn" data-id="3" data-name="Beste Sugador de Clitóris Recarregável" data-price="159.92">
-                Adicionar ao Carrinho
-            </button>
-            <div class="login-required" id="login-required-3">* Login obrigatório</div>
-        </div>
-
-        <div class="product-section">
-            <div class="product-brand">VIBRAÇÕES ÍNTIMAS</div>
-            <div class="product-name">Fun Vibrador Bullet Recarregável</div>
-            <div class="product-price">
-                <span class="current-price">R$ 89,63</span>
-                <span class="original-price">R$ 119,90</span>
-            </div>
-            <button class="add-to-cart-btn" data-id="4" data-name="Fun Vibrador Bullet Recarregável" data-price="89.63">
-                Adicionar ao Carrinho
-            </button>
-            <div class="login-required" id="login-required-4">* Login obrigatório</div>
-        </div>
-        
-        <!-- CARRITO INTERACTIVO -->
+        <!-- CARRITO -->
         <div class="cart-container">
             <h2 class="cart-title">Minha Sacola</h2>
-            
             <div id="cart-items">
-                <div class="empty-cart-message">Seu carrinho está vazio</div>
+                Seu carrinho está vazio
             </div>
-            
-            <div class="cart-total">
-                <span>Total:</span>
-                <span id="cart-total">R$ 0,00</span>
-            </div>
-            
-            <button class="checkout-btn" id="checkout-btn">Finalizar Compra</button>
-        </div>
-    </div>
-    
-    <!-- MODAL DE LOGIN -->
-    <div id="login-modal" class="modal">
-        <div class="modal-content">
-            <h2 class="modal-title">Login Obrigatório</h2>
-            <p style="text-align: center; margin-bottom: 20px; color: #666;">
-                Faça login ou cadastre-se para continuar com a compra
-            </p>
-            <div class="form-group">
-                <label>Email:</label>
-                <input type="email" id="login-email" placeholder="Seu email">
-            </div>
-            <div class="form-group">
-                <label>Senha:</label>
-                <input type="password" id="login-password" placeholder="Sua senha">
-            </div>
-            <div class="form-buttons">
-                <button class="btn-secondary" id="close-login">Fechar</button>
-                <button class="btn-primary" id="do-login">Entrar</button>
-            </div>
-            <p style="text-align: center; margin-top: 15px;">
-                Não tem conta? <a href="#" id="show-register">Cadastre-se aqui</a>
-            </p>
+            <button class="add-to-cart-btn" onclick="checkout()">
+                💳 Finalizar Compra
+            </button>
         </div>
     </div>
 
-    <!-- MODAL DE REGISTRO -->
-    <div id="register-modal" class="modal">
-        <div class="modal-content">
-            <h2 class="modal-title">Cadastro</h2>
-            <div class="form-group">
-                <label>Nome completo:</label>
-                <input type="text" id="register-name" placeholder="Seu nome completo">
-            </div>
-            <div class="form-group">
-                <label>Email:</label>
-                <input type="email" id="register-email" placeholder="Seu email">
-            </div>
-            <div class="form-group">
-                <label>Senha:</label>
-                <input type="password" id="register-password" placeholder="Crie uma senha">
-            </div>
-            <div class="form-group">
-                <label>Confirmar Senha:</label>
-                <input type="password" id="register-confirm" placeholder="Confirme sua senha">
-            </div>
-            <div class="form-buttons">
-                <button class="btn-secondary" id="close-register">Fechar</button>
-                <button class="btn-primary" id="do-register">Cadastrar</button>
-            </div>
-        </div>
-    </div>
-    
-    <!-- NOTIFICACIÓN -->
     <div class="notification" id="notification"></div>
 
     <script>
-        // SISTEMA DE CARRITO CON LOGIN OBLIGATORIO - VERSIÓN MEJORADA
-        document.addEventListener('DOMContentLoaded', function() {
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            let user = JSON.parse(localStorage.getItem('user')) || null;
-            
-            // Elementos DOM
-            const cartItemsContainer = document.getElementById('cart-items');
-            const cartTotalElement = document.getElementById('cart-total');
-            const checkoutBtn = document.getElementById('checkout-btn');
+        let user = null;
+        let cart = [];
+        
+        function showNotification(message) {
             const notification = document.getElementById('notification');
-            const userInfo = document.getElementById('user-info');
-            
-            // Inicializar la aplicación
-            initApp();
-            
-            function initApp() {
-                updateUserDisplay();
-                updateCartDisplay();
-                bindEvents();
-                checkLoginStatus();
+            notification.textContent = message;
+            notification.style.display = 'block';
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 3000);
+        }
+        
+        function showLogin() {
+            const email = prompt('🔐 Login obrigatório\n\nDigite seu email:');
+            if (email) {
+                user = { name: "Cliente", email: email };
+                document.getElementById('user-info').innerHTML = 
+                    `Olá, ${user.name} <button class="logout-btn" onclick="logout()">Sair</button>`;
+                showNotification('✅ Login realizado com sucesso!');
+            }
+        }
+        
+        function logout() {
+            user = null;
+            cart = [];
+            document.getElementById('user-info').innerHTML = 
+                '<button class="login-btn" onclick="showLogin()">🔐 Fazer Login</button>';
+            document.getElementById('cart-items').innerHTML = 'Seu carrinho está vazio';
+            showNotification('🔒 Logout realizado');
+        }
+        
+        function addToCart() {
+            if (!user) {
+                showNotification('🚫 Faça login para adicionar produtos ao carrinho!');
+                showLogin();
+                return;
             }
             
-            function bindEvents() {
-                // Botones agregar al carrito
-                document.querySelectorAll('.add-to-cart-btn').forEach(button => {
-                    button.addEventListener('click', function() {
-                        const id = parseInt(this.getAttribute('data-id'));
-                        const name = this.getAttribute('data-name');
-                        const price = this.getAttribute('data-price');
-                        addToCart(id, name, price);
-                    });
-                });
-                
-                // Login/Registro
-                document.getElementById('do-login').addEventListener('click', doLogin);
-                document.getElementById('do-register').addEventListener('click', doRegister);
-                document.getElementById('show-register').addEventListener('click', showRegister);
-                document.getElementById('close-login').addEventListener('click', () => closeModal('login'));
-                document.getElementById('close-register').addEventListener('click', () => closeModal('register'));
-                
-                // Finalizar compra
-                checkoutBtn.addEventListener('click', checkout);
+            document.getElementById('cart-items').innerHTML = 
+                'Flex Vibrador e Sugador de Clitóris<br>R$ 174,93 × 1';
+            showNotification('✅ Produto adicionado ao carrinho!');
+        }
+        
+        function checkout() {
+            if (!user) {
+                showNotification('🚫 Faça login para finalizar a compra!');
+                showLogin();
+                return;
             }
             
-            function checkLoginStatus() {
-                // Mostrar mensaje de login requerido si no hay usuario
-                document.querySelectorAll('.login-required').forEach(element => {
-                    element.style.display = user ? 'none' : 'block';
-                });
+            if (document.getElementById('cart-items').innerHTML === 'Seu carrinho está vazio') {
+                showNotification('🛒 Seu carrinho está vazio!');
+                return;
             }
             
-            function updateUserDisplay() {
-                if (user) {
-                    userInfo.innerHTML = `
-                        Olá, <strong>${user.name}</strong> 
-                        <button class="logout-btn" id="logout-btn">Sair</button>
-                    `;
-                    document.getElementById('logout-btn').addEventListener('click', logout);
-                } else {
-                    userInfo.innerHTML = `
-                        <button class="btn-primary" id="show-login-btn" style="padding: 8px 15px; font-size: 14px;">
-                            🔐 Fazer Login
-                        </button>
-                    `;
-                    document.getElementById('show-login-btn').addEventListener('click', () => showModal('login'));
-                }
-                checkLoginStatus();
-            }
-            
-            // LOGIN Y REGISTRO
-            function showModal(type) {
-                document.getElementById(`${type}-modal`).style.display = 'block';
-            }
-            
-            function closeModal(type) {
-                document.getElementById(`${type}-modal`).style.display = 'none';
-                // Limpiar campos
-                document.querySelectorAll(`#${type}-modal input`).forEach(input => {
-                    input.value = '';
-                });
-            }
-            
-            function doLogin() {
-                const email = document.getElementById('login-email').value;
-                const password = document.getElementById('login-password').value;
-                
-                if (!email || !password) {
-                    showNotification('❌ Preencha todos os campos');
-                    return;
-                }
-                
-                // Simular login
-                const users = JSON.parse(localStorage.getItem('users')) || [];
-                const foundUser = users.find(u => u.email === email && u.password === password);
-                
-                if (foundUser) {
-                    user = foundUser;
-                    localStorage.setItem('user', JSON.stringify(user));
-                    updateUserDisplay();
-                    closeModal('login');
-                    showNotification(`✅ Bem-vindo(a), ${user.name}!`);
-                } else {
-                    showNotification('❌ Email ou senha incorretos');
-                }
-            }
-            
-            function doRegister() {
-                const name = document.getElementById('register-name').value;
-                const email = document.getElementById('register-email').value;
-                const password = document.getElementById('register-password').value;
-                const confirm = document.getElementById('register-confirm').value;
-                
-                if (!name || !email || !password || !confirm) {
-                    showNotification('❌ Preencha todos os campos');
-                    return;
-                }
-                
-                if (password !== confirm) {
-                    showNotification('❌ As senhas não coincidem');
-                    return;
-                }
-                
-                const users = JSON.parse(localStorage.getItem('users')) || [];
-                
-                if (users.find(u => u.email === email)) {
-                    showNotification('❌ Este email já está cadastrado');
-                    return;
-                }
-                
-                const newUser = { name, email, password };
-                users.push(newUser);
-                localStorage.setItem('users', JSON.stringify(users));
-                
-                user = newUser;
-                localStorage.setItem('user', JSON.stringify(user));
-                updateUserDisplay();
-                closeModal('register');
-                showNotification('✅ Cadastro realizado com sucesso!');
-            }
-            
-            function showRegister(e) {
-                e.preventDefault();
-                closeModal('login');
-                showModal('register');
-            }
-            
-            function logout() {
-                user = null;
-                localStorage.removeItem('user');
-                updateUserDisplay();
-                showNotification('🔒 Logout realizado com sucesso');
-            }
-            
-            // SISTEMA DEL CARRITO
-            function addToCart(id, name, price) {
-                // VERIFICAR LOGIN PRIMERO - ESTA ES LA PARTE IMPORTANTE
-                if (!user) {
-                    showNotification('🔒 Faça login para adicionar produtos ao carrinho');
-                    showModal('login');
-                    return; // DETIENE LA EJECUCIÓN SI NO HAY USUARIO
-                }
-                
-                const existingItem = cart.find(item => item.id === id);
-                
-                if (existingItem) {
-                    existingItem.quantity += 1;
-                } else {
-                    cart.push({
-                        id: id,
-                        name: name,
-                        price: parseFloat(price),
-                        quantity: 1
-                    });
-                }
-                
-                localStorage.setItem('cart', JSON.stringify(cart));
-                updateCartDisplay();
-                showNotification('🛒 Produto adicionado ao carrinho!');
-            }
-            
-            function removeFromCart(id) {
-                cart = cart.filter(item => item.id !== id);
-                localStorage.setItem('cart', JSON.stringify(cart));
-                updateCartDisplay();
-            }
-            
-            function updateQuantity(id, change) {
-                const item = cart.find(item => item.id === id);
-                if (item) {
-                    item.quantity += change;
-                    if (item.quantity <= 0) {
-                        removeFromCart(id);
-                    } else {
-                        localStorage.setItem('cart', JSON.stringify(cart));
-                        updateCartDisplay();
-                    }
-                }
-            }
-            
-            function updateCartDisplay() {
-                cartItemsContainer.innerHTML = '';
-                
-                if (cart.length === 0) {
-                    cartItemsContainer.innerHTML = '<div class="empty-cart-message">Seu carrinho está vazio</div>';
-                    cartTotalElement.textContent = 'R$ 0,00';
-                    return;
-                }
-                
-                let total = 0;
-                cart.forEach(item => {
-                    const itemElement = document.createElement('div');
-                    itemElement.className = 'cart-item';
-                    itemElement.innerHTML = `
-                        <div class="item-info">
-                            <div class="item-name">${item.name}</div>
-                            <div class="item-price">R$ ${item.price.toFixed(2).replace('.', ',')}</div>
-                        </div>
-                        <div class="item-quantity">
-                            <button class="quantity-btn minus-btn" data-id="${item.id}">-</button>
-                            <span>${item.quantity}</span>
-                            <button class="quantity-btn plus-btn" data-id="${item.id}">+</button>
-                            <button class="remove-btn" data-id="${item.id}">🗑️ Remover</button>
-                        </div>
-                    `;
-                    cartItemsContainer.appendChild(itemElement);
-                    
-                    total += item.price * item.quantity;
-                });
-                
-                cartTotalElement.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
-                
-                // Event listeners para botones de cantidad
-                document.querySelectorAll('.minus-btn').forEach(btn => {
-                    btn.addEventListener('click', function() {
-                        const id = parseInt(this.getAttribute('data-id'));
-                        updateQuantity(id, -1);
-                    });
-                });
-                
-                document.querySelectorAll('.plus-btn').forEach(btn => {
-                    btn.addEventListener('click', function() {
-                        const id = parseInt(this.getAttribute('data-id'));
-                        updateQuantity(id, 1);
-                    });
-                });
-                
-                document.querySelectorAll('.remove-btn').forEach(btn => {
-                    btn.addEventListener('click', function() {
-                        const id = parseInt(this.getAttribute('data-id'));
-                        removeFromCart(id);
-                    });
-                });
-            }
-            
-            // FINALIZAR COMPRA
-            function checkout() {
-                if (!user) {
-                    showNotification('🔒 Faça login para finalizar a compra');
-                    showModal('login');
-                    return;
-                }
-                
-                if (cart.length === 0) {
-                    showNotification('❌ Seu carrinho está vazio');
-                    return;
-                }
-                
-                const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-                
-                showNotification('💳 Processando pagamento...');
-                
-                setTimeout(() => {
-                    // Guardar historial de compra
-                    const purchase = {
-                        id: Date.now(),
-                        user: user.email,
-                        items: [...cart],
-                        total: total,
-                        date: new Date().toISOString()
-                    };
-                    
-                    const purchases = JSON.parse(localStorage.getItem('purchases')) || [];
-                    purchases.push(purchase);
-                    localStorage.setItem('purchases', JSON.stringify(purchases));
-                    
-                    // Limpiar carrito
-                    cart = [];
-                    localStorage.setItem('cart', JSON.stringify(cart));
-                    updateCartDisplay();
-                    
-                    showNotification(`✅ Compra realizada com sucesso! Total: R$ ${total.toFixed(2).replace('.', ',')}`);
-                }, 2000);
-            }
-            
-            function showNotification(message) {
-                notification.textContent = message;
-                notification.style.display = 'block';
-                setTimeout(() => {
-                    notification.style.display = 'none';
-                }, 4000);
-            }
-        });
+            showNotification('✅ Compra finalizada com sucesso! Total: R$ 174,93');
+            document.getElementById('cart-items').innerHTML = 'Seu carrinho está vazio';
+        }
     </script>
 </body>
 </html>
