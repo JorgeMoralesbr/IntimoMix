@@ -3,176 +3,389 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VIBRAÇÕES ÍNTIMAS - 50% OFF em Rabbits</title>
+    <title>VIBRAÇÕES ÍNTIMAS - Loja Completa de Bem-Estar Sexual</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        
+        :root {
+            --primary: #8a2be2;
+            --secondary: #ff6b6b;
+            --dark: #333;
+            --light: #f8f9fa;
+            --gray: #666;
         }
         
         body {
-            background: linear-gradient(135deg, #f8f0ff 0%, #ffffff 100%);
-            color: #333;
-            min-height: 100vh;
+            background: #fff;
+            color: var(--dark);
+            line-height: 1.6;
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 0 20px;
         }
         
         /* Header */
         .header {
-            text-align: center;
-            margin-bottom: 50px;
+            background: white;
+            box-shadow: 0 2px 20px rgba(138, 43, 226, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         
-        .header h1 {
-            color: #8a2be2;
+        .header-top {
+            background: linear-gradient(135deg, var(--primary), #6a1bb8);
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .header-main {
+            padding: 20px 0;
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            color: var(--primary);
+            font-size: 2.2rem;
+            font-weight: 900;
+        }
+        
+        .logo .subtitle {
+            color: var(--gray);
+            font-size: 1rem;
+            font-style: italic;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--secondary), #ee5a52);
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            margin: 30px 0;
+            border-radius: 20px;
+        }
+        
+        .hero h2 {
             font-size: 3.5rem;
             font-weight: 900;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(138, 43, 226, 0.1);
-        }
-        
-        .header .subtitle {
-            color: #666;
-            font-size: 1.5rem;
-            font-style: italic;
-            margin-bottom: 30px;
-        }
-        
-        /* Main Banner */
-        .main-banner {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        
-        .main-banner h2 {
-            color: #8a2be2;
-            font-size: 3rem;
-            font-weight: 800;
             margin-bottom: 20px;
         }
         
-        .main-banner p {
-            color: #ff6b6b;
-            font-size: 1.8rem;
-            font-weight: 700;
+        .hero p {
+            font-size: 1.5rem;
+            font-weight: 600;
             margin-bottom: 30px;
         }
         
-        .promo-timer {
-            background: linear-gradient(135deg, #ff6b6b, #ee5a52);
-            color: white;
+        .promo-badge {
+            background: rgba(255,255,255,0.2);
             padding: 15px 30px;
             border-radius: 25px;
             display: inline-block;
             font-weight: bold;
-            font-size: 1.2rem;
-            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+            backdrop-filter: blur(10px);
         }
         
-        /* Products Grid */
+        /* Categories */
+        .categories {
+            margin: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 40px;
+            font-weight: 800;
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .category-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 15px 30px rgba(138, 43, 226, 0.2);
+        }
+        
+        .category-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .category-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        /* Products */
+        .products-section {
+            margin: 80px 0;
+        }
+        
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
-            margin: 50px 0;
         }
         
         .product-card {
             background: white;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
             text-align: center;
-            border: 3px solid #f0f0f0;
             transition: all 0.3s ease;
+            position: relative;
         }
         
         .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(138, 43, 226, 0.2);
-            border-color: #8a2be2;
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(138, 43, 226, 0.2);
         }
         
         .discount-badge {
-            background: #ff4757;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--secondary);
             color: white;
-            padding: 10px 20px;
+            padding: 8px 15px;
             border-radius: 20px;
             font-weight: bold;
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-            display: inline-block;
         }
         
         .product-image {
-            width: 200px;
-            height: 200px;
+            width: 180px;
+            height: 180px;
             background: linear-gradient(135deg, #f8f0ff, #e8d6ff);
-            border-radius: 20px;
-            margin: 0 auto 25px;
+            border-radius: 15px;
+            margin: 0 auto 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4rem;
-            color: #8a2be2;
+            font-size: 3rem;
+            color: var(--primary);
         }
         
         .product-name {
-            font-weight: 700;
-            font-size: 1.4rem;
-            margin-bottom: 20px;
-            color: #333;
-            min-height: 70px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--dark);
         }
         
         .product-price {
-            margin: 25px 0;
+            margin: 20px 0;
         }
         
         .current-price {
-            font-size: 2.2rem;
-            font-weight: 900;
-            color: #8a2be2;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
         }
         
         .original-price {
             text-decoration: line-through;
-            color: #999;
-            font-size: 1.4rem;
-            margin-left: 15px;
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-left: 10px;
         }
         
         .add-to-cart-btn {
-            background: linear-gradient(135deg, #8a2be2, #7a1bd2);
+            background: linear-gradient(135deg, var(--primary), #7a1bd2);
             color: white;
             border: none;
-            padding: 18px 30px;
-            border-radius: 15px;
+            padding: 15px 25px;
+            border-radius: 10px;
             cursor: pointer;
-            font-weight: 800;
+            font-weight: 700;
             width: 100%;
             transition: all 0.3s ease;
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 20px;
-            box-shadow: 0 5px 20px rgba(138, 43, 226, 0.3);
+            margin-top: 15px;
         }
         
         .add-to-cart-btn:hover {
             background: linear-gradient(135deg, #7a1bd2, #6a1bb8);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(138, 43, 226, 0.4);
+            transform: translateY(-2px);
+        }
+        
+        /* Auth Modal */
+        .auth-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 2000;
+        }
+        
+        .auth-content {
+            background: white;
+            margin: 5% auto;
+            padding: 40px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        
+        .auth-tabs {
+            display: flex;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #eee;
+        }
+        
+        .auth-tab {
+            flex: 1;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+            font-weight: 600;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .auth-tab.active {
+            border-bottom-color: var(--primary);
+            color: var(--primary);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+        
+        .auth-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 700;
+            width: 100%;
+            font-size: 1.1rem;
+            transition: background 0.3s;
+        }
+        
+        .auth-btn:hover {
+            background: #7a1bd2;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+            margin-top: 80px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #444;
+            color: #999;
         }
         
         /* Floating Cart */
@@ -180,478 +393,541 @@
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background: linear-gradient(135deg, #8a2be2, #ff6b6b);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
-            width: 80px;
-            height: 80px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            box-shadow: 0 10px 30px rgba(138, 43, 226, 0.4);
+            box-shadow: 0 8px 25px rgba(138, 43, 226, 0.4);
             z-index: 1000;
-            transition: all 0.3s ease;
-            font-size: 2rem;
-        }
-        
-        .floating-cart:hover {
-            transform: scale(1.1);
-            box-shadow: 0 15px 35px rgba(138, 43, 226, 0.6);
+            font-size: 1.5rem;
         }
         
         .cart-count {
             position: absolute;
             top: -5px;
             right: -5px;
-            background: #ff4757;
+            background: var(--secondary);
             color: white;
             border-radius: 50%;
-            width: 30px;
-            height: 30px;
+            width: 25px;
+            height: 25px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1rem;
+            font-size: 0.8rem;
             font-weight: bold;
-            box-shadow: 0 3px 10px rgba(255, 71, 87, 0.4);
         }
         
-        /* Cart Modal */
-        .cart-modal {
-            position: fixed;
-            top: 0;
-            right: -400px;
-            width: 380px;
-            height: 100vh;
-            background: white;
-            box-shadow: -5px 0 30px rgba(0,0,0,0.15);
-            z-index: 1001;
-            transition: right 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .cart-modal.open {
-            right: 0;
-        }
-        
-        .cart-header {
-            background: linear-gradient(135deg, #8a2be2, #7a1bd2);
-            color: white;
-            padding: 30px;
-            text-align: center;
-        }
-        
-        .cart-header h3 {
-            font-size: 1.8rem;
-            font-weight: 800;
-        }
-        
-        .close-cart {
-            position: absolute;
-            top: 25px;
-            right: 25px;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 2rem;
-            cursor: pointer;
-        }
-        
-        .cart-content {
-            flex: 1;
-            padding: 25px;
-            overflow-y: auto;
-        }
-        
-        .cart-item {
-            display: flex;
-            align-items: center;
-            padding: 20px 0;
-            border-bottom: 2px solid #f0f0f0;
-        }
-        
-        .cart-item-image {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, #f8f0ff, #e8d6ff);
-            border-radius: 15px;
-            margin-right: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #8a2be2;
-            font-size: 1.5rem;
-        }
-        
-        .cart-item-info {
-            flex: 1;
-        }
-        
-        .cart-item-name {
-            font-weight: 700;
-            font-size: 1.1rem;
-            margin-bottom: 8px;
-        }
-        
-        .cart-item-price {
-            color: #8a2be2;
-            font-weight: 800;
-            font-size: 1.2rem;
-        }
-        
-        .cart-item-quantity {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-top: 10px;
-        }
-        
-        .quantity-btn {
-            background: #8a2be2;
-            color: white;
-            border: none;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 1rem;
-        }
-        
-        .remove-btn {
-            background: #ff4757;
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            margin-left: 15px;
-            font-weight: 600;
-        }
-        
-        .cart-footer {
-            padding: 30px;
-            border-top: 3px solid #f0f0f0;
-        }
-        
-        .cart-total {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 25px;
-            font-size: 1.6rem;
-            font-weight: 800;
-            color: #8a2be2;
-        }
-        
-        .checkout-btn {
-            background: linear-gradient(135deg, #00b894, #00a885);
-            color: white;
-            border: none;
-            padding: 20px;
-            border-radius: 15px;
-            cursor: pointer;
-            font-weight: 800;
-            font-size: 1.3rem;
-            width: 100%;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .checkout-btn:hover {
-            background: linear-gradient(135deg, #00a885, #009874);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 184, 148, 0.4);
-        }
-        
-        .empty-cart {
-            text-align: center;
-            color: #666;
-            padding: 60px 20px;
-            font-style: italic;
-            font-size: 1.2rem;
-        }
-        
-        /* Notification */
-        .notification {
-            position: fixed;
-            top: 30px;
-            right: 30px;
-            background: #00b894;
-            color: white;
-            padding: 25px 35px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 184, 148, 0.4);
+        /* Pages */
+        .page {
             display: none;
-            z-index: 1002;
+            padding: 40px 0;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        .page-title {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .faq-item {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .faq-question {
             font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
             font-size: 1.1rem;
+        }
+        
+        .policy-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            line-height: 1.8;
+        }
+        
+        .policy-content h3 {
+            color: var(--primary);
+            margin: 25px 0 15px;
+        }
+        
+        .policy-content ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <div class="header">
-            <h1>VIBRAÇÕES ÍNTIMAS</h1>
-            <p class="subtitle">Prazer & Sem Limites</p>
-            
-            <!-- Main Banner -->
-            <div class="main-banner">
-                <h2>Todos os rabbits com 50% OFF</h2>
-                <p>compre antes que esgote</p>
-                <div class="promo-timer">
-                    ⚡ PROMOÇÃO POR TEMPO LIMITADO
+    <!-- Header -->
+    <div class="header">
+        <div class="header-top">
+            <div class="container">
+                🚚 FRETE GRÁTIS ACIMA DE R$ 250 • 💳 ATÉ 12X SEM JUROS • 🔒 COMPRA 100% SEGURA
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="container">
+                <div class="nav">
+                    <div class="logo">
+                        <h1>VIBRAÇÕES ÍNTIMAS</h1>
+                        <div class="subtitle">Prazer & Sem Limites</div>
+                    </div>
+                    <div class="nav-links">
+                        <a href="#" onclick="showPage('home')">Início</a>
+                        <a href="#" onclick="showPage('products')">Produtos</a>
+                        <a href="#" onclick="showPage('categories')">Categorias</a>
+                        <a href="#" onclick="showAuth()">Minha Conta</a>
+                        <a href="#" onclick="showPage('faq')">Ajuda</a>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Products Grid -->
-        <div class="products-grid">
-            <!-- Product 1 -->
-            <div class="product-card">
-                <div class="discount-badge">50% OFF</div>
-                <div class="product-image">🐰</div>
-                <div class="product-name">Flex Vibrador e Sugador de Clitóris</div>
-                <div class="product-price">
-                    <span class="current-price">R$ 174,93</span>
-                    <span class="original-price">R$ 349,90</span>
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <div class="container">
+            <!-- Hero Section -->
+            <div class="hero">
+                <h2>Todos os rabbits com 50% OFF</h2>
+                <p>compre antes que esgote</p>
+                <div class="promo-badge">
+                    ⚡ PROMOÇÃO POR TEMPO LIMITADO
                 </div>
-                <button class="add-to-cart-btn" data-id="1" data-name="Flex Vibrador e Sugador de Clitóris" data-price="174.93">
-                    🛒 Adicionar ao Carrinho
-                </button>
             </div>
 
-            <!-- Product 2 -->
-            <div class="product-card">
-                <div class="discount-badge">50% OFF</div>
-                <div class="product-image">💖</div>
-                <div class="product-name">Samba Vibrador Rabbit com Power Finger</div>
-                <div class="product-price">
-                    <span class="current-price">R$ 218,93</span>
-                    <span class="original-price">R$ 437,90</span>
+            <!-- Categories -->
+            <div class="categories">
+                <h2 class="section-title">Nossas Categorias</h2>
+                <div class="categories-grid">
+                    <div class="category-card" onclick="showPage('products')">
+                        <div class="category-icon">🐰</div>
+                        <div class="category-name">Vibradores</div>
+                    </div>
+                    <div class="category-card" onclick="showPage('products')">
+                        <div class="category-icon">💖</div>
+                        <div class="category-name">Sugadores</div>
+                    </div>
+                    <div class="category-card" onclick="showPage('products')">
+                        <div class="category-icon">🌟</div>
+                        <div class="category-name">Acessórios</div>
+                    </div>
+                    <div class="category-card" onclick="showPage('products')">
+                        <div class="category-icon">🔐</div>
+                        <div class="category-name">Discreto</div>
+                    </div>
                 </div>
-                <button class="add-to-cart-btn" data-id="2" data-name="Samba Vibrador Rabbit com Power Finger" data-price="218.93">
-                    🛒 Adicionar ao Carrinho
-                </button>
             </div>
 
-            <!-- Product 3 -->
-            <div class="product-card">
-                <div class="discount-badge">50% OFF</div>
-                <div class="product-image">✨</div>
-                <div class="product-name">Beste Sugador de Clitóris Recarregável</div>
-                <div class="product-price">
-                    <span class="current-price">R$ 159,92</span>
-                    <span class="original-price">R$ 319,90</span>
+            <!-- Featured Products -->
+            <div class="products-section">
+                <h2 class="section-title">Produtos em Destaque</h2>
+                <div class="products-grid">
+                    <!-- Product 1 -->
+                    <div class="product-card">
+                        <div class="discount-badge">50% OFF</div>
+                        <div class="product-image">🐰</div>
+                        <div class="product-name">Flex Vibrador e Sugador de Clitóris</div>
+                        <div class="product-price">
+                            <span class="current-price">R$ 174,93</span>
+                            <span class="original-price">R$ 349,90</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart(1, 'Flex Vibrador e Sugador de Clitóris', 174.93)">
+                            Adicionar ao Carrinho
+                        </button>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="product-card">
+                        <div class="discount-badge">50% OFF</div>
+                        <div class="product-image">💖</div>
+                        <div class="product-name">Samba Vibrador Rabbit</div>
+                        <div class="product-price">
+                            <span class="current-price">R$ 218,93</span>
+                            <span class="original-price">R$ 437,90</span>
+                        </div>
+                        <button class="add-to-cart-btn" onclick="addToCart(2, 'Samba Vibrador Rabbit', 218.93)">
+                            Adicionar ao Carrinho
+                        </button>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="product-card">
+                        <div class="discount-badge">50% OFF</div>
+                        <div class="product-image">🌟</div>
+                        <div class="product-name">Beste Sugador Recarregável</div>
+                        <div class="product-price">
+                            <span class="current-price">R$ 159,92</span>
+                            <span class="original-price">R$ 319,90</span>
+                        </div>
+                        <button class="addToCart-btn" onclick="addToCart(3, 'Beste Sugador Recarregável', 159.92)">
+                            Adicionar ao Carrinho
+                        </button>
+                    </div>
                 </div>
-                <button class="add-to-cart-btn" data-id="3" data-name="Beste Sugador de Clitóris Recarregável" data-price="159.92">
-                    🛒 Adicionar ao Carrinho
-                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Products Page -->
+    <div id="products" class="page">
+        <div class="container">
+            <h1 class="page-title">Todos os Produtos</h1>
+            <div class="products-grid">
+                <!-- Productos repetidos para demonstração -->
+                <div class="product-card">
+                    <div class="discount-badge">50% OFF</div>
+                    <div class="product-image">🐰</div>
+                    <div class="product-name">Flex Vibrador e Sugador de Clitóris</div>
+                    <div class="product-price">
+                        <span class="current-price">R$ 174,93</span>
+                        <span class="original-price">R$ 349,90</span>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(1, 'Flex Vibrador e Sugador de Clitóris', 174.93)">
+                        Adicionar ao Carrinho
+                    </button>
+                </div>
+
+                <div class="product-card">
+                    <div class="discount-badge">50% OFF</div>
+                    <div class="product-image">💖</div>
+                    <div class="product-name">Samba Vibrador Rabbit</div>
+                    <div class="product-price">
+                        <span class="current-price">R$ 218,93</span>
+                        <span class="original-price">R$ 437,90</span>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(2, 'Samba Vibrador Rabbit', 218.93)">
+                        Adicionar ao Carrinho
+                    </button>
+                </div>
+
+                <div class="product-card">
+                    <div class="discount-badge">50% OFF</div>
+                    <div class="product-image">🌟</div>
+                    <div class="product-name">Beste Sugador Recarregável</div>
+                    <div class="product-price">
+                        <span class="current-price">R$ 159,92</span>
+                        <span class="original-price">R$ 319,90</span>
+                    </div>
+                    <button class="add-to-cart-btn" onclick="addToCart(3, 'Beste Sugador Recarregável', 159.92)">
+                        Adicionar ao Carrinho
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Categories Page -->
+    <div id="categories" class="page">
+        <div class="container">
+            <h1 class="page-title">Categorias</h1>
+            <div class="categories-grid">
+                <div class="category-card" onclick="showPage('products')">
+                    <div class="category-icon">🐰</div>
+                    <div class="category-name">Vibradores Rabbit</div>
+                    <p>Estimulação dupla clitoriana e vaginal</p>
+                </div>
+                <div class="category-card" onclick="showPage('products')">
+                    <div class="category-icon">💖</div>
+                    <div class="category-name">Sugadores de Clitóris</div>
+                    <p>Tecnologia de sucção avançada</p>
+                </div>
+                <div class="category-card" onclick="showPage('products')">
+                    <div class="category-icon">🌟</div>
+                    <div class="category-name">Vibradores Bullet</div>
+                    <p>Pequenos e discretos</p>
+                </div>
+                <div class="category-card" onclick="showPage('products')">
+                    <div class="category-icon">🔐</div>
+                    <div class="category-name">Produtos Discretos</div>
+                    <p>Embalagem neutra e sigilosa</p>
+                </div>
+                <div class="category-card" onclick="showPage('products')">
+                    <div class="category-icon">⚡</div>
+                    <div class="category-name">Recarregáveis</div>
+                    <p>Bateria de longa duração</p>
+                </div>
+                <div class="category-card" onclick="showPage('products')">
+                    <div class="category-icon">💧</div>
+                    <div class="category-name">Higiênicos</div>
+                    <p>Lubrificantes e géis</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Page -->
+    <div id="faq" class="page">
+        <div class="container">
+            <h1 class="page-title">Perguntas Frequentes</h1>
+            <div class="faq-item">
+                <div class="faq-question">Como é feita a entrega?</div>
+                <p>Entregamos em todo Brasil com embalagem discreta. Não há nenhuma identificação do produto na embalagem externa.</p>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Qual o prazo de entrega?</div>
+                <p>O prazo varia de 3 a 10 dias úteis dependendo da sua localização. Para capitais, o prazo é geralmente menor.</p>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">É seguro comprar?</div>
+                <p>Sim! Trabalhamos com plataforma 100% segura, pagamento criptografado e dados protegidos.</p>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Como funciona a troca/devolução?</div>
+                <p>Consulte nossa <a href="#" onclick="showPage('returns')">Política de Trocas e Devoluções</a> para mais informações.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Policies Pages -->
+    <div id="shipping" class="page">
+        <div class="container">
+            <h1 class="page-title">Política de Envio</h1>
+            <div class="policy-content">
+                <h3>🚚 Opções de Envio</h3>
+                <p>Oferecemos várias opções de envio para atender suas necessidades:</p>
+                <ul>
+                    <li><strong>Entrega Padrão:</strong> 5-7 dias úteis - GRÁTIS para compras acima de R$ 250</li>
+                    <li><strong>Entrega Expressa:</strong> 2-3 dias úteis - R$ 15,00</li>
+                    <li><strong>Retirada na Loja:</strong> Grátis - Disponível em São Paulo/SP</li>
+                </ul>
+
+                <h3>📦 Embalagem Discreta</h3>
+                <p>Todas as encomendas são enviadas em embalagem neutra, sem qualquer identificação do conteúdo. Sua privacidade é nossa prioridade.</p>
+
+                <h3>📍 Áreas de Entrega</h3>
+                <p>Entregamos para todo território nacional através dos Correios e transportadoras parceiras.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="returns" class="page">
+        <div class="container">
+            <h1 class="page-title">Política de Trocas e Devoluções</h1>
+            <div class="policy-content">
+                <h3>🔁 Troca Fácil</h3>
+                <p>Você tem 30 dias para solicitar troca ou devolução do produto.</p>
+
+                <h3>✅ Casos para Troca/Devolução</h3>
+                <ul>
+                    <li>Produto com defeito de fabricação</li>
+                    <li>Erro no pedido (produto diferente do solicitado)</li>
+                    <li>Arrependimento da compra (produto não aberto)</li>
+                </ul>
+
+                <h3>❌ Não Aceitamos</h3>
+                <ul>
+                    <li>Produtos já utilizados (por questões de higiene)</li>
+                    <li>Embalagem violada ou danificada pelo cliente</li>
+                </ul>
+
+                <h3>📞 Como Solicitar</h3>
+                <p>Entre em contato com nosso SAC dentro do prazo de 30 dias para iniciar o processo.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>VIBRAÇÕES ÍNTIMAS</h3>
+                    <p>Bem-estar sexual com qualidade, discrição e inovação.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Institucional</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="showPage('about')">Sobre Nós</a></li>
+                        <li><a href="#" onclick="showPage('shipping')">Política de Envio</a></li>
+                        <li><a href="#" onclick="showPage('returns')">Trocas e Devoluções</a></li>
+                        <li><a href="#" onclick="showPage('privacy')">Privacidade</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Ajuda</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="showPage('faq')">Perguntas Frequentes</a></li>
+                        <li><a href="#" onclick="showAuth()">Minha Conta</a></li>
+                        <li><a href="#" onclick="showPage('contact')">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Atendimento</h3>
+                    <p>📧 contato@vibracoesintimas.com<br>
+                       📞 (11) 99999-9999<br>
+                       🕒 Seg-Sex: 9h-18h</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 VIBRAÇÕES ÍNTIMAS. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Auth Modal -->
+    <div id="auth-modal" class="auth-modal">
+        <div class="auth-content">
+            <div class="auth-tabs">
+                <div class="auth-tab active" onclick="switchAuthTab('login')">Login</div>
+                <div class="auth-tab" onclick="switchAuthTab('register')">Cadastro</div>
+            </div>
+            
+            <div id="login-form">
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input type="email" id="login-email" placeholder="Seu email">
+                </div>
+                <div class="form-group">
+                    <label>Senha:</label>
+                    <input type="password" id="login-password" placeholder="Sua senha">
+                </div>
+                <button class="auth-btn" onclick="login()">Entrar</button>
+            </div>
+            
+            <div id="register-form" style="display: none;">
+                <div class="form-group">
+                    <label>Nome completo:</label>
+                    <input type="text" id="register-name" placeholder="Seu nome completo">
+                </div>
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input type="email" id="register-email" placeholder="Seu email">
+                </div>
+                <div class="form-group">
+                    <label>Senha:</label>
+                    <input type="password" id="register-password" placeholder="Crie uma senha">
+                </div>
+                <div class="form-group">
+                    <label>Confirmar Senha:</label>
+                    <input type="password" id="register-confirm" placeholder="Confirme sua senha">
+                </div>
+                <button class="auth-btn" onclick="register()">Cadastrar</button>
             </div>
         </div>
     </div>
 
     <!-- Floating Cart -->
-    <div class="floating-cart" id="floating-cart">
+    <div class="floating-cart" onclick="showCart()">
         🛒
         <div class="cart-count" id="cart-count">0</div>
     </div>
 
-    <!-- Cart Modal -->
-    <div class="cart-modal" id="cart-modal">
-        <div class="cart-header">
-            <h3>Minha Sacola</h3>
-            <button class="close-cart" id="close-cart">×</button>
-        </div>
-        <div class="cart-content" id="cart-content">
-            <div class="empty-cart">Seu carrinho está vazio</div>
-        </div>
-        <div class="cart-footer">
-            <div class="cart-total">
-                <span>Total:</span>
-                <span id="cart-total">R$ 0,00</span>
-            </div>
-            <button class="checkout-btn" id="checkout-btn">Finalizar Compra</button>
-        </div>
-    </div>
-
-    <!-- Notification -->
-    <div class="notification" id="notification"></div>
-
     <script>
-        // SISTEMA DE CARRINHO COMPLETO
-        document.addEventListener('DOMContentLoaded', function() {
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        // Sistema de Navegación
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        // Sistema de Autenticación
+        function showAuth() {
+            document.getElementById('auth-modal').style.display = 'block';
+        }
+
+        function switchAuthTab(tab) {
+            document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
+            event.target.classList.add('active');
             
-            const floatingCart = document.getElementById('floating-cart');
-            const cartModal = document.getElementById('cart-modal');
-            const cartContent = document.getElementById('cart-content');
-            const cartTotal = document.getElementById('cart-total');
-            const cartCount = document.getElementById('cart-count');
-            const closeCart = document.getElementById('close-cart');
-            const checkoutBtn = document.getElementById('checkout-btn');
-            const notification = document.getElementById('notification');
-            
-            function initApp() {
-                updateCartDisplay();
-                bindEvents();
+            document.getElementById('login-form').style.display = tab === 'login' ? 'block' : 'none';
+            document.getElementById('register-form').style.display = tab === 'register' ? 'block' : 'none';
+        }
+
+        function login() {
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+            if (email && password) {
+                alert('Login realizado com sucesso!');
+                document.getElementById('auth-modal').style.display = 'none';
+            } else {
+                alert('Preencha todos os campos!');
             }
+        }
+
+        function register() {
+            const name = document.getElementById('register-name').value;
+            const email = document.getElementById('register-email').value;
+            const password = document.getElementById('register-password').value;
+            const confirm = document.getElementById('register-confirm').value;
             
-            function bindEvents() {
-                document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
-                    btn.addEventListener('click', (e) => {
-                        const id = parseInt(e.target.dataset.id);
-                        const name = e.target.dataset.name;
-                        const price = parseFloat(e.target.dataset.price);
-                        addToCart(id, name, price);
-                    });
-                });
-                
-                floatingCart.addEventListener('click', () => {
-                    cartModal.classList.add('open');
-                });
-                
-                closeCart.addEventListener('click', () => {
-                    cartModal.classList.remove('open');
-                });
-                
-                checkoutBtn.addEventListener('click', () => {
-                    if (cart.length === 0) {
-                        showNotification('Seu carrinho está vazio');
-                        return;
-                    }
-                    
-                    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-                    showNotification(`🎉 Compra finalizada! Total: R$ ${total.toFixed(2).replace('.', ',')}`);
-                    clearCart();
-                    cartModal.classList.remove('open');
-                });
-            }
-            
-            function addToCart(id, name, price) {
-                const existingItem = cart.find(item => item.id === id);
-                
-                if (existingItem) {
-                    existingItem.quantity += 1;
+            if (name && email && password && confirm) {
+                if (password === confirm) {
+                    alert('Cadastro realizado com sucesso!');
+                    document.getElementById('auth-modal').style.display = 'none';
                 } else {
-                    cart.push({
-                        id: id,
-                        name: name,
-                        price: price,
-                        quantity: 1
-                    });
+                    alert('As senhas não coincidem!');
                 }
-                
-                saveCart();
-                updateCartDisplay();
-                showNotification('🛒 Produto adicionado ao carrinho!');
-                cartModal.classList.add('open');
+            } else {
+                alert('Preencha todos os campos!');
             }
+        }
+
+        // Sistema de Carrito
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        function addToCart(id, name, price) {
+            const existingItem = cart.find(item => item.id === id);
             
-            function removeFromCart(id) {
-                cart = cart.filter(item => item.id !== id);
-                saveCart();
-                updateCartDisplay();
-                showNotification('🗑️ Produto removido do carrinho');
-            }
-            
-            function updateQuantity(id, change) {
-                const item = cart.find(item => item.id === id);
-                if (item) {
-                    const newQuantity = item.quantity + change;
-                    if (newQuantity > 0) {
-                        item.quantity = newQuantity;
-                        saveCart();
-                        updateCartDisplay();
-                    } else if (newQuantity === 0) {
-                        removeFromCart(id);
-                    }
-                }
-            }
-            
-            function clearCart() {
-                cart = [];
-                saveCart();
-                updateCartDisplay();
-            }
-            
-            function updateCartDisplay() {
-                const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-                cartCount.textContent = totalItems;
-                
-                cartContent.innerHTML = '';
-                
-                if (cart.length === 0) {
-                    cartContent.innerHTML = '<div class="empty-cart">Seu carrinho está vazio</div>';
-                    cartTotal.textContent = 'R$ 0,00';
-                    return;
-                }
-                
-                let total = 0;
-                cart.forEach(item => {
-                    const itemElement = document.createElement('div');
-                    itemElement.className = 'cart-item';
-                    itemElement.innerHTML = `
-                        <div class="cart-item-image">🎁</div>
-                        <div class="cart-item-info">
-                            <div class="cart-item-name">${item.name}</div>
-                            <div class="cart-item-price">R$ ${item.price.toFixed(2).replace('.', ',')}</div>
-                            <div class="cart-item-quantity">
-                                <button class="quantity-btn minus-btn" data-id="${item.id}">-</button>
-                                <span style="font-weight: bold; font-size: 1.1rem;">${item.quantity}</span>
-                                <button class="quantity-btn plus-btn" data-id="${item.id}">+</button>
-                                <button class="remove-btn" data-id="${item.id}">Remover</button>
-                            </div>
-                        </div>
-                    `;
-                    cartContent.appendChild(itemElement);
-                    
-                    total += item.price * item.quantity;
-                });
-                
-                cartTotal.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
-                
-                document.querySelectorAll('.minus-btn').forEach(btn => {
-                    btn.addEventListener('click', (e) => {
-                        const id = parseInt(e.target.dataset.id);
-                        updateQuantity(id, -1);
-                    });
-                });
-                
-                document.querySelectorAll('.plus-btn').forEach(btn => {
-                    btn.addEventListener('click', (e) => {
-                        const id = parseInt(e.target.dataset.id);
-                        updateQuantity(id, 1);
-                    });
-                });
-                
-                document.querySelectorAll('.remove-btn').forEach(btn => {
-                    btn.addEventListener('click', (e) => {
-                        const id = parseInt(e.target.dataset.id);
-                        removeFromCart(id);
-                    });
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id: id,
+                    name: name,
+                    price: price,
+                    quantity: 1
                 });
             }
             
-            function showNotification(message) {
-                notification.textContent = message;
-                notification.style.display = 'block';
-                setTimeout(() => {
-                    notification.style.display = 'none';
-                }, 3000);
+            saveCart();
+            updateCartCount();
+            alert('Produto adicionado ao carrinho!');
+        }
+
+        function updateCartCount() {
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cart-count').textContent = totalItems;
+        }
+
+        function saveCart() {
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        function showCart() {
+            alert('Carrinho com ' + cart.reduce((sum, item) => sum + item.quantity, 0) + ' itens');
+            // Aquí podrías implementar un modal de carrito más elaborado
+        }
+
+        // Cerrar modal al hacer clic fuera
+        window.onclick = function(event) {
+            const modal = document.getElementById('auth-modal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
             }
-            
-            function saveCart() {
-                localStorage.setItem('cart', JSON.stringify(cart));
-            }
-            
-            initApp();
-        });
+        }
+
+        // Inicializar
+        updateCartCount();
     </script>
 </body>
 </html>
