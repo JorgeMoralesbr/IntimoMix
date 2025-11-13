@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIBRAÇÕES ÍNTIMAS - 50% OFF em Rabbits</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f0ff 0%, #f8f9fa 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .header {
+            background: white;
+            box-shadow: 0 2px 20px rgba(138, 43, 226, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-top {
+            background: linear-gradient(135deg, #8a2be2, #6a1bb8);
+            color: white;
+            padding: 8px 0;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .header-main {
+            padding: 15px 0;
+        }
+        
+        .logo {
+            text-align: center;
+        }
+        
+        .logo h1 {
+            color: #8a2be2;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .logo .subtitle {
+            color: #666;
+            font-size: 1rem;
+            font-style: italic;
+        }
+        
+        /* Hero Banner */
+        .hero-banner {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a52, #ff8e8e);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            margin: 30px 0;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            animation: float 20s infinite linear;
+        }
+        
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(-50px, -50px) rotate(360deg); }
+        }
+        
+        .hero-banner h2 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero-banner p {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .countdown {
+            background: rgba(255,255,255,0.2);
+            padding: 15px 30px;
+            border-radius: 50px;
+            display: inline-block;
+            font-weight: bold;
+            font-size: 1.2rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        /* Benefits Grid */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 50px 0;
+        }
+        
+        .benefit-card {
+            background: white;
+            padding: 30px 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border: 2px solid #f0f0f0;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #8a2be2, #ff6b6b);
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(138, 43, 226, 0.2);
+            border-color: #8a2be2;
+        }
+        
+        .benefit-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #8a2be2;
+        }
+        
+        .benefit-card strong {
+            color: #8a2be2;
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        /* Products Section */
+        .products-section {
+            margin: 60px 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            color: #8a2be2;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .section-subtitle {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(135deg, #8a2be2, #ff6b6b);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(138, 43, 226, 0.2);
+            border-color: #8a2be2;
+        }
+        
+        .discount-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #ff4757, #ff3742);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 10px rgba(255, 71, 87, 0.3);
+        }
+        
+        .product-image {
+            width: 180px;
+            height: 180px;
+            background: linear-gradient(135deg, #f8f0ff, #e8d6ff);
+            border-radius: 15px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #8a2be2;
+        }
+        
+        .product-brand {
+            color: #8a2be2;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .product-name {
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #333;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .product-price {
+            margin: 20px 0;
+        }
+        
+        .current-price {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #8a2be2;
+        }
+        
+        .original-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 1.1rem;
+            margin-left: 10px;
+        }
+        
+        .shipping-badge {
+            background: #00b894;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+        
+        .installments {
+            color: #666;
+            font-size: 0.9rem;
+            margin: 10px 0;
+        }
+        
+        .add-to-cart-btn {
+            background: linear-gradient(135deg, #8a2be2, #7a1bd2);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 700;
+            width: 100%;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 15px;
+            box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
+        }
+        
+        .add-to-cart-btn:hover {
+            background: linear-gradient(135deg, #7a1bd2, #6a1bb8);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(138, 43, 226, 0.4);
+        }
+        
+        /* Floating Cart */
+        .floating-cart {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #8a2be2, #ff6b6b);
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(138, 43, 226, 0.4);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+        }
+        
+        .floating-cart:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 30px rgba(138, 43, 226, 0.6);
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #ff4757;
+            color: white;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+            box-shadow: 0 2px 8px rgba(255, 71, 87, 0.4);
+        }
+        
+        /* Cart Modal */
+        .cart-modal {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 380px;
+            height: 100vh;
+            background: white;
+            box-shadow: -5px 0 25px rgba(0,0,0,0.1);
+            z-index: 1001;
+            transition: right 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .cart-modal.open {
+            right: 0;
+        }
+        
+        .cart-header {
+            background: linear-gradient(135deg, #8a2be2, #7a1bd2);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .cart-header h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .close-cart {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .cart-content {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        .cart-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .cart-item-image {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #f8f0ff, #e8d6ff);
+            border-radius: 10px;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8a2be2;
+            font-size: 1.2rem;
+        }
+        
+        .cart-item-info {
+            flex: 1;
+        }
+        
+        .cart-item-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+        
+        .cart-item-price {
+            color: #8a2be2;
+            font-weight: 700;
+        }
+        
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 5px;
+        }
+        
+        .quantity-btn {
+            background: #8a2be2;
+            color: white;
+            border: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+        
+        .remove-btn {
+            background: #ff4757;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.7rem;
+            margin-left: 10px;
+        }
+        
+        .cart-footer {
+            padding: 25px;
+            border-top: 2px solid #f0f0f0;
+        }
+        
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #8a2be2;
+        }
+        
+        .checkout-btn {
+            background: linear-gradient(135deg, #00b894, #00a885);
+            color: white;
+            border: none;
+            padding: 18px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 1.1rem;
+            width: 100%;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .checkout-btn:hover {
+            background: linear-gradient(135deg, #00a885, #009874);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 184, 148, 0.4);
+        }
+        
+        .empty-cart {
+            text-align: center;
+            color: #666;
+            padding: 50px 20px;
+            font-style: italic;
+        }
+        
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #00b894;
+            color: white;
+            padding: 20px 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 184, 148, 0.3);
+            display: none;
+            z-index: 1002;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        
+        /* Cookies Banner */
+        .cookies-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.95);
+            color: white;
+            padding: 25px;
+            text-align: center;
+            z-index: 999;
+        }
+        
+        .cookies-banner button {
+            background: #8a2be2;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-left: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .cookies-banner button:hover {
+            background: #7a1bd2;
+            transform: translateY(-2px);
+        }
+        
+        /* Breadcrumb */
+        .breadcrumb {
+            background: white;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .breadcrumb a {
+            color: #8a2be2;
+            text-decoration: none;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-top">
+            <div class="container">
+                SÓ NO APP 10% OFF NA PRIMEIRA COMPRA • FRETE GRÁTIS ACIMA DE R$ 250 • ATÉ 12X SEM JUROS
+            </div>
+        </div>
+        <div class="header-main">
+            <div class="container">
+                <div class="logo">
+                    <h1>VIBRAÇÕES ÍNTIMAS</h1>
+                    <p class="subtitle">Prazer & Sem Limites</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Hero Banner -->
+        <div class="hero-banner">
+            <h2>Todos os rabbits com 50% OFF</h2>
+            <p>compre antes que esgote</p>
+            <div class="countdown">
+                ⏰ PROMOÇÃO POR TEMPO LIMITADO
+            </div>
+        </div>
+
+        <!-- Benefits Grid -->
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon">🚚</div>
+                <strong>FRETE GRÁTIS</strong>
+                <span>nas compras a partir de R$ 250</span>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">💳</div>
+                <strong>PAGAMENTO</strong>
+                <span>até 8x sem juros no cartão ou 5% off no pix</span>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">💰</div>
+                <strong>PAGUE COMO QUISER</strong>
+                <span>pix, boleto ou até 12x no cartão</span>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">🏪</div>
+                <strong>RETIRADA NA LOJA</strong>
+                <span>compre e retire grátis em nossa loja física</span>
+            </div>
+        </div>
+
+        <!-- Breadcrumb -->
+        <div class="breadcrumb">
+            Home > GOOD VIBRES > Bem Estar & Saúde > Bem-estar Sexual > Vibradores
+        </div>
+
+        <!-- Products Section -->
+        <div class="products-section">
+            <div class="section-header">
+                <h2 class="section-title">GOOD VIBRES - Todos os produtos</h2>
+                <p class="section-subtitle">Descubra o prazer do bem-estar sexual</p>
+            </div>
+
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="discount-badge">50% OFF</div>
+                    <div class="product-image">🐰</div>
+                    <div class="product-brand">VIBRAÇÕES ÍNTIMAS</div>
+                    <div class="product-name">Flex Vibrador e Sugador de Clitóris</div>
+                    <div class="product-price">
+                        <span class="current-price">R$ 174,93</span>
+                        <span class="original-price">R$ 349,90</span>
+                        <span class="shipping-badge">FRETE GRÁTIS</span>
+                    </div>
+                    <div class="installments">ou 8x de R$ 21,87 sem juros</div>
+                    <button class="add-to-cart-btn" data-id="1" data-name="Flex Vibrador e Sugador de Clitóris" data-price="174.93">
+                        Adicionar ao Carrinho
+                    </button>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="discount-badge">50% OFF</div>
+                    <div class="product-image">🌟</div>
+                    <div class="product-brand">VIBRAÇÕES ÍNTIMAS</div>
+                    <div class="product-name">Samba Vibrador Rabbit com Power Finger</div>
+                    <div class="product-price">
+                        <span class="current-price">R$ 218,93</span>
+                        <span class="original-price">R$ 437,90</span>
+                        <span class="shipping-badge">FRETE GRÁTIS</span>
+                    </div>
+                    <div class="installments">ou 8x de R$ 27,37 sem juros</div>
+                    <button class="add-to-cart-btn" data-id="2" data-name="Samba Vibrador Rabbit com Power Finger" data-price="218.93">
+                        Adicionar ao Carrinho
+                    </button>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="discount-badge">50% OFF</div>
+                    <div class="product-image">💫</div>
+                    <div class="product-brand">VIBRAÇÕES ÍNTIMAS</div>
+                    <div class="product-name">Beste Sugador de Clitóris Recarregável</div>
+                    <div class="product-price">
+                        <span class="current-price">R$ 159,92</span>
+                        <span class="original-price">R$ 319,90</span>
+                        <span class="shipping-badge">FRETE GRÁTIS</span>
+                    </div>
+                    <div class="installments">ou 8x de R$ 19,99 sem juros</div>
+                    <button class="add-to-cart-btn" data-id="3" data-name="Beste Sugador de Clitóris Recarregável" data-price="159.92">
+                        Adicionar ao Carrinho
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Inspirational Message -->
+        <div style="text-align: center; margin: 80px 0; padding: 50px; background: linear-gradient(135deg, #8a2be2, #ff6b6b); color: white; border-radius: 20px; box-shadow: 0 10px 30px rgba(138, 43, 226, 0.3);">
+            <h3 style="font-size: 2rem; margin-bottom: 20px; font-weight: 700;">Amor próprio é revolucionário.</h3>
+            <p style="font-size: 1.2rem; opacity: 0.9;">Cuide do seu bem-estar e descubra novas formas de prazer com total discrição e qualidade.</p>
+        </div>
+    </div>
+
+    <!-- Floating Cart -->
+    <div class="floating-cart" id="floating-cart">
+        🛒
+        <div class="cart-count" id="cart-count">0</div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-header">
+            <h3>Minha Sacola</h3>
+            <button class="close-cart" id="close-cart">×</button>
+        </div>
+        <div class="cart-content" id="cart-content">
+            <div class="empty-cart">Seu carrinho está vazio</div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total">R$ 0,00</span>
+            </div>
+            <button class="checkout-btn" id="checkout-btn">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification"></div>
+
+    <!-- Cookies Banner -->
+    <div class="cookies-banner" id="cookies-banner">
+        <p>Ao navegar por este site você aceita o uso de cookies para agilizar a sua experiência de compra.</p>
+        <button onclick="acceptCookies()">Entendi</button>
+    </div>
+
+    <script>
+        // SISTEMA COMPLETO DE E-COMMERCE
+        document.addEventListener('DOMContentLoaded', function() {
+            // Estado del carrito
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            
+            // Elementos DOM
+            const floatingCart = document.getElementById('floating-cart');
+            const cartModal = document.getElementById('cart-modal');
+            const cartContent = document.getElementById('cart-content');
+            const cartTotal = document.getElementById('cart-total');
+            const cartCount = document.getElementById('cart-count');
+            const closeCart = document.getElementById('close-cart');
+            const checkoutBtn = document.getElementById('checkout-btn');
+            const notification = document.getElementById('notification');
+            const cookiesBanner = document.getElementById('cookies-banner');
+            
+            // Inicializar la aplicación
+            initApp();
+            
+            function initApp() {
+                updateCartDisplay();
+                bindEvents();
+                
+                // Mostrar banner de cookies si no se han aceptado
+                if (!localStorage.getItem('cookiesAccepted')) {
+                    setTimeout(() => {
+                        cookiesBanner.style.display = 'block';
+                    }, 2000);
+                }
+            }
+            
+            function bindEvents() {
+                // Botones agregar al carrito
+                document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const id = parseInt(e.target.dataset.id);
+                        const name = e.target.dataset.name;
+                        const price = parseFloat(e.target.dataset.price);
+                        addToCart(id, name, price);
+                    });
+                });
+                
+                // Carrito flotante
+                floatingCart.addEventListener('click', () => {
+                    cartModal.classList.add('open');
+                });
+                
+                // Cerrar carrito
+                closeCart.addEventListener('click', () => {
+                    cartModal.classList.remove('open');
+                });
+                
+                // Finalizar compra
+                checkoutBtn.addEventListener('click', () => {
+                    if (cart.length === 0) {
+                        showNotification('Seu carrinho está vazio');
+                        return;
+                    }
+                    
+                    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                    showNotification(`🎉 Compra finalizada com sucesso! Total: R$ ${total.toFixed(2).replace('.', ',')}`);
+                    clearCart();
+                    cartModal.classList.remove('open');
+                });
+            }
+            
+            // Funciones del carrito
+            function addToCart(id, name, price) {
+                const existingItem = cart.find(item => item.id === id);
+                
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({
+                        id: id,
+                        name: name,
+                        price: price,
+                        quantity: 1
+                    });
+                }
+                
+                saveCart();
+                updateCartDisplay();
+                showNotification('🛒 Produto adicionado ao carrinho!');
+                
+                // Mostrar carrito automáticamente
+                cartModal.classList.add('open');
+            }
+            
+            function removeFromCart(id) {
+                cart = cart.filter(item => item.id !== id);
+                saveCart();
+                updateCartDisplay();
+                showNotification('🗑️ Produto removido do carrinho');
+            }
+            
+            function updateQuantity(id, change) {
+                const item = cart.find(item => item.id === id);
+                if (item) {
+                    const newQuantity = item.quantity + change;
+                    if (newQuantity > 0) {
+                        item.quantity = newQuantity;
+                        saveCart();
+                        updateCartDisplay();
+                    } else if (newQuantity === 0) {
+                        removeFromCart(id);
+                    }
+                }
+            }
+            
+            function clearCart() {
+                cart = [];
+                saveCart();
+                updateCartDisplay();
+            }
+            
+            function updateCartDisplay() {
+                // Actualizar contador flotante
+                const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+                cartCount.textContent = totalItems;
+                
+                // Actualizar contenido del carrito
+                cartContent.innerHTML = '';
+                
+                if (cart.length === 0) {
+                    cartContent.innerHTML = '<div class="empty-cart">Seu carrinho está vazio</div>';
+                    cartTotal.textContent = 'R$ 0,00';
+                    return;
+                }
+                
+                let total = 0;
+                cart.forEach(item => {
+                    const itemElement = document.createElement('div');
+                    itemElement.className = 'cart-item';
+                    itemElement.innerHTML = `
+                        <div class="cart-item-image">🎁</div>
+                        <div class="cart-item-info">
+                            <div class="cart-item-name">${item.name}</div>
+                            <div class="cart-item-price">R$ ${item.price.toFixed(2).replace('.', ',')}</div>
+                            <div class="cart-item-quantity">
+                                <button class="quantity-btn minus-btn" data-id="${item.id}">-</button>
+                                <span>${item.quantity}</span>
+                                <button class="quantity-btn plus-btn" data-id="${item.id}">+</button>
+                                <button class="remove-btn" data-id="${item.id}">Remover</button>
+                            </div>
+                        </div>
+                    `;
+                    cartContent.appendChild(itemElement);
+                    
+                    total += item.price * item.quantity;
+                });
+                
+                cartTotal.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
+                
+                // Event listeners para botones de cantidad
+                document.querySelectorAll('.minus-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const id = parseInt(e.target.dataset.id);
+                        updateQuantity(id, -1);
+                    });
+                });
+                
+                document.querySelectorAll('.plus-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const id = parseInt(e.target.dataset.id);
+                        updateQuantity(id, 1);
+                    });
+                });
+                
+                document.querySelectorAll('.remove-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const id = parseInt(e.target.dataset.id);
+                        removeFromCart(id);
+                    });
+                });
+            }
+            
+            // Funciones de utilidad
+            function showNotification(message) {
+                notification.textContent = message;
+                notification.style.display = 'block';
+                setTimeout(() => {
+                    notification.style.display = 'none';
+                }, 3000);
+            }
+            
+            function saveCart() {
+                localStorage.setItem('cart', JSON.stringify(cart));
+            }
+            
+            window.acceptCookies = function() {
+                localStorage.setItem('cookiesAccepted', 'true');
+                cookiesBanner.style.display = 'none';
+            };
+        });
+    </script>
+</body>
+</html>
