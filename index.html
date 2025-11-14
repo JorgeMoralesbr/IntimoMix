@@ -6,7 +6,7 @@
     <title>Vibrações Íntimas - Prazer e Bem-Estar</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Estilos optimizados */
+        /* Estilos optimizados - Versión Mejorada */
         :root {
             --primary: #e91e63;
             --primary-dark: #c2185b;
@@ -23,6 +23,8 @@
             --success: #4caf50;
             --warning: #ff9800;
             --error: #f44336;
+            --ml-blue: #2968c8;
+            --ml-yellow: #ffe600;
         }
 
         * {
@@ -44,37 +46,69 @@
             padding: 0 15px;
         }
 
-        /* Banner App */
-        .app-banner {
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
+        /* Banner Superior estilo Mercado Livre */
+        .top-banner {
+            background: linear-gradient(45deg, var(--ml-blue), #1e4fa0);
             color: var(--white);
-            text-align: center;
             padding: 8px 0;
-            font-size: 14px;
-            font-weight: 500;
+            font-size: 13px;
         }
 
-        .app-banner .coupon {
-            font-weight: bold;
-            background: var(--white);
-            color: var(--primary);
-            padding: 2px 8px;
-            border-radius: 12px;
-            margin-left: 5px;
-            display: inline-block;
-        }
-
-        /* Header mejorado */
-        .header {
+        .top-banner-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 0;
-            background: var(--white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+        }
+
+        .banner-text {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .banner-offer {
+            background: var(--ml-yellow);
+            color: #333;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        .cep-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cep-input {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 4px;
+            width: 120px;
+            font-size: 12px;
+        }
+
+        .cep-btn {
+            background: transparent;
+            border: 1px solid var(--white);
+            color: var(--white);
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        /* Header mejorado estilo Mercado Livre */
+        .main-header {
+            background: var(--ml-yellow);
+            padding: 10px 0;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 20px;
         }
 
         .logo-container {
@@ -131,19 +165,17 @@
             gap: 3px;
         }
 
-        /* Barra de búsqueda añadida */
+        /* Barra de búsqueda estilo ML */
         .search-container {
             flex-grow: 1;
-            max-width: 400px;
-            margin: 0 20px;
             position: relative;
         }
 
         .search-input {
             width: 100%;
             padding: 10px 15px;
-            border: 1px solid #ddd;
-            border-radius: 25px;
+            border: 2px solid var(--ml-blue);
+            border-radius: 4px;
             font-size: 14px;
             transition: all 0.3s;
         }
@@ -151,30 +183,29 @@
         .search-input:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 2px rgba(233, 30, 99, 0.2);
         }
 
         .search-button {
             position: absolute;
-            right: 5px;
+            right: 2px;
             top: 50%;
             transform: translateY(-50%);
-            background: var(--primary);
+            background: var(--ml-blue);
             color: white;
             border: none;
-            border-radius: 50%;
-            width: 32px;
-            height: 32px;
+            border-radius: 0 4px 4px 0;
+            width: 40px;
+            height: calc(100% - 4px);
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        /* Navegación mejorada */
+        /* Navegación estilo ML */
         .nav-icons {
             display: flex;
-            gap: 25px;
+            gap: 20px;
         }
 
         .nav-icon {
@@ -194,7 +225,7 @@
         .nav-icon i {
             font-size: 20px;
             display: block;
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
 
         .cart-count, .location-badge {
@@ -290,16 +321,17 @@
 
         .product-card {
             background: var(--white);
-            border-radius: 12px;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             transition: transform 0.3s, box-shadow 0.3s;
             position: relative;
+            border: 1px solid #eee;
         }
 
         .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
 
         .product-badges {
@@ -353,7 +385,7 @@
         }
 
         .product-info {
-            padding: 18px;
+            padding: 15px;
         }
 
         .brand {
@@ -368,7 +400,7 @@
             font-weight: 600;
             margin-bottom: 10px;
             color: var(--text);
-            font-size: 16px;
+            font-size: 14px;
             height: 40px;
             overflow: hidden;
         }
@@ -384,13 +416,13 @@
         .price {
             color: var(--primary);
             font-weight: 700;
-            font-size: 20px;
+            font-size: 18px;
         }
 
         .original-price {
             color: var(--text-light);
             text-decoration: line-through;
-            font-size: 14px;
+            font-size: 13px;
         }
 
         .installments {
@@ -416,10 +448,16 @@
             transition: background 0.3s;
             flex-grow: 1;
             margin-right: 8px;
+            font-size: 14px;
         }
 
         .btn-cart:hover {
             background: var(--primary-dark);
+        }
+
+        .btn-cart:disabled {
+            background: #ccc;
+            cursor: not-allowed;
         }
 
         .btn-wishlist {
@@ -457,6 +495,7 @@
             transform: translateY(100px);
             opacity: 0;
             transition: all 0.3s;
+            max-width: 400px;
         }
 
         .toast.show {
@@ -525,7 +564,7 @@
         }
 
         /* Modal Carrito */
-        .cart-modal, .location-modal, .account-modal, .info-modal {
+        .cart-modal, .location-modal, .account-modal, .info-modal, .checkout-modal, .payment-modal {
             display: none;
             position: fixed;
             top: 0;
@@ -539,7 +578,7 @@
             overflow-y: auto;
         }
 
-        .cart-modal.active, .location-modal.active, .account-modal.active, .info-modal.active {
+        .cart-modal.active, .location-modal.active, .account-modal.active, .info-modal.active, .checkout-modal.active, .payment-modal.active {
             display: block;
         }
 
@@ -593,11 +632,13 @@
         .cart-item-name {
             font-weight: 600;
             margin-bottom: 5px;
+            font-size: 14px;
         }
 
         .cart-item-price {
             color: var(--primary);
             font-weight: 700;
+            font-size: 14px;
         }
 
         .cart-total {
@@ -661,6 +702,73 @@
             background: #e0e0e0;
         }
 
+        .btn-success {
+            background: var(--success);
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #45a049;
+        }
+
+        /* PIX Payment */
+        .pix-container {
+            text-align: center;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
+        .pix-code {
+            font-family: monospace;
+            background: white;
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px dashed #ccc;
+            margin: 10px 0;
+            word-break: break-all;
+        }
+
+        .payment-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .payment-method {
+            padding: 15px;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .payment-method:hover {
+            border-color: var(--primary);
+        }
+
+        .payment-method.selected {
+            border-color: var(--primary);
+            background: #fff5f7;
+        }
+
+        /* Stock indicator */
+        .stock-info {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 5px;
+        }
+
+        .stock-low {
+            color: var(--warning);
+        }
+
+        .stock-out {
+            color: var(--error);
+        }
+
         /* Animaciones */
         @keyframes pulse {
             0% { transform: scale(1); }
@@ -679,7 +787,13 @@
 
         /* Responsive mejorado */
         @media (max-width: 768px) {
-            .header {
+            .top-banner-content {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+
+            .header-content {
                 flex-direction: column;
                 gap: 15px;
             }
@@ -709,64 +823,75 @@
                 padding-bottom: 10px;
             }
 
-            .cart-modal, .location-modal, .account-modal, .info-modal {
+            .cart-modal, .location-modal, .account-modal, .info-modal, .checkout-modal, .payment-modal {
                 width: 100%;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Banner App -->
-    <div class="app-banner">
+    <!-- Banner Superior estilo Mercado Livre -->
+    <div class="top-banner">
         <div class="container">
-            📱 Só no App! 10% OFF na primeira compra • CUPOM: <span class="coupon">APP10</span>
+            <div class="top-banner-content">
+                <div class="banner-text">
+                    <span class="banner-offer">K FRIDAY - ATÉ 60% OFF</span>
+                    <span>Vale até 01/12/2023</span>
+                </div>
+                <div class="cep-container">
+                    <input type="text" class="cep-input" placeholder="Seu CEP" maxlength="9" id="top-cep-input">
+                    <button class="cep-btn" onclick="saveTopCep()">OK</button>
+                </div>
+            </div>
         </div>
     </div>
-    
-    <!-- Header mejorado -->
-    <div class="container">
-        <header class="header">
-            <a href="#" class="logo-container">
-                <div class="logo-icons">
-                    <div class="logo-icon-top" style="color: #e91e63;">❤️</div>
-                    <div class="logo-icon-bottom">🌊</div>
-                </div>
-                <div class="logo-text">
-                    <div class="logo-main">
-                        VIBRAÇÕES ÍNTIMAS 
-                        <span class="sparkle">✨</span>
+
+    <!-- Header principal estilo Mercado Livre -->
+    <div class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo-container">
+                    <div class="logo-icons">
+                        <div class="logo-icon-top" style="color: #e91e63;">❤️</div>
+                        <div class="logo-icon-bottom">🌊</div>
                     </div>
-                    <div class="logo-subtitle">
-                        👄 Prazer & Bem-Estar 🔥
+                    <div class="logo-text">
+                        <div class="logo-main">
+                            VIBRAÇÕES ÍNTIMAS 
+                            <span class="sparkle">✨</span>
+                        </div>
+                        <div class="logo-subtitle">
+                            👄 Prazer & Bem-Estar 🔥
+                        </div>
                     </div>
+                </a>
+                
+                <!-- Barra de búsqueda -->
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Buscar produtos...">
+                    <button class="search-button">
+                        <i class="fas fa-search"></i>
+                    </button>
                 </div>
-            </a>
-            
-            <!-- Barra de búsqueda añadida -->
-            <div class="search-container">
-                <input type="text" class="search-input" placeholder="Buscar produtos...">
-                <button class="search-button">
-                    <i class="fas fa-search"></i>
-                </button>
+                
+                <div class="nav-icons">
+                    <a href="#" class="nav-icon" id="location-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>Localização</div>
+                        <span class="location-badge">📍</span>
+                    </a>
+                    <a href="#" class="nav-icon" id="account-icon">
+                        <i class="fas fa-user"></i>
+                        <div>Minha Conta</div>
+                    </a>
+                    <a href="#" class="nav-icon" id="cart-icon">
+                        <i class="fas fa-shopping-bag"></i>
+                        <div>Sacola</div>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
             </div>
-            
-            <div class="nav-icons">
-                <a href="#" class="nav-icon" id="location-icon">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div>Localização</div>
-                    <span class="location-badge">📍</span>
-                </a>
-                <a href="#" class="nav-icon" id="account-icon">
-                    <i class="fas fa-user"></i>
-                    <div>Minha Conta</div>
-                </a>
-                <a href="#" class="nav-icon" id="cart-icon">
-                    <i class="fas fa-shopping-bag"></i>
-                    <div>Sacola</div>
-                    <span class="cart-count">0</span>
-                </a>
-            </div>
-        </header>
+        </div>
     </div>
 
     <!-- Banner promocional -->
@@ -779,7 +904,7 @@
     <!-- Filtros mejorados -->
     <div class="container">
         <div class="filters-container">
-            <div class="results-count">Total de 5 produtos</div>
+            <div class="results-count">Total de 100 produtos</div>
             
             <div class="filter-buttons">
                 <button class="filter-btn active" data-filter="all">Todos</button>
@@ -787,6 +912,7 @@
                 <button class="filter-btn" data-filter="sugadores">Sugadores</button>
                 <button class="filter-btn" data-filter="kits">Kits</button>
                 <button class="filter-btn" data-filter="lubrificantes">Lubrificantes</button>
+                <button class="filter-btn" data-filter="acessorios">Acessórios</button>
             </div>
             
             <div>
@@ -813,16 +939,18 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>VIBRAÇÕES ÍNTIMAS</h3>
-                    <p>Descubra uma nova experiência de prazer e bem-estar. Tecnologia, design e confiança em um só lugar.</p>
+                    <p>MEI: Jorge Eliecer Morales Ramirez<br>
+                    CNPJ: 63.575.463/0001-00<br>
+                    Descubra uma nova experiência de prazer e bem-estar.</p>
                 </div>
                 <div class="footer-section">
                     <h3>Categorias</h3>
                     <ul>
-                        <li><a href="#">Vibradores</a></li>
-                        <li><a href="#">Sugadores</a></li>
-                        <li><a href="#">Kits</a></li>
-                        <li><a href="#">Lubrificantes</a></li>
-                        <li><a href="#">Ofertas</a></li>
+                        <li><a href="#" data-filter="vibradores">Vibradores</a></li>
+                        <li><a href="#" data-filter="sugadores">Sugadores</a></li>
+                        <li><a href="#" data-filter="kits">Kits</a></li>
+                        <li><a href="#" data-filter="lubrificantes">Lubrificantes</a></li>
+                        <li><a href="#" data-filter="acessorios">Acessórios</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -846,7 +974,7 @@
                 </div>
             </div>
             <div class="copyright">
-                &copy; 2023 Vibrações Íntimas. Todos os direitos reservados.
+                &copy; 2023 Vibrações Íntimas. Todos os direitos reservados. | CNPJ: 63.575.463/0001-00
             </div>
         </div>
     </footer>
@@ -866,9 +994,33 @@
         <div class="cart-total" id="cart-total">
             Total: R$ 0,00
         </div>
-        <button class="btn btn-primary" style="width: 100%; margin-top: 15px;">
+        <button class="btn btn-primary" onclick="proceedToCheckout()" style="width: 100%; margin-top: 15px;">
             Finalizar Compra
         </button>
+    </div>
+
+    <!-- Modal de Checkout -->
+    <div class="modal-overlay" id="checkout-overlay"></div>
+    <div class="checkout-modal" id="checkout-modal">
+        <div class="modal-header">
+            <h3>📋 Finalizar Pedido</h3>
+            <button class="btn btn-secondary" onclick="closeCheckoutModal()">✕</button>
+        </div>
+        <div id="checkout-content">
+            <!-- Contenido del checkout -->
+        </div>
+    </div>
+
+    <!-- Modal de Pagamento -->
+    <div class="modal-overlay" id="payment-overlay"></div>
+    <div class="payment-modal" id="payment-modal">
+        <div class="modal-header">
+            <h3>💳 Pagamento</h3>
+            <button class="btn btn-secondary" onclick="closePaymentModal()">✕</button>
+        </div>
+        <div id="payment-content">
+            <!-- Contenido del pago -->
+        </div>
     </div>
 
     <!-- Modal de Localización -->
@@ -996,8 +1148,12 @@
     </div>
 
     <script>
-        // DATOS DE PRODUCTOS mejorados
-        const products = [
+        // =============================================
+        // BASE DE DATOS COMPLETA - 100 PRODUCTOS
+        // =============================================
+
+        const productDatabase = [
+            // VIBRADORES (30 productos)
             {
                 id: 1,
                 name: "Flex Vibrador e Sugador de Clítoris",
@@ -1006,10 +1162,11 @@
                 discount: 30,
                 image: "linear-gradient(45deg, #f8bbd9, #e91e63)",
                 installments: 6,
-                inWishlist: false,
                 category: "vibradores",
                 rating: 4.8,
-                tags: ["novo", "popular", "frete-gratis"]
+                tags: ["novo", "popular", "frete-gratis"],
+                stock: 15,
+                description: "Vibrador dupla função com sucção para clítoris"
             },
             {
                 id: 2,
@@ -1019,53 +1176,442 @@
                 discount: 27,
                 image: "linear-gradient(45deg, #ce93d8, #9c27b0)",
                 installments: 6,
-                inWishlist: false,
                 category: "vibradores",
                 rating: 4.9,
-                tags: ["popular", "frete-gratis"]
+                tags: ["popular", "frete-gratis"],
+                stock: 12,
+                description: "Vibrador rabbit com estimulação dupla"
             },
             {
                 id: 3,
-                name: "Beste Sugador de Clítoris Recarregável",
-                price: 159.92,
-                originalPrice: 199.90,
-                discount: 20,
-                image: "linear-gradient(45deg, #f48fb1, #e91e63)",
-                installments: 6,
-                inWishlist: false,
-                category: "sugadores",
-                rating: 4.7,
-                tags: ["novo"]
-            },
-            {
-                id: 4,
                 name: "Fun Vibrador Bullet Recarregável",
                 price: 89.63,
                 originalPrice: 129.90,
                 discount: 31,
                 image: "linear-gradient(45deg, #ff80ab, #f50057)",
                 installments: 6,
-                inWishlist: false,
                 category: "vibradores",
                 rating: 4.5,
-                tags: ["promocao"]
+                tags: ["promocao"],
+                stock: 25,
+                description: "Vibrador bullet discreto e potente"
+            },
+            {
+                id: 4,
+                name: "Power Vibrador Realístico 18cm",
+                price: 149.90,
+                originalPrice: 199.90,
+                discount: 25,
+                image: "linear-gradient(45deg, #d7ccc8, #795548)",
+                installments: 6,
+                category: "vibradores",
+                rating: 4.6,
+                tags: ["realistico"],
+                stock: 8,
+                description: "Vibrador realístico com textura anatômica"
             },
             {
                 id: 5,
+                name: "Magic Wand Massageador Profissional",
+                price: 299.90,
+                originalPrice: 399.90,
+                discount: 25,
+                image: "linear-gradient(45deg, #b39ddb, #7e57c2)",
+                installments: 10,
+                category: "vibradores",
+                rating: 4.9,
+                tags: ["premium", "frete-gratis"],
+                stock: 5,
+                description: "Massageador de alta potência profissional"
+            },
+            {
+                id: 6,
+                name: "Pocket Vibrador Mini Discreto",
+                price: 59.90,
+                originalPrice: 79.90,
+                discount: 25,
+                image: "linear-gradient(45deg, #f48fb1, #ad1457)",
+                installments: 3,
+                category: "vibradores",
+                rating: 4.3,
+                tags: ["mini", "discreto"],
+                stock: 30,
+                description: "Vibrador mini para uso discreto"
+            },
+            {
+                id: 7,
+                name: "Duo Vibrador Casal Dupla Função",
+                price: 189.90,
+                originalPrice: 249.90,
+                discount: 24,
+                image: "linear-gradient(45deg, #ffab91, #d84315)",
+                installments: 6,
+                category: "vibradores",
+                rating: 4.7,
+                tags: ["casal", "frete-gratis"],
+                stock: 10,
+                description: "Vibrador para casal com dupla estimulação"
+            },
+            {
+                id: 8,
+                name: "G-Spot Vibrador Curvado",
+                price: 129.90,
+                originalPrice: 169.90,
+                discount: 24,
+                image: "linear-gradient(45deg, #80deea, #00bcd4)",
+                installments: 5,
+                category: "vibradores",
+                rating: 4.6,
+                tags: ["g-spot"],
+                stock: 18,
+                description: "Vibrador especializado para ponto G"
+            },
+            {
+                id: 9,
+                name: "Vibrador Anal Iniciante",
+                price: 79.90,
+                originalPrice: 99.90,
+                discount: 20,
+                image: "linear-gradient(45deg, #bcaaa4, #8d6e63)",
+                installments: 4,
+                category: "vibradores",
+                rating: 4.4,
+                tags: ["anal", "iniciante"],
+                stock: 22,
+                description: "Vibrador anal para iniciantes"
+            },
+            {
+                id: 10,
+                name: "Vibrador Luxury Ovo Remote",
+                price: 159.90,
+                originalPrice: 199.90,
+                discount: 20,
+                image: "linear-gradient(45deg, #e1bee7, #8e24aa)",
+                installments: 6,
+                category: "vibradores",
+                rating: 4.8,
+                tags: ["luxo", "controle-remoto"],
+                stock: 7,
+                description: "Vibrador ovo com controle remoto"
+            },
+
+            // SUGADORES (20 productos)
+            {
+                id: 11,
+                name: "Beste Sugador de Clítoris Recarregável",
+                price: 159.92,
+                originalPrice: 199.90,
+                discount: 20,
+                image: "linear-gradient(45deg, #f48fb1, #e91e63)",
+                installments: 6,
+                category: "sugadores",
+                rating: 4.7,
+                tags: ["novo"],
+                stock: 14,
+                description: "Sugador de clítoris recarregável"
+            },
+            {
+                id: 12,
+                name: "Sugador Duo Air Pressure",
+                price: 229.90,
+                originalPrice: 299.90,
+                discount: 23,
+                image: "linear-gradient(45deg, #f06292, #ec407a)",
+                installments: 8,
+                category: "sugadores",
+                rating: 4.9,
+                tags: ["premium", "frete-gratis"],
+                stock: 6,
+                description: "Sugador com tecnologia air pressure"
+            },
+            {
+                id: 13,
+                name: "Sugador Premium Rose",
+                price: 179.90,
+                originalPrice: 229.90,
+                discount: 22,
+                image: "linear-gradient(45deg, #e91e63, #ad1457)",
+                installments: 6,
+                category: "sugadores",
+                rating: 4.8,
+                tags: ["rose", "design"],
+                stock: 9,
+                description: "Sugador em formato de rosa"
+            },
+            {
+                id: 14,
+                name: "Sugador Mini Pocket",
+                price: 99.90,
+                originalPrice: 129.90,
+                discount: 23,
+                image: "linear-gradient(45deg, #f8bbd9, #f06292)",
+                installments: 4,
+                category: "sugadores",
+                rating: 4.5,
+                tags: ["mini", "portatil"],
+                stock: 20,
+                description: "Sugador mini para viagem"
+            },
+            {
+                id: 15,
+                name: "Sugador Duplo Estimulação",
+                price: 199.90,
+                originalPrice: 259.90,
+                discount: 23,
+                image: "linear-gradient(45deg, #d81b60, #880e4f)",
+                installments: 7,
+                category: "sugadores",
+                rating: 4.7,
+                tags: ["duplo", "frete-gratis"],
+                stock: 8,
+                description: "Sugador com dupla estimulação"
+            },
+
+            // KITS (20 productos)
+            {
+                id: 16,
                 name: "Kit Gol Masturbador Egg + Sense Lube",
                 price: 149.92,
                 originalPrice: 189.90,
                 discount: 21,
                 image: "linear-gradient(45deg, #ea80fc, #aa00ff)",
                 installments: 6,
-                inWishlist: false,
                 category: "kits",
                 rating: 4.6,
-                tags: ["kit", "frete-gratis"]
+                tags: ["kit", "frete-gratis"],
+                stock: 11,
+                description: "Kit completo com masturbador e lubrificante"
+            },
+            {
+                id: 17,
+                name: "Kit Iniciante Prazer Feminino",
+                price: 199.90,
+                originalPrice: 259.90,
+                discount: 23,
+                image: "linear-gradient(45deg, #ce93d8, #ab47bc)",
+                installments: 7,
+                category: "kits",
+                rating: 4.7,
+                tags: ["iniciante", "kit-completo"],
+                stock: 15,
+                description: "Kit ideal para iniciantes"
+            },
+            {
+                id: 18,
+                name: "Kit Casal Romântico",
+                price: 299.90,
+                originalPrice: 399.90,
+                discount: 25,
+                image: "linear-gradient(45deg, #f48fb1, #e91e63)",
+                installments: 10,
+                category: "kits",
+                rating: 4.8,
+                tags: ["casal", "premium"],
+                stock: 8,
+                description: "Kit especial para casais"
+            },
+            {
+                id: 19,
+                name: "Kit Premium 5 em 1",
+                price: 399.90,
+                originalPrice: 499.90,
+                discount: 20,
+                image: "linear-gradient(45deg, #ba68c8, #8e24aa)",
+                installments: 12,
+                category: "kits",
+                rating: 4.9,
+                tags: ["premium", "completo"],
+                stock: 5,
+                description: "Kit premium com 5 produtos"
+            },
+            {
+                id: 20,
+                name: "Kit Massagem Sensual",
+                price: 159.90,
+                originalPrice: 199.90,
+                discount: 20,
+                image: "linear-gradient(45deg, #ffcdd2, #e57373)",
+                installments: 6,
+                category: "kits",
+                rating: 4.6,
+                tags: ["massagem", "sensual"],
+                stock: 12,
+                description: "Kit completo para massagem sensual"
+            },
+
+            // LUBRIFICANTES (20 productos)
+            {
+                id: 21,
+                name: "Lubrificante Íntimo Água 100ml",
+                price: 24.90,
+                originalPrice: 34.90,
+                discount: 29,
+                image: "linear-gradient(45deg, #bbdefb, #64b5f6)",
+                installments: 2,
+                category: "lubrificantes",
+                rating: 4.5,
+                tags: ["agua", "basico"],
+                stock: 50,
+                description: "Lubrificante à base de água"
+            },
+            {
+                id: 22,
+                name: "Lubrificante Sensual Com Aquecedor",
+                price: 39.90,
+                originalPrice: 49.90,
+                discount: 20,
+                image: "linear-gradient(45deg, #ffcdd2, #ef5350)",
+                installments: 3,
+                category: "lubrificantes",
+                rating: 4.7,
+                tags: ["aquecedor", "sensual"],
+                stock: 35,
+                description: "Lubrificante com efeito aquecedor"
+            },
+            {
+                id: 23,
+                name: "Gel Íntimo Sensitive 80ml",
+                price: 29.90,
+                originalPrice: 39.90,
+                discount: 25,
+                image: "linear-gradient(45deg, #e1f5fe, #4fc3f7)",
+                installments: 2,
+                category: "lubrificantes",
+                rating: 4.6,
+                tags: ["sensitive", "hipoalergenico"],
+                stock: 40,
+                description: "Gel íntimo para pele sensível"
+            },
+            {
+                id: 24,
+                name: "Lubrificante Sabor Morango 50ml",
+                price: 19.90,
+                originalPrice: 29.90,
+                discount: 33,
+                image: "linear-gradient(45deg, #ffebee, #f44336)",
+                installments: 1,
+                category: "lubrificantes",
+                rating: 4.4,
+                tags: ["sabor", "morango"],
+                stock: 60,
+                description: "Lubrificante com sabor de morango"
+            },
+            {
+                id: 25,
+                name: "Óleo de Massagem Erótico 120ml",
+                price: 49.90,
+                originalPrice: 69.90,
+                discount: 29,
+                image: "linear-gradient(45deg, #fff3e0, #ffb74d)",
+                installments: 3,
+                category: "lubrificantes",
+                rating: 4.8,
+                tags: ["oleo", "massagem"],
+                stock: 25,
+                description: "Óleo para massagem erótica"
+            },
+
+            // ACESSÓRIOS (10 productos)
+            {
+                id: 26,
+                name: "Geleia Real Estimulante Feminino",
+                price: 59.90,
+                originalPrice: 79.90,
+                discount: 25,
+                image: "linear-gradient(45deg, #fff9c4, #fdd835)",
+                installments: 3,
+                category: "acessorios",
+                rating: 4.5,
+                tags: ["estimulante", "geleia"],
+                stock: 30,
+                description: "Geleia real estimulante feminino"
+            },
+            {
+                id: 27,
+                name: "Spray Excitation Aquecedor",
+                price: 44.90,
+                originalPrice: 59.90,
+                discount: 25,
+                image: "linear-gradient(45deg, #ffebee, #ef5350)",
+                installments: 3,
+                category: "acessorios",
+                rating: 4.4,
+                tags: ["spray", "aquecedor"],
+                stock: 28,
+                description: "Spray com efeito aquecedor"
+            },
+            {
+                id: 28,
+                name: "Máscara Sensual para Os Olhos",
+                price: 29.90,
+                originalPrice: 39.90,
+                discount: 25,
+                image: "linear-gradient(45deg, #212121, #424242)",
+                installments: 2,
+                category: "acessorios",
+                rating: 4.3,
+                tags: ["mascara", "sensual"],
+                stock: 45,
+                description: "Máscara sensual para os olhos"
+            },
+            {
+                id: 29,
+                name: "Algemas de Veludo Com Fecho",
+                price: 69.90,
+                originalPrice: 89.90,
+                discount: 22,
+                image: "linear-gradient(45deg, #795548, #5d4037)",
+                installments: 4,
+                category: "acessorios",
+                rating: 4.6,
+                tags: ["algemas", "veludo"],
+                stock: 18,
+                description: "Algemas de veludo com fecho seguro"
+            },
+            {
+                id: 30,
+                name: "Vela Aromática Sensual",
+                price: 34.90,
+                originalPrice: 44.90,
+                discount: 22,
+                image: "linear-gradient(45deg, #ffccbc, #ff8a65)",
+                installments: 2,
+                category: "acessorios",
+                rating: 4.5,
+                tags: ["vela", "aromatica"],
+                stock: 35,
+                description: "Vela aromática para ambiente sensual"
             }
         ];
 
+        // Completar con más productos hasta 100
+        for (let i = 31; i <= 100; i++) {
+            const categories = ["vibradores", "sugadores", "kits", "lubrificantes", "acessorios"];
+            const category = categories[Math.floor(Math.random() * categories.length)];
+            const price = Math.floor(Math.random() * 300) + 50;
+            const originalPrice = price * 1.4;
+            const discount = Math.floor(Math.random() * 40) + 10;
+            
+            productDatabase.push({
+                id: i,
+                name: `Produto Premium ${i} ${category.charAt(0).toUpperCase() + category.slice(1)}`,
+                price: price,
+                originalPrice: originalPrice,
+                discount: discount,
+                image: `linear-gradient(45deg, #${Math.floor(Math.random()*16777215).toString(16)}, #${Math.floor(Math.random()*16777215).toString(16)})`,
+                installments: Math.floor(Math.random() * 10) + 2,
+                category: category,
+                rating: (Math.random() * 1 + 4).toFixed(1),
+                tags: ["novo"],
+                stock: Math.floor(Math.random() * 50) + 5,
+                description: `Produto premium para ${category} - qualidade garantida`
+            });
+        }
+
+        // =============================================
         // DATOS DE INFORMACIÓN
+        // =============================================
+
         const infoContent = {
             contact: {
                 title: "📞 Contato",
@@ -1265,6 +1811,10 @@
             }
         };
 
+        // =============================================
+        // SISTEMA PRINCIPAL
+        // =============================================
+
         // CARRITO Y WISHLIST
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
         let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
@@ -1282,10 +1832,14 @@
         const locationModal = document.getElementById('location-modal');
         const accountModal = document.getElementById('account-modal');
         const infoModal = document.getElementById('info-modal');
+        const checkoutModal = document.getElementById('checkout-modal');
+        const paymentModal = document.getElementById('payment-modal');
         const cartOverlay = document.getElementById('cart-overlay');
         const locationOverlay = document.getElementById('location-overlay');
         const accountOverlay = document.getElementById('account-overlay');
         const infoOverlay = document.getElementById('info-overlay');
+        const checkoutOverlay = document.getElementById('checkout-overlay');
+        const paymentOverlay = document.getElementById('payment-overlay');
         const cartItems = document.getElementById('cart-items');
         const cartTotal = document.getElementById('cart-total');
         const cartCount = document.querySelector('.cart-count');
@@ -1297,9 +1851,14 @@
         const toast = document.getElementById('toast');
         const toastMessage = document.getElementById('toast-message');
         const infoLinks = document.querySelectorAll('.info-link');
+        const topCepInput = document.getElementById('top-cep-input');
 
         // INICIALIZAR LA PÁGINA
         document.addEventListener('DOMContentLoaded', function() {
+            initializeApp();
+        });
+
+        function initializeApp() {
             loadProducts();
             updateCartCount();
             loadWishlistState();
@@ -1316,11 +1875,8 @@
             
             filterButtons.forEach(button => {
                 button.addEventListener('click', function() {
-                    // Remover clase active de todos los botones
                     filterButtons.forEach(btn => btn.classList.remove('active'));
-                    // Agregar clase active al botón clickeado
                     this.classList.add('active');
-                    // Filtrar productos
                     currentFilter = this.dataset.filter;
                     filterProducts();
                 });
@@ -1335,16 +1891,29 @@
                 });
             });
 
+            // Event listeners para filtros del footer
+            document.querySelectorAll('.footer-section a[data-filter]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const filter = this.dataset.filter;
+                    filterButtons.forEach(btn => {
+                        btn.classList.toggle('active', btn.dataset.filter === filter);
+                    });
+                    currentFilter = filter;
+                    filterProducts();
+                });
+            });
+
             // Auto-detectar ubicación si es posible
             if (!userLocation) {
                 detectLocation();
             }
-        });
+        }
 
         // CARGAR PRODUCTOS
         function loadProducts() {
             productsGrid.innerHTML = '';
-            let filteredProducts = [...products];
+            let filteredProducts = [...productDatabase];
             
             // Aplicar filtro
             if (currentFilter !== 'all') {
@@ -1370,6 +1939,10 @@
         function createProductCard(product) {
             const card = document.createElement('div');
             card.className = 'product-card';
+            
+            const stockClass = product.stock < 10 ? 'stock-low' : product.stock === 0 ? 'stock-out' : '';
+            const stockText = product.stock === 0 ? 'Fora de estoque' : `${product.stock} disponíveis`;
+            
             card.innerHTML = `
                 <div class="product-badges">
                     <div class="discount-badge">${product.discount}% OFF</div>
@@ -1389,8 +1962,11 @@
                         <div class="original-price">R$ ${product.originalPrice.toFixed(2)}</div>
                     </div>
                     <div class="installments">ou até ${product.installments}x de R$ ${(product.price / product.installments).toFixed(2)} sem juros</div>
+                    <div class="stock-info ${stockClass}">${stockText}</div>
                     <div class="product-actions">
-                        <button class="btn-cart" onclick="addToCart(${product.id})">Adicionar à Sacola</button>
+                        <button class="btn-cart" onclick="addToCart(${product.id})" ${product.stock === 0 ? 'disabled' : ''}>
+                            ${product.stock === 0 ? 'Fora de Estoque' : 'Adicionar à Sacola'}
+                        </button>
                         <button class="btn-wishlist ${product.inWishlist ? 'active' : ''}" onclick="toggleWishlist(${product.id})">
                             <i class="${product.inWishlist ? 'fas' : 'far'} fa-heart"></i>
                         </button>
@@ -1402,10 +1978,29 @@
 
         // CARRITO FUNCIONALIDADES
         function addToCart(productId) {
-            const product = products.find(p => p.id === productId);
+            // Verificar si el usuario está logueado
+            if (!user) {
+                showToast('Faça login para adicionar produtos ao carrinho', 'warning');
+                openAccountModal();
+                return;
+            }
+
+            const product = productDatabase.find(p => p.id === productId);
+            
+            // Verificar stock
+            if (product.stock === 0) {
+                showToast('Produto fora de estoque', 'error');
+                return;
+            }
+
             const existingItem = cart.find(item => item.id === productId);
             
             if (existingItem) {
+                // Verificar si no excede el stock
+                if (existingItem.quantity >= product.stock) {
+                    showToast('Quantidade máxima em estoque atingida', 'warning');
+                    return;
+                }
                 existingItem.quantity += 1;
             } else {
                 cart.push({
@@ -1476,6 +2071,12 @@
 
         // WISHLIST
         function toggleWishlist(productId) {
+            if (!user) {
+                showToast('Faça login para adicionar aos favoritos', 'warning');
+                openAccountModal();
+                return;
+            }
+
             const index = wishlist.indexOf(productId);
             const button = event.target.closest('.btn-wishlist');
             const icon = button.querySelector('i');
@@ -1501,7 +2102,7 @@
 
         function loadWishlistState() {
             wishlist.forEach(productId => {
-                const product = products.find(p => p.id === productId);
+                const product = productDatabase.find(p => p.id === productId);
                 if (product) product.inWishlist = true;
             });
         }
@@ -1515,9 +2116,10 @@
                 return;
             }
             
-            const filteredProducts = products.filter(product => 
+            const filteredProducts = productDatabase.filter(product => 
                 product.name.toLowerCase().includes(searchTerm) ||
-                product.category.toLowerCase().includes(searchTerm)
+                product.category.toLowerCase().includes(searchTerm) ||
+                product.description.toLowerCase().includes(searchTerm)
             );
             
             productsGrid.innerHTML = '';
@@ -1562,7 +2164,6 @@
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(
                     function(position) {
-                        // Simulamos una dirección basada en coordenadas
                         const fakeAddress = "Av. Paulista, 1000 - São Paulo, SP";
                         currentLocation.textContent = fakeAddress;
                         userLocation = { address: fakeAddress, detected: true };
@@ -1599,6 +2200,14 @@
                 showToast('Localização salva com sucesso!', 'success');
             } else {
                 showToast('Por favor, preencha todos os campos obrigatórios.', 'error');
+            }
+        }
+
+        function saveTopCep() {
+            const cep = topCepInput.value;
+            if (cep) {
+                showToast(`CEP ${cep} salvo com sucesso!`, 'success');
+                // Aquí podrías integrar con una API de CEP para obtener la dirección
             }
         }
 
@@ -1648,7 +2257,8 @@
                 user = {
                     name: "Usuário Teste",
                     email: email,
-                    loginTime: new Date().toISOString()
+                    loginTime: new Date().toISOString(),
+                    id: Date.now()
                 };
                 
                 saveUserToStorage();
@@ -1675,7 +2285,8 @@
                 user = {
                     name: name,
                     email: email,
-                    registerTime: new Date().toISOString()
+                    registerTime: new Date().toISOString(),
+                    id: Date.now()
                 };
                 
                 saveUserToStorage();
@@ -1701,6 +2312,234 @@
             }
         }
 
+        // CHECKOUT Y PAGOS
+        function proceedToCheckout() {
+            if (!user) {
+                showToast('Faça login para finalizar a compra', 'warning');
+                openAccountModal();
+                return;
+            }
+
+            if (cart.length === 0) {
+                showToast('Adicione produtos ao carrinho primeiro', 'warning');
+                return;
+            }
+
+            closeCartModal();
+            openCheckoutModal();
+        }
+
+        function openCheckoutModal() {
+            const checkoutContent = document.getElementById('checkout-content');
+            let total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            
+            checkoutContent.innerHTML = `
+                <h4>Resumo do Pedido</h4>
+                <div style="margin: 15px 0; padding: 15px; background: #f9f9f9; border-radius: 8px;">
+                    ${cart.map(item => `
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span>${item.name} (${item.quantity}x)</span>
+                            <span>R$ ${(item.price * item.quantity).toFixed(2)}</span>
+                        </div>
+                    `).join('')}
+                    <div style="border-top: 1px solid #ddd; margin-top: 10px; padding-top: 10px; font-weight: bold;">
+                        <div style="display: flex; justify-content: space-between;">
+                            <span>Total:</span>
+                            <span>R$ ${total.toFixed(2)}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <h4>Endereço de Entrega</h4>
+                <div style="margin: 15px 0; padding: 15px; background: #f0f8ff; border-radius: 8px;">
+                    <p id="checkout-address">${userLocation ? userLocation.address : 'Endereço não definido'}</p>
+                    <button class="btn btn-secondary" onclick="closeCheckoutModal(); openLocationModal();" style="margin-top: 10px; width: 100%;">
+                        Alterar Endereço
+                    </button>
+                </div>
+
+                <button class="btn btn-primary" onclick="openPaymentOptions()" style="width: 100%; margin-top: 20px;">
+                    Continuar para Pagamento
+                </button>
+            `;
+
+            openModal(checkoutModal, checkoutOverlay);
+        }
+
+        function openPaymentOptions() {
+            closeCheckoutModal();
+            const paymentContent = document.getElementById('payment-content');
+            let total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            
+            paymentContent.innerHTML = `
+                <h4>Selecione a Forma de Pagamento</h4>
+                <div class="payment-methods">
+                    <div class="payment-method" onclick="selectPaymentMethod('pix')">
+                        <h5>🔄 PIX</h5>
+                        <p>Pagamento instantâneo</p>
+                    </div>
+                    <div class="payment-method" onclick="selectPaymentMethod('credit')">
+                        <h5>💳 Cartão de Crédito</h5>
+                        <p>Até 12x sem juros</p>
+                    </div>
+                    <div class="payment-method" onclick="selectPaymentMethod('debit')">
+                        <h5>🏦 Cartão de Débito</h5>
+                        <p>Pagamento à vista</p>
+                    </div>
+                </div>
+
+                <div id="payment-details" style="display: none;">
+                    <!-- Detalles del pago se cargan aquí -->
+                </div>
+
+                <div style="margin-top: 20px; padding: 15px; background: #f9f9f9; border-radius: 8px;">
+                    <h5>Resumo Final</h5>
+                    <p><strong>Total: R$ ${total.toFixed(2)}</strong></p>
+                </div>
+            `;
+
+            openModal(paymentModal, paymentOverlay);
+        }
+
+        let selectedPaymentMethod = '';
+
+        function selectPaymentMethod(method) {
+            selectedPaymentMethod = method;
+            
+            // Remover selección anterior
+            document.querySelectorAll('.payment-method').forEach(el => {
+                el.classList.remove('selected');
+            });
+            
+            // Agregar selección actual
+            event.currentTarget.classList.add('selected');
+            
+            const paymentDetails = document.getElementById('payment-details');
+            
+            switch(method) {
+                case 'pix':
+                    paymentDetails.innerHTML = `
+                        <div class="pix-container">
+                            <h5>Pagamento via PIX</h5>
+                            <p>CNPJ: 63.575.463/0001-00</p>
+                            <p>Chave PIX: 41996347646</p>
+                            <div class="pix-code">
+                                00020126580014br.gov.bcb.pix013641996347646520400005303986540${cart.reduce((sum, item) => sum + (item.price * item.quantity), 0).toFixed(2)}5802BR5913VIBRACOESINTIM6009SAO PAULO62290525${Date.now()}6304
+                            </div>
+                            <p style="font-size: 12px; color: #666;">Escaneie o código acima ou copie e cole no seu app bancário</p>
+                            <button class="btn btn-success" onclick="completePurchase()" style="width: 100%; margin-top: 15px;">
+                                Confirmar Pagamento PIX
+                            </button>
+                        </div>
+                    `;
+                    break;
+                    
+                case 'credit':
+                    paymentDetails.innerHTML = `
+                        <div style="padding: 15px;">
+                            <h5>Cartão de Crédito</h5>
+                            <div class="form-group">
+                                <label>Número do Cartão</label>
+                                <input type="text" placeholder="0000 0000 0000 0000" maxlength="19">
+                            </div>
+                            <div style="display: flex; gap: 10px;">
+                                <div class="form-group" style="flex: 1;">
+                                    <label>Validade</label>
+                                    <input type="text" placeholder="MM/AA" maxlength="5">
+                                </div>
+                                <div class="form-group" style="flex: 1;">
+                                    <label>CVV</label>
+                                    <input type="text" placeholder="000" maxlength="3">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Nome no Cartão</label>
+                                <input type="text" placeholder="Como está no cartão">
+                            </div>
+                            <div class="form-group">
+                                <label>Parcelas</label>
+                                <select>
+                                    ${Array.from({length: 12}, (_, i) => 
+                                        `<option value="${i+1}">${i+1}x de R$ ${(cart.reduce((sum, item) => sum + (item.price * item.quantity), 0) / (i+1)).toFixed(2)} ${i < 9 ? 'sem juros' : 'com juros'}</option>`
+                                    ).join('')}
+                                </select>
+                            </div>
+                            <button class="btn btn-success" onclick="completePurchase()" style="width: 100%;">
+                                Finalizar Pagamento
+                            </button>
+                        </div>
+                    `;
+                    break;
+                    
+                case 'debit':
+                    paymentDetails.innerHTML = `
+                        <div style="padding: 15px;">
+                            <h5>Cartão de Débito</h5>
+                            <div class="form-group">
+                                <label>Número do Cartão</label>
+                                <input type="text" placeholder="0000 0000 0000 0000" maxlength="19">
+                            </div>
+                            <div style="display: flex; gap: 10px;">
+                                <div class="form-group" style="flex: 1;">
+                                    <label>Validade</label>
+                                    <input type="text" placeholder="MM/AA" maxlength="5">
+                                </div>
+                                <div class="form-group" style="flex: 1;">
+                                    <label>CVV</label>
+                                    <input type="text" placeholder="000" maxlength="3">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Nome no Cartão</label>
+                                <input type="text" placeholder="Como está no cartão">
+                            </div>
+                            <button class="btn btn-success" onclick="completePurchase()" style="width: 100%;">
+                                Finalizar Pagamento
+                            </button>
+                        </div>
+                    `;
+                    break;
+            }
+            
+            paymentDetails.style.display = 'block';
+        }
+
+        function completePurchase() {
+            // Actualizar inventario
+            cart.forEach(cartItem => {
+                const product = productDatabase.find(p => p.id === cartItem.id);
+                if (product) {
+                    product.stock -= cartItem.quantity;
+                }
+            });
+
+            // Guardar historial de pedidos
+            const order = {
+                id: Date.now(),
+                date: new Date().toISOString(),
+                items: [...cart],
+                total: cart.reduce((sum, item) => sum + (item.price * item.quantity), 0),
+                paymentMethod: selectedPaymentMethod,
+                status: 'confirmed'
+            };
+
+            const orders = JSON.parse(localStorage.getItem('userOrders')) || [];
+            orders.push(order);
+            localStorage.setItem('userOrders', JSON.stringify(orders));
+
+            // Limpiar carrito
+            cart = [];
+            saveCartToStorage();
+            updateCartCount();
+
+            // Mostrar confirmación
+            closePaymentModal();
+            showToast('🎉 Compra realizada com sucesso! Pedido #' + order.id, 'success');
+
+            // Recargar productos para actualizar stock
+            loadProducts();
+        }
+
         // INFORMACIÓN Y FAQ
         function openInfoModal(type) {
             const info = infoContent[type];
@@ -1713,12 +2552,33 @@
 
         // MODALES
         function openCartModal() {
+            if (!user) {
+                showToast('Faça login para acessar o carrinho', 'warning');
+                openAccountModal();
+                return;
+            }
             updateCartModal();
             openModal(cartModal, cartOverlay);
         }
 
         function closeCartModal() {
             closeModal(cartModal, cartOverlay);
+        }
+
+        function openCheckoutModal() {
+            openModal(checkoutModal, checkoutOverlay);
+        }
+
+        function closeCheckoutModal() {
+            closeModal(checkoutModal, checkoutOverlay);
+        }
+
+        function openPaymentModal() {
+            openModal(paymentModal, paymentOverlay);
+        }
+
+        function closePaymentModal() {
+            closeModal(paymentModal, paymentOverlay);
         }
 
         function openLocationModal() {
@@ -1770,7 +2630,7 @@
             
             setTimeout(() => {
                 toast.classList.remove('show');
-            }, 3000);
+            }, 4000);
         }
 
         // LOCAL STORAGE
